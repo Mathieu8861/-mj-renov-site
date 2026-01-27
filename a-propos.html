@@ -138,6 +138,13 @@
         .footer__bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); }
         .footer__bottom a { color: var(--beige-ciment); }
 
+        /* === MENU BURGER === */
+        .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; cursor: pointer; z-index: 1001; }
+        .menu-toggle span { display: block; width: 100%; height: 2px; background: var(--bleu-profond); transition: all 0.3s; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
         /* === RESPONSIVE === */
         @media (max-width: 1024px) {
             .story__inner { grid-template-columns: 1fr; gap: 60px; }
@@ -149,20 +156,47 @@
             .footer__grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
-            .nav { display: none; }
-            .page-header { padding: 140px 5% 60px; }
-            .page-header__title { font-size: 2rem; }
-            .story { padding: 80px 5%; }
-            .story__title { font-size: 2rem; }
-            .values { padding: 80px 5%; }
-            .values__grid { grid-template-columns: 1fr; }
-            .stats { padding: 60px 5%; }
-            .stat__number { font-size: 3rem; }
-            .guarantees { padding: 80px 5%; }
-            .cta__title { font-size: 2rem; }
-            .cta__buttons { flex-direction: column; }
-            .footer__grid { grid-template-columns: 1fr; text-align: center; }
-            .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .header { padding: 12px 4%; }
+            .header__inner { padding: 10px 16px; border-radius: 40px; }
+            .logo img { height: 32px; }
+            .menu-toggle { display: flex; }
+            .nav { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 24px; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 1000; }
+            .nav.active { opacity: 1; visibility: visible; }
+            .nav a { font-size: 1.25rem; padding: 12px 0; }
+            .header__cta { display: none; }
+            .page-header { padding: 120px 5% 50px; }
+            .page-header__title { font-size: 1.75rem; }
+            .page-header__text { font-size: 0.95rem; }
+            .story { padding: 60px 5%; }
+            .story__inner { gap: 40px; }
+            .story__title { font-size: 1.75rem; }
+            .story__text { font-size: 0.95rem; }
+            .story__badge { position: relative; right: auto; bottom: auto; margin-top: -30px; margin-left: auto; margin-right: 20px; width: fit-content; padding: 16px 20px; }
+            .values { padding: 60px 5%; }
+            .values__title { font-size: 1.75rem; }
+            .values__grid { grid-template-columns: 1fr; gap: 16px; }
+            .value-card { padding: 32px 24px; }
+            .stats { padding: 50px 5%; }
+            .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+            .stat__number { font-size: 2.5rem; }
+            .stat__label { font-size: 0.85rem; }
+            .guarantees { padding: 60px 5%; }
+            .guarantees__title { font-size: 1.75rem; }
+            .guarantee { padding: 20px; }
+            .cta { padding: 60px 5%; }
+            .cta__title { font-size: 1.75rem; }
+            .cta__buttons { flex-direction: column; gap: 12px; }
+            .cta__buttons .btn { width: 100%; justify-content: center; }
+            .footer { padding: 48px 5% 24px; }
+            .footer__grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+            .footer__bottom { flex-direction: column; gap: 12px; text-align: center; padding-top: 24px; }
+        }
+        @media (max-width: 480px) {
+            .page-header__title { font-size: 1.5rem; }
+            .story__title { font-size: 1.5rem; }
+            .values__title { font-size: 1.5rem; }
+            .stat__number { font-size: 2rem; }
+            .cta__title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -171,7 +205,7 @@
     <header class="header" id="header">
         <div class="header__inner">
             <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
-            <nav class="nav">
+            <nav class="nav" id="nav">
                 <a href="index.html">Accueil</a>
                 <a href="services.html">Services</a>
                 <a href="realisations.html">Réalisations</a>
@@ -182,6 +216,11 @@
             <div class="header__cta">
                 <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
                 <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
@@ -383,6 +422,22 @@
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Menu burger mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
     </script>
 

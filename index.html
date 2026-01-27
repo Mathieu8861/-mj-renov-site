@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MJ Rénov - Entreprise de rénovation à Reims. Peinture, revêtements sols et murs, plomberie, électricité. Devis gratuit.">
+    <meta name="description" content="MJ Rénov - Entreprise de rénovation à Reims. Peinture, revêtements sols et murs, plomberie, électricité. Devis gratuit sous 48h.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="MJ Rénov - Rénovation de bâtiments à Reims">
-    <meta property="og:description" content="Votre spécialiste en rénovation à Reims et ses alentours. Peinture, revêtements, plomberie, électricité.">
+    <meta property="og:title" content="MJ Rénov - Rénovation à Reims">
+    <meta property="og:description" content="Votre artisan de confiance pour tous vos travaux de rénovation à Reims et alentours.">
     <meta property="og:image" content="assets/images/og-image.jpg">
     <meta property="og:url" content="https://mj-renov-reims.com">
 
-    <title>MJ Rénov - Rénovation de bâtiments à Reims</title>
+    <title>MJ Rénov - Rénovation de bâtiments à Reims | Devis gratuit</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -28,164 +28,293 @@
 
     <!-- Header -->
     <header class="header" id="header">
+        <div class="header__top">
+            <div class="container header__top-inner">
+                <a href="tel:0351001296" class="header__phone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    03 51 00 12 96
+                </a>
+                <span class="header__location">Reims et alentours (30km)</span>
+            </div>
+        </div>
         <nav class="nav">
-            <a href="/" class="nav__logo">
-                <img src="assets/images/logo.png" alt="MJ Rénov">
-            </a>
+            <div class="container nav__inner">
+                <a href="/" class="nav__logo">
+                    <img src="assets/images/logo.png" alt="MJ Rénov">
+                </a>
 
-            <ul class="nav__menu" id="nav-menu">
-                <li><a href="index.html" class="nav__link active">Accueil</a></li>
-                <li class="nav__dropdown">
-                    <a href="services.html" class="nav__link">Nos services</a>
-                    <ul class="nav__dropdown-menu">
-                        <li><a href="services.html#peinture">Peinture</a></li>
-                        <li><a href="services.html#revetements">Revêtements</a></li>
-                        <li><a href="services.html#plomberie">Plomberie</a></li>
-                        <li><a href="services.html#electricite">Électricité</a></li>
-                    </ul>
-                </li>
-                <li><a href="savoir-faire.html" class="nav__link">Notre savoir-faire</a></li>
-                <li><a href="realisations.html" class="nav__link">Nos réalisations</a></li>
-                <li><a href="contact.html" class="nav__link">Contact</a></li>
-            </ul>
+                <ul class="nav__menu" id="nav-menu">
+                    <li><a href="index.html" class="nav__link active">Accueil</a></li>
+                    <li class="nav__dropdown">
+                        <a href="services.html" class="nav__link">Nos services</a>
+                        <ul class="nav__dropdown-menu">
+                            <li><a href="services.html#peinture">Peinture</a></li>
+                            <li><a href="services.html#revetements">Revêtements sols & murs</a></li>
+                            <li><a href="services.html#plomberie">Plomberie</a></li>
+                            <li><a href="services.html#electricite">Électricité</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="savoir-faire.html" class="nav__link">Savoir-faire</a></li>
+                    <li><a href="realisations.html" class="nav__link">Réalisations</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
 
-            <a href="contact.html" class="btn btn--cta nav__cta">Devis gratuit</a>
+                <a href="contact.html" class="btn btn--cta nav__cta">Devis gratuit</a>
 
-            <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <!-- Main -->
     <main>
-        <!-- Hero -->
+        <!-- Hero avec formulaire -->
         <section class="hero">
             <div class="hero__bg">
                 <div class="hero__bg-placeholder"></div>
             </div>
-            <div class="container hero__content">
-                <span class="hero__badge">Artisan qualifié - Reims et alentours</span>
-                <h1 class="hero__title">Votre projet de<br><span>rénovation</span></h1>
-                <p class="hero__text">Construction, rénovation, dépannage.<br>MJ Rénov vous accompagne dans tous vos travaux.</p>
-                <div class="hero__buttons">
-                    <a href="contact.html" class="btn btn--primary">Demander un devis</a>
-                    <a href="realisations.html" class="btn btn--secondary">Voir nos réalisations</a>
+            <div class="container hero__grid">
+                <div class="hero__content">
+                    <h1 class="hero__title">Votre artisan<br><span>rénovation</span> à Reims</h1>
+                    <p class="hero__text">Peinture, revêtements, plomberie, électricité. MJ Rénov réalise tous vos travaux de rénovation intérieure et extérieure avec soin et professionnalisme.</p>
+
+                    <div class="hero__trust">
+                        <div class="hero__trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Devis gratuit sous 48h</span>
+                        </div>
+                        <div class="hero__trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Artisan qualifié</span>
+                        </div>
+                        <div class="hero__trust-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Intervention rapide</span>
+                        </div>
+                    </div>
+
+                    <a href="tel:0351001296" class="btn btn--phone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        03 51 00 12 96
+                    </a>
+                </div>
+
+                <div class="hero__form-wrapper">
+                    <div class="hero__form-card">
+                        <h2 class="hero__form-title">Demandez votre devis gratuit</h2>
+                        <p class="hero__form-subtitle">Réponse sous 48h</p>
+                        <form class="hero__form" id="devis-form">
+                            <div class="form-group">
+                                <input type="text" id="nom" name="nom" placeholder="Votre nom *" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="telephone" name="telephone" placeholder="Téléphone *" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Email *" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="type-travaux" name="type-travaux" required>
+                                    <option value="">Type de travaux *</option>
+                                    <option value="peinture">Peinture</option>
+                                    <option value="revetements">Revêtements sols/murs</option>
+                                    <option value="plomberie">Plomberie</option>
+                                    <option value="electricite">Électricité</option>
+                                    <option value="renovation-complete">Rénovation complète</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Décrivez votre projet..." rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full">Envoyer ma demande</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="hero__scroll">
-                <span>Scroll</span>
-                <div class="hero__scroll-line"></div>
+        </section>
+
+        <!-- Bandeau de confiance -->
+        <section class="trust-banner">
+            <div class="container">
+                <div class="trust-banner__grid">
+                    <div class="trust-banner__item">
+                        <span class="trust-banner__number">+150</span>
+                        <span class="trust-banner__label">Chantiers réalisés</span>
+                    </div>
+                    <div class="trust-banner__item">
+                        <span class="trust-banner__number">10 ans</span>
+                        <span class="trust-banner__label">D'expérience</span>
+                    </div>
+                    <div class="trust-banner__item">
+                        <span class="trust-banner__number">100%</span>
+                        <span class="trust-banner__label">Clients satisfaits</span>
+                    </div>
+                    <div class="trust-banner__item">
+                        <span class="trust-banner__number">30 km</span>
+                        <span class="trust-banner__label">Autour de Reims</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Services -->
         <section class="section" id="services">
             <div class="container">
-                <h2 class="section__title">Nos <span>Services</span></h2>
-                <p class="section__subtitle">Des prestations complètes pour tous vos travaux de rénovation</p>
+                <h2 class="section__title">Nos <span>prestations</span></h2>
+                <p class="section__subtitle">Des services complets pour tous vos projets de rénovation</p>
 
                 <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M4 20V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/>
-                                <path d="M12 14v6"/>
-                                <path d="M9 14v6"/>
-                                <path d="M15 14v6"/>
-                                <path d="M4 14h16"/>
-                            </svg>
+                    <a href="services.html#peinture" class="service-card">
+                        <div class="service-card__image">
+                            <div class="service-card__placeholder"></div>
                         </div>
-                        <h3 class="service-card__title">Peinture</h3>
-                        <p class="service-card__text">Peinture intérieure et extérieure, ravalement de façade, finitions soignées.</p>
-                        <a href="services.html#peinture" class="service-card__link">En savoir plus</a>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                <path d="M3 9h18"/>
-                                <path d="M9 21V9"/>
-                            </svg>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Peinture</h3>
+                            <p class="service-card__text">Peinture intérieure et extérieure, ravalement de façade, traitement des surfaces.</p>
+                            <span class="service-card__link">Découvrir →</span>
                         </div>
-                        <h3 class="service-card__title">Revêtements</h3>
-                        <p class="service-card__text">Pose de carrelage, parquet, sols souples. Revêtements muraux de qualité.</p>
-                        <a href="services.html#revetements" class="service-card__link">En savoir plus</a>
-                    </div>
+                    </a>
 
-                    <div class="service-card">
-                        <div class="service-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M6 6.5c0-.28.22-.5.5-.5h3c.28 0 .5.22.5.5v11c0 .28-.22.5-.5.5h-3a.5.5 0 0 1-.5-.5v-11z"/>
-                                <path d="M8 6V4"/>
-                                <path d="M8 20v-2"/>
-                                <path d="M14 6.5c0-.28.22-.5.5-.5h3c.28 0 .5.22.5.5v11c0 .28-.22.5-.5.5h-3a.5.5 0 0 1-.5-.5v-11z"/>
-                                <path d="M16 6V4"/>
-                                <path d="M16 20v-2"/>
-                            </svg>
+                    <a href="services.html#revetements" class="service-card">
+                        <div class="service-card__image">
+                            <div class="service-card__placeholder"></div>
                         </div>
-                        <h3 class="service-card__title">Plomberie</h3>
-                        <p class="service-card__text">Installation, réparation et dépannage. Salle de bain, cuisine, chauffage.</p>
-                        <a href="services.html#plomberie" class="service-card__link">En savoir plus</a>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                            </svg>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Revêtements sols & murs</h3>
+                            <p class="service-card__text">Carrelage, parquet, faïence, sols souples. Pose soignée et finitions impeccables.</p>
+                            <span class="service-card__link">Découvrir →</span>
                         </div>
-                        <h3 class="service-card__title">Électricité</h3>
-                        <p class="service-card__text">Mise aux normes, installation électrique complète, dépannage.</p>
-                        <a href="services.html#electricite" class="service-card__link">En savoir plus</a>
-                    </div>
-                </div>
+                    </a>
 
-                <div class="section__cta">
-                    <a href="services.html" class="btn btn--outline">Tous nos services</a>
+                    <a href="services.html#plomberie" class="service-card">
+                        <div class="service-card__image">
+                            <div class="service-card__placeholder"></div>
+                        </div>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Plomberie</h3>
+                            <p class="service-card__text">Installation, rénovation et dépannage. Salle de bain, cuisine, chauffage.</p>
+                            <span class="service-card__link">Découvrir →</span>
+                        </div>
+                    </a>
+
+                    <a href="services.html#electricite" class="service-card">
+                        <div class="service-card__image">
+                            <div class="service-card__placeholder"></div>
+                        </div>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Électricité</h3>
+                            <p class="service-card__text">Mise aux normes, installation complète, dépannage et rénovation électrique.</p>
+                            <span class="service-card__link">Découvrir →</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- À propos -->
-        <section class="section section--light" id="about">
+        <!-- Comment ça marche -->
+        <section class="section section--light" id="process">
             <div class="container">
-                <div class="about-grid">
-                    <div class="about-content">
-                        <h2 class="section__title section__title--left">Notre <span>Savoir-faire</span></h2>
-                        <p class="about-content__text">MJ Rénov est votre partenaire de confiance pour tous vos travaux de rénovation à Reims et ses alentours. Fort d'une expérience solide dans le bâtiment, nous mettons notre expertise à votre service.</p>
-                        <p class="about-content__text">De la simple réparation à la rénovation complète, nous vous accompagnons à chaque étape de votre projet avec professionnalisme et rigueur.</p>
+                <h2 class="section__title">Comment <span>ça marche</span></h2>
+                <p class="section__subtitle">Un accompagnement simple et transparent de A à Z</p>
 
-                        <div class="about-stats">
-                            <div class="about-stats__item">
-                                <span class="about-stats__number">+100</span>
-                                <span class="about-stats__label">Projets réalisés</span>
-                            </div>
-                            <div class="about-stats__item">
-                                <span class="about-stats__number">100%</span>
-                                <span class="about-stats__label">Clients satisfaits</span>
-                            </div>
-                            <div class="about-stats__item">
-                                <span class="about-stats__number">51</span>
-                                <span class="about-stats__label">Zone d'intervention</span>
-                            </div>
-                        </div>
-
-                        <a href="savoir-faire.html" class="btn btn--primary">Découvrir notre savoir-faire</a>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="process-step__number">1</div>
+                        <h3 class="process-step__title">Prise de contact</h3>
+                        <p class="process-step__text">Appelez-nous ou remplissez le formulaire. Nous vous recontactons sous 48h pour comprendre votre projet.</p>
                     </div>
 
-                    <div class="about-image">
-                        <div class="about-image__placeholder">
+                    <div class="process-step">
+                        <div class="process-step__number">2</div>
+                        <h3 class="process-step__title">Visite & Devis</h3>
+                        <p class="process-step__text">Nous nous déplaçons gratuitement pour évaluer les travaux et vous remettre un devis détaillé.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-step__number">3</div>
+                        <h3 class="process-step__title">Réalisation</h3>
+                        <p class="process-step__text">Une fois le devis accepté, nous planifions les travaux et les réalisons dans les délais convenus.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-step__number">4</div>
+                        <h3 class="process-step__title">Réception</h3>
+                        <p class="process-step__text">Nous faisons le tour du chantier ensemble pour valider la conformité des travaux réalisés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- À propos / Artisan -->
+        <section class="section" id="artisan">
+            <div class="container">
+                <div class="artisan-grid">
+                    <div class="artisan-image">
+                        <div class="artisan-image__placeholder">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                                <circle cx="8.5" cy="8.5" r="1.5"/>
-                                <path d="m21 15-5-5L5 21"/>
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
                             </svg>
-                            <span>Photo de chantier</span>
+                            <span>Photo de M. El Haouari</span>
                         </div>
+                    </div>
+
+                    <div class="artisan-content">
+                        <h2 class="section__title section__title--left">Votre artisan <span>de confiance</span></h2>
+                        <p class="artisan-content__intro">Majid El Haouari, gérant de MJ Rénov</p>
+                        <p class="artisan-content__text">Fort de plus de 10 ans d'expérience dans le bâtiment, je mets mon savoir-faire à votre service pour tous vos projets de rénovation à Reims et ses environs.</p>
+                        <p class="artisan-content__text">Mon engagement : un travail soigné, le respect des délais et une communication transparente tout au long de votre chantier.</p>
+
+                        <ul class="artisan-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Artisan qualifié et assuré
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Devis gratuit et détaillé
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Chantier propre et organisé
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Respect des délais annoncés
+                            </li>
+                        </ul>
+
+                        <a href="savoir-faire.html" class="btn btn--primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -194,8 +323,8 @@
         <!-- Réalisations -->
         <section class="section section--dark" id="realisations">
             <div class="container">
-                <h2 class="section__title section__title--light">Nos <span>Réalisations</span></h2>
-                <p class="section__subtitle section__subtitle--light">Découvrez quelques-uns de nos projets récents</p>
+                <h2 class="section__title section__title--light">Nos <span>réalisations</span></h2>
+                <p class="section__subtitle section__subtitle--light">Découvrez quelques-uns de nos chantiers récents</p>
 
                 <div class="realisations-grid">
                     <div class="realisation-card">
@@ -204,7 +333,7 @@
                         </div>
                         <div class="realisation-card__content">
                             <span class="realisation-card__category">Rénovation complète</span>
-                            <h3 class="realisation-card__title">Appartement Reims Centre</h3>
+                            <h3 class="realisation-card__title">Appartement T3 - Reims Centre</h3>
                         </div>
                     </div>
 
@@ -214,7 +343,7 @@
                         </div>
                         <div class="realisation-card__content">
                             <span class="realisation-card__category">Salle de bain</span>
-                            <h3 class="realisation-card__title">Rénovation salle de bain</h3>
+                            <h3 class="realisation-card__title">Création salle d'eau - Tinqueux</h3>
                         </div>
                     </div>
 
@@ -224,7 +353,7 @@
                         </div>
                         <div class="realisation-card__content">
                             <span class="realisation-card__category">Peinture</span>
-                            <h3 class="realisation-card__title">Ravalement façade</h3>
+                            <h3 class="realisation-card__title">Ravalement façade - Cormontreuil</h3>
                         </div>
                     </div>
                 </div>
@@ -235,15 +364,53 @@
             </div>
         </section>
 
-        <!-- Contact CTA -->
+        <!-- Zone d'intervention -->
+        <section class="section" id="zone">
+            <div class="container">
+                <h2 class="section__title">Zone <span>d'intervention</span></h2>
+                <p class="section__subtitle">Nous intervenons à Reims et dans un rayon de 30 km</p>
+
+                <div class="zone-content">
+                    <div class="zone-cities">
+                        <div class="zone-cities__column">
+                            <h4>Reims et agglomération</h4>
+                            <ul>
+                                <li>Reims</li>
+                                <li>Tinqueux</li>
+                                <li>Cormontreuil</li>
+                                <li>Bétheny</li>
+                                <li>Saint-Brice-Courcelles</li>
+                            </ul>
+                        </div>
+                        <div class="zone-cities__column">
+                            <h4>Communes environnantes</h4>
+                            <ul>
+                                <li>Witry-lès-Reims</li>
+                                <li>Cernay-lès-Reims</li>
+                                <li>Bezannes</li>
+                                <li>Thillois</li>
+                                <li>Et plus encore...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
         <section class="section section--cta" id="contact-cta">
             <div class="container">
                 <div class="cta-box">
                     <h2 class="cta-box__title">Un projet de rénovation ?</h2>
-                    <p class="cta-box__text">Contactez-nous pour un devis gratuit et personnalisé. Nous intervenons à Reims et dans un rayon de 30 km.</p>
+                    <p class="cta-box__text">Contactez-nous pour un devis gratuit et sans engagement.<br>Réponse garantie sous 48h.</p>
                     <div class="cta-box__buttons">
-                        <a href="contact.html" class="btn btn--primary btn--lg">Demander un devis</a>
-                        <a href="tel:0351001296" class="btn btn--outline btn--lg">03 51 00 12 96</a>
+                        <a href="contact.html" class="btn btn--white btn--lg">Demander un devis</a>
+                        <a href="tel:0351001296" class="btn btn--outline-white btn--lg">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            03 51 00 12 96
+                        </a>
                     </div>
                 </div>
             </div>
@@ -258,7 +425,15 @@
                     <div class="footer__logo">
                         <img src="assets/images/logo.png" alt="MJ Rénov">
                     </div>
-                    <p>Votre spécialiste en rénovation à Reims. Construction, rénovation, dépannage. Nous mettons notre savoir-faire à votre service.</p>
+                    <p>Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours. Peinture, revêtements, plomberie, électricité.</p>
+                    <div class="footer__contact-direct">
+                        <a href="tel:0351001296" class="footer__phone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            03 51 00 12 96
+                        </a>
+                    </div>
                 </div>
 
                 <div class="footer__links">
@@ -266,8 +441,8 @@
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="services.html">Nos services</a></li>
-                        <li><a href="savoir-faire.html">Notre savoir-faire</a></li>
-                        <li><a href="realisations.html">Nos réalisations</a></li>
+                        <li><a href="savoir-faire.html">Savoir-faire</a></li>
+                        <li><a href="realisations.html">Réalisations</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -284,7 +459,11 @@
 
                 <div class="footer__contact">
                     <h4>Contact</h4>
-                    <p>35 Bd Carteret<br>51100 Reims</p>
+                    <p>
+                        <strong>MJ Rénov</strong><br>
+                        35 Bd Carteret<br>
+                        51100 Reims
+                    </p>
                     <p><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></p>
                     <p><a href="tel:0351001296">03 51 00 12 96</a></p>
                 </div>

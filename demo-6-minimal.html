@@ -18,12 +18,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #233547;
-            --secondary: #3d5f79;
-            --black: #111111;
+            /* Couleurs client uniquement */
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
             --white: #ffffff;
-            --gray: #888888;
-            --light: #fafafa;
+            --gray: #6b7280;
             --border: #e5e5e5;
             --font-title: 'Plein', sans-serif;
             --font-body: 'Inter', sans-serif;
@@ -34,7 +36,7 @@
         body {
             font-family: var(--font-body);
             background: var(--white);
-            color: var(--black);
+            color: var(--graphite);
             font-size: 16px;
             line-height: 1.6;
         }
@@ -62,7 +64,7 @@
             font-family: var(--font-title);
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--black);
+            color: var(--graphite);
             text-decoration: none;
             letter-spacing: -0.5px;
         }
@@ -84,12 +86,12 @@
         }
 
         .nav a:hover {
-            color: var(--black);
+            color: var(--bleu-profond);
         }
 
         .header__contact {
             font-size: 0.875rem;
-            color: var(--black);
+            color: var(--bleu-profond);
             text-decoration: none;
             font-weight: 500;
         }
@@ -112,7 +114,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--gray);
+            color: var(--bleu-archi);
             margin-bottom: 32px;
         }
 
@@ -123,6 +125,7 @@
             line-height: 1;
             letter-spacing: -3px;
             margin-bottom: 40px;
+            color: var(--bleu-profond);
         }
 
         .hero__text {
@@ -151,23 +154,23 @@
         }
 
         .btn--primary {
-            background: var(--black);
+            background: var(--bleu-profond);
             color: var(--white);
         }
 
         .btn--primary:hover {
-            background: var(--primary);
+            background: var(--bleu-archi);
         }
 
         .btn--link {
             padding: 0;
-            color: var(--black);
-            border-bottom: 1px solid var(--black);
+            color: var(--bleu-profond);
+            border-bottom: 1px solid var(--bleu-profond);
         }
 
         .btn--link:hover {
-            color: var(--gray);
-            border-color: var(--gray);
+            color: var(--bleu-archi);
+            border-color: var(--bleu-archi);
         }
 
         .hero__image {
@@ -200,7 +203,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--gray);
+            color: var(--bleu-archi);
             margin-bottom: 20px;
         }
 
@@ -209,6 +212,7 @@
             font-size: 3rem;
             font-weight: 700;
             letter-spacing: -1px;
+            color: var(--bleu-profond);
         }
 
         /* === SERVICES MINIMAL === */
@@ -234,12 +238,12 @@
         }
 
         .service-item:hover {
-            background: var(--light);
+            background: var(--gris-pierre);
         }
 
         .service-item__number {
             font-size: 0.75rem;
-            color: var(--gray);
+            color: var(--bleu-archi);
             margin-bottom: 32px;
         }
 
@@ -248,6 +252,7 @@
             font-size: 1.75rem;
             margin-bottom: 16px;
             letter-spacing: -0.5px;
+            color: var(--bleu-profond);
         }
 
         .service-item__text {
@@ -266,7 +271,7 @@
 
         .service-item:hover .service-item__arrow {
             transform: translateX(8px);
-            color: var(--black);
+            color: var(--bleu-archi);
         }
 
         /* === IMAGE BAND === */
@@ -319,11 +324,12 @@
 
         .about__list li span:last-child {
             font-weight: 500;
+            color: var(--bleu-profond);
         }
 
         /* === STATS === */
         .stats {
-            background: var(--black);
+            background: var(--bleu-profond);
             color: var(--white);
             padding: 100px 60px;
         }
@@ -346,11 +352,12 @@
             font-weight: 700;
             line-height: 1;
             letter-spacing: -2px;
+            color: var(--beige-ciment);
         }
 
         .stat-item__label {
             font-size: 0.875rem;
-            color: var(--gray);
+            color: rgba(255,255,255,0.7);
             margin-top: 12px;
         }
 
@@ -394,7 +401,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--gray);
+            color: var(--bleu-archi);
             margin-bottom: 8px;
         }
 
@@ -402,6 +409,7 @@
             font-family: var(--font-title);
             font-size: 1.25rem;
             letter-spacing: -0.5px;
+            color: var(--bleu-profond);
         }
 
         /* === CTA MINIMAL === */
@@ -418,6 +426,7 @@
             font-weight: 700;
             letter-spacing: -2px;
             margin-bottom: 24px;
+            color: var(--bleu-profond);
         }
 
         .cta__text {
@@ -440,10 +449,15 @@
         }
 
         .cta__phone a {
-            color: var(--black);
+            color: var(--bleu-profond);
             text-decoration: none;
-            border-bottom: 2px solid var(--black);
+            border-bottom: 2px solid var(--bleu-profond);
             padding-bottom: 4px;
+        }
+
+        .cta__phone a:hover {
+            color: var(--bleu-archi);
+            border-color: var(--bleu-archi);
         }
 
         /* === FOOTER MINIMAL === */
@@ -479,7 +493,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--gray);
+            color: var(--bleu-archi);
             margin-bottom: 24px;
         }
 
@@ -488,13 +502,13 @@
         .footer ul li { margin-bottom: 12px; }
 
         .footer a {
-            color: var(--black);
+            color: var(--graphite);
             text-decoration: none;
             font-size: 0.9375rem;
             transition: color 0.3s;
         }
 
-        .footer a:hover { color: var(--gray); }
+        .footer a:hover { color: var(--bleu-archi); }
 
         .footer__bottom {
             padding-top: 40px;
@@ -504,6 +518,8 @@
             font-size: 0.8125rem;
             color: var(--gray);
         }
+
+        .footer__bottom a { color: var(--bleu-archi); }
 
         /* === RESPONSIVE === */
         @media (max-width: 1200px) {

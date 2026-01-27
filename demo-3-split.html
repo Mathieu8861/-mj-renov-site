@@ -18,12 +18,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #233547;
-            --secondary: #3d5f79;
-            --terracotta: #c4846c;
-            --cream: #f5f0eb;
-            --warm: #d4a574;
-            --dark: #1a1a1a;
+            /* Couleurs client uniquement */
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
             --white: #ffffff;
             --gray: #6b7280;
             --font-title: 'Plein', sans-serif;
@@ -33,7 +33,7 @@
         body {
             font-family: var(--font-body);
             background: var(--white);
-            color: var(--dark);
+            color: var(--graphite);
             overflow-x: hidden;
         }
 
@@ -64,7 +64,7 @@
         }
 
         .nav a {
-            color: var(--dark);
+            color: var(--graphite);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -72,7 +72,7 @@
         }
 
         .nav a:hover {
-            color: var(--terracotta);
+            color: var(--bleu-archi);
         }
 
         .header__cta {
@@ -82,7 +82,7 @@
         }
 
         .header__phone {
-            color: var(--dark);
+            color: var(--graphite);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
@@ -101,32 +101,32 @@
         }
 
         .btn--primary {
-            background: var(--primary);
+            background: var(--bleu-profond);
             color: var(--white);
         }
 
         .btn--primary:hover {
-            background: var(--secondary);
+            background: var(--bleu-archi);
             transform: translateY(-2px);
         }
 
-        .btn--terracotta {
-            background: var(--terracotta);
+        .btn--accent {
+            background: var(--bleu-archi);
             color: var(--white);
         }
 
-        .btn--terracotta:hover {
-            background: var(--warm);
+        .btn--accent:hover {
+            background: var(--bleu-profond);
         }
 
         .btn--outline {
-            border: 2px solid var(--dark);
+            border: 2px solid var(--graphite);
             background: transparent;
-            color: var(--dark);
+            color: var(--graphite);
         }
 
         .btn--outline:hover {
-            background: var(--dark);
+            background: var(--graphite);
             color: var(--white);
         }
 
@@ -138,16 +138,16 @@
 
         .btn--outline-white:hover {
             background: var(--white);
-            color: var(--dark);
+            color: var(--bleu-profond);
         }
 
         .btn--white {
             background: var(--white);
-            color: var(--dark);
+            color: var(--bleu-profond);
         }
 
         .btn--white:hover {
-            background: var(--cream);
+            background: var(--beige-ciment);
         }
 
         /* === HERO SPLIT === */
@@ -163,7 +163,7 @@
             flex-direction: column;
             justify-content: center;
             padding: 80px 8%;
-            background: var(--cream);
+            background: var(--gris-pierre);
         }
 
         .hero__badge {
@@ -181,14 +181,14 @@
         .hero__badge-dot {
             width: 8px;
             height: 8px;
-            background: var(--terracotta);
+            background: var(--bleu-archi);
             border-radius: 50%;
         }
 
         .hero__badge-text {
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--graphite);
         }
 
         .hero__title {
@@ -197,11 +197,11 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
-            color: var(--primary);
+            color: var(--bleu-profond);
         }
 
         .hero__title span {
-            color: var(--terracotta);
+            color: var(--bleu-archi);
         }
 
         .hero__text {
@@ -245,7 +245,7 @@
             font-family: var(--font-title);
             font-size: 1.75rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--bleu-profond);
             line-height: 1;
         }
 
@@ -303,18 +303,18 @@
         .section-tag {
             display: inline-block;
             padding: 10px 24px;
-            background: var(--cream);
+            background: var(--gris-pierre);
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--terracotta);
+            color: var(--bleu-archi);
             margin-bottom: 20px;
         }
 
         .section-title {
             font-family: var(--font-title);
             font-size: 3rem;
-            color: var(--primary);
+            color: var(--bleu-profond);
         }
 
         .services__grid {
@@ -325,7 +325,7 @@
 
         .service-card {
             padding: 40px 32px;
-            background: var(--cream);
+            background: var(--gris-pierre);
             border-radius: 24px;
             text-align: center;
             text-decoration: none;
@@ -339,7 +339,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--bleu-profond), var(--bleu-archi));
             opacity: 0;
             transition: opacity 0.4s;
         }
@@ -381,7 +381,7 @@
         .service-card__title {
             font-family: var(--font-title);
             font-size: 1.25rem;
-            color: var(--primary);
+            color: var(--bleu-profond);
             margin-bottom: 12px;
             transition: color 0.4s;
         }
@@ -425,7 +425,7 @@
             font-family: var(--font-title);
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--terracotta);
+            color: var(--bleu-archi);
             line-height: 1;
         }
 
@@ -440,7 +440,7 @@
             flex-direction: column;
             justify-content: center;
             padding: 80px;
-            background: var(--primary);
+            background: var(--bleu-profond);
             color: var(--white);
         }
 
@@ -454,7 +454,7 @@
         .about__tag-line {
             width: 40px;
             height: 2px;
-            background: var(--terracotta);
+            background: var(--bleu-archi);
         }
 
         .about__tag-text {
@@ -462,7 +462,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--terracotta);
+            color: var(--beige-ciment);
         }
 
         .about__title {
@@ -499,8 +499,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(196,132,108,0.2);
-            color: var(--terracotta);
+            background: rgba(61,95,121,0.3);
+            color: var(--beige-ciment);
             border-radius: 50%;
             font-size: 0.8rem;
             font-weight: 700;
@@ -509,7 +509,7 @@
         /* === WORK === */
         .work {
             padding: 120px 5%;
-            background: var(--cream);
+            background: var(--gris-pierre);
         }
 
         .work__header {
@@ -573,7 +573,7 @@
         .work-card__tag {
             display: inline-block;
             padding: 8px 16px;
-            background: var(--terracotta);
+            background: var(--bleu-archi);
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 600;
@@ -609,7 +609,7 @@
             left: 60%;
             width: 80%;
             height: 2px;
-            background: var(--cream);
+            background: var(--gris-pierre);
         }
 
         .process-step:last-child::after {
@@ -622,7 +622,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--terracotta);
+            background: var(--bleu-archi);
             color: var(--white);
             font-family: var(--font-title);
             font-size: 1.75rem;
@@ -636,7 +636,7 @@
         .process-step__title {
             font-family: var(--font-title);
             font-size: 1.15rem;
-            color: var(--primary);
+            color: var(--bleu-profond);
             margin-bottom: 8px;
         }
 
@@ -664,7 +664,7 @@
             align-items: center;
             text-align: center;
             padding: 80px;
-            background: var(--primary);
+            background: var(--bleu-profond);
             color: var(--white);
         }
 
@@ -700,7 +700,7 @@
 
         /* === FOOTER === */
         .footer {
-            background: var(--dark);
+            background: var(--graphite);
             color: var(--white);
             padding: 80px 5% 40px;
         }
@@ -727,7 +727,7 @@
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 24px;
-            color: var(--terracotta);
+            color: var(--beige-ciment);
         }
 
         .footer ul { list-style: none; }
@@ -739,7 +739,7 @@
             transition: color 0.3s;
         }
 
-        .footer a:hover { color: var(--terracotta); }
+        .footer a:hover { color: var(--beige-ciment); }
 
         .footer__bottom {
             padding-top: 40px;
@@ -750,7 +750,7 @@
             color: rgba(255,255,255,0.4);
         }
 
-        .footer__bottom a { color: var(--terracotta); }
+        .footer__bottom a { color: var(--beige-ciment); }
 
         /* === RESPONSIVE === */
         @media (max-width: 1200px) {
@@ -821,7 +821,7 @@
             <h1 class="hero__title">Rénovation <span>sur mesure</span> à Reims</h1>
             <p class="hero__text">Peinture, revêtements, plomberie, électricité. Un artisan de proximité pour tous vos travaux de rénovation intérieure et extérieure.</p>
             <div class="hero__ctas">
-                <a href="#contact" class="btn btn--terracotta">Demander un devis</a>
+                <a href="#contact" class="btn btn--accent">Demander un devis</a>
                 <a href="#work" class="btn btn--outline">Nos réalisations</a>
             </div>
             <div class="hero__stats">

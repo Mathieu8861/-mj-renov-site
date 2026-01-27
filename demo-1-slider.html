@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJ Rénov - Demo 1 : Slider Hero Plein Écran</title>
+    <title>MJ Rénov - Demo 1 : Slider Hero</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +18,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #233547;
-            --secondary: #3d5f79;
-            --cream: #e5e1d9;
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
             --white: #ffffff;
             --font-title: 'Plein', sans-serif;
             --font-body: 'Inter', sans-serif;
@@ -28,7 +30,7 @@
 
         body {
             font-family: var(--font-body);
-            color: var(--primary);
+            color: var(--graphite);
             overflow-x: hidden;
         }
 
@@ -76,7 +78,7 @@
         }
 
         .header.scrolled .nav a {
-            color: var(--primary);
+            color: var(--graphite);
         }
 
         .nav a:hover {
@@ -97,7 +99,7 @@
         }
 
         .header.scrolled .header__phone {
-            color: var(--primary);
+            color: var(--graphite);
         }
 
         .btn {
@@ -114,24 +116,24 @@
 
         .btn--white {
             background: var(--white);
-            color: var(--primary);
+            color: var(--bleu-profond);
         }
 
         .btn--white:hover {
-            background: var(--cream);
+            background: var(--beige-ciment);
             transform: translateY(-2px);
         }
 
         .btn--primary {
-            background: var(--primary);
+            background: var(--bleu-profond);
             color: var(--white);
         }
 
         .btn--primary:hover {
-            background: var(--secondary);
+            background: var(--bleu-archi);
         }
 
-        /* === HERO SLIDER PLEIN ÉCRAN === */
+        /* === HERO SLIDER === */
         .hero-slider {
             position: relative;
             height: 100vh;
@@ -162,7 +164,6 @@
             transform: scale(1);
         }
 
-        /* Images Unsplash rénovation */
         .slide:nth-child(1) .slide__bg {
             background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1920&q=80');
         }
@@ -197,7 +198,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--cream);
+            color: var(--beige-ciment);
             margin-bottom: 24px;
             opacity: 0;
             transform: translateY(30px);
@@ -253,6 +254,17 @@
         .slide.active .slide__cta {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .btn--outline-white {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn--outline-white:hover {
+            background: var(--white);
+            color: var(--bleu-profond);
         }
 
         /* Slider Navigation */
@@ -317,13 +329,13 @@
 
         .slider-arrow:hover {
             background: var(--white);
-            color: var(--primary);
+            color: var(--bleu-profond);
             border-color: var(--white);
         }
 
         /* === STATS BAR === */
         .stats-bar {
-            background: var(--primary);
+            background: var(--bleu-profond);
             padding: 60px 10%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -340,7 +352,7 @@
             font-size: 3.5rem;
             font-weight: 700;
             line-height: 1;
-            color: var(--cream);
+            color: var(--beige-ciment);
         }
 
         .stat-item__label {
@@ -367,14 +379,14 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--secondary);
+            color: var(--bleu-archi);
             margin-bottom: 12px;
         }
 
         .section-title {
             font-family: var(--font-title);
             font-size: 3rem;
-            color: var(--primary);
+            color: var(--bleu-profond);
         }
 
         .services__grid {
@@ -456,7 +468,7 @@
 
         .about__content {
             padding: 100px 80px;
-            background: #f8f8f6;
+            background: var(--gris-pierre);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -465,12 +477,12 @@
         .about__title {
             font-family: var(--font-title);
             font-size: 2.75rem;
-            color: var(--primary);
+            color: var(--bleu-profond);
             margin-bottom: 24px;
         }
 
         .about__text {
-            color: #666;
+            color: var(--graphite);
             line-height: 1.9;
             margin-bottom: 32px;
             font-size: 1.05rem;
@@ -486,7 +498,7 @@
             align-items: center;
             gap: 16px;
             padding: 16px 0;
-            border-bottom: 1px solid rgba(35,53,71,0.1);
+            border-bottom: 1px solid var(--beige-ciment);
             font-weight: 500;
         }
 
@@ -497,8 +509,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--cream);
-            color: var(--primary);
+            background: var(--beige-ciment);
+            color: var(--bleu-profond);
             border-radius: 50%;
             font-weight: 700;
         }
@@ -565,7 +577,7 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--cream);
+            color: var(--beige-ciment);
             margin-bottom: 8px;
         }
 
@@ -612,20 +624,9 @@
             gap: 20px;
         }
 
-        .btn--outline-white {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn--outline-white:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-
         /* === FOOTER === */
         .footer {
-            background: var(--primary);
+            background: var(--bleu-profond);
             color: var(--white);
             padding: 80px 10% 40px;
         }
@@ -651,7 +652,7 @@
         .footer h4 {
             font-size: 0.9rem;
             margin-bottom: 24px;
-            color: var(--cream);
+            color: var(--beige-ciment);
         }
 
         .footer ul {
@@ -669,7 +670,7 @@
         }
 
         .footer a:hover {
-            color: var(--cream);
+            color: var(--beige-ciment);
         }
 
         .footer__bottom {

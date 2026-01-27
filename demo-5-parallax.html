@@ -18,13 +18,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #233547;
-            --secondary: #3d5f79;
-            --cream: #f5f2ed;
-            --warm: #c9b99a;
-            --dark: #1a1a1a;
+            /* Couleurs client uniquement */
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
             --white: #ffffff;
             --gray: #6b7280;
+            --dark: #1a1a1a;
             --font-title: 'Plein', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -35,7 +37,7 @@
 
         body {
             font-family: var(--font-body);
-            background: var(--cream);
+            background: var(--gris-pierre);
             color: var(--dark);
             overflow-x: hidden;
         }
@@ -146,21 +148,21 @@
 
         .btn--white {
             background: var(--white);
-            color: var(--dark);
+            color: var(--bleu-profond);
         }
 
         .btn--white:hover {
-            background: var(--warm);
+            background: var(--beige-ciment);
             transform: scale(1.05);
         }
 
         .btn--dark {
-            background: var(--dark);
+            background: var(--bleu-profond);
             color: var(--white);
         }
 
         .btn--dark:hover {
-            background: var(--primary);
+            background: var(--bleu-archi);
         }
 
         .btn--outline {
@@ -170,7 +172,7 @@
 
         .btn--outline:hover {
             background: var(--white);
-            color: var(--dark);
+            color: var(--bleu-profond);
             border-color: var(--white);
         }
 
@@ -199,7 +201,7 @@
         .section-reveal {
             position: relative;
             padding: 150px 5%;
-            background: var(--cream);
+            background: var(--gris-pierre);
         }
 
         .section-reveal__inner {
@@ -212,14 +214,14 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: var(--secondary);
+            color: var(--bleu-archi);
             margin-bottom: 24px;
         }
 
         .section-title {
             font-family: var(--font-title);
             font-size: 4rem;
-            color: var(--primary);
+            color: var(--bleu-profond);
             line-height: 1.1;
             max-width: 700px;
         }
@@ -340,14 +342,14 @@
         .service-item__number {
             font-family: var(--font-title);
             font-size: 0.9rem;
-            color: var(--warm);
+            color: var(--bleu-archi);
             margin-bottom: 12px;
         }
 
         .service-item__title {
             font-family: var(--font-title);
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--bleu-profond);
             margin-bottom: 12px;
         }
 
@@ -384,7 +386,7 @@
         }
 
         .stats-parallax__header .section-tag {
-            color: var(--warm);
+            color: var(--beige-ciment);
         }
 
         .stats-parallax__header .section-title {
@@ -408,7 +410,7 @@
             font-size: 5rem;
             font-weight: 700;
             line-height: 1;
-            color: var(--warm);
+            color: var(--beige-ciment);
         }
 
         .stat-item__label {
@@ -420,7 +422,7 @@
         /* === WORK MASONRY === */
         .work-masonry {
             padding: 150px 5%;
-            background: var(--cream);
+            background: var(--gris-pierre);
         }
 
         .work-masonry__header {
@@ -477,7 +479,7 @@
         .work-item__overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(26,26,26,0.9) 0%, transparent 60%);
+            background: linear-gradient(to top, rgba(35,53,71,0.9) 0%, transparent 60%);
             opacity: 0;
             transition: opacity 0.4s;
         }
@@ -507,7 +509,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--warm);
+            color: var(--beige-ciment);
             margin-bottom: 8px;
         }
 
@@ -520,13 +522,13 @@
         .cta-full {
             position: relative;
             padding: 200px 5%;
-            background: var(--primary);
+            background: var(--bleu-profond);
             text-align: center;
             overflow: hidden;
         }
 
         .cta-full::before {
-            content: 'RÉNOV';
+            content: 'RENOV';
             position: absolute;
             top: 50%;
             left: 50%;
@@ -568,7 +570,7 @@
 
         /* === FOOTER === */
         .footer {
-            background: var(--dark);
+            background: var(--graphite);
             color: var(--white);
             padding: 100px 5% 40px;
         }
@@ -597,7 +599,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 24px;
-            color: var(--warm);
+            color: var(--beige-ciment);
         }
 
         .footer ul { list-style: none; }
@@ -609,7 +611,7 @@
             transition: color 0.3s;
         }
 
-        .footer a:hover { color: var(--warm); }
+        .footer a:hover { color: var(--beige-ciment); }
 
         .footer__bottom {
             padding-top: 40px;
@@ -620,7 +622,7 @@
             color: var(--gray);
         }
 
-        .footer__bottom a { color: var(--warm); }
+        .footer__bottom a { color: var(--beige-ciment); }
 
         /* === RESPONSIVE === */
         @media (max-width: 1024px) {

@@ -18,14 +18,17 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* Proposition créative - Palette chaleureuse */
-            --terracotta: #c4846c;
-            --gold: #c9a96e;
-            --charcoal: #2d2d2d;
-            --cream: #f8f5f0;
-            --sage: #8b9a7d;
+            /* Palette chaleureuse alternative */
+            --terracotta: #b5735a;
+            --terracotta-light: #d4a088;
+            --olive: #5c6b4a;
+            --olive-light: #8a9a72;
+            --charcoal: #2a2a2a;
+            --warm-gray: #4a4a4a;
+            --cream: #faf8f5;
+            --sand: #f0ebe3;
             --white: #ffffff;
-            --gray: #6b7280;
+            --gray: #71717a;
             --font-title: 'Plein', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -39,19 +42,19 @@
             overflow-x: hidden;
         }
 
-        /* === HEADER WARM === */
+        /* === HEADER === */
         .header {
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
-            padding: 20px 5%;
+            padding: 16px 5%;
             transition: all 0.4s;
         }
 
         .header.scrolled {
             background: var(--white);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
         }
 
         .header__inner {
@@ -60,31 +63,40 @@
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
+            background: var(--white);
+            padding: 12px 32px;
+            border-radius: 60px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .header.scrolled .header__inner {
+            background: transparent;
+            box-shadow: none;
+            padding: 12px 0;
         }
 
         .logo img {
-            height: 45px;
-            transition: filter 0.4s;
+            height: 40px;
         }
 
         .nav {
             display: flex;
-            gap: 40px;
+            gap: 32px;
         }
 
         .nav a {
             color: var(--charcoal);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             position: relative;
-            padding-bottom: 4px;
+            padding: 8px 0;
         }
 
         .nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: 4px;
             left: 0;
             width: 0;
             height: 2px;
@@ -97,23 +109,23 @@
         .header__cta {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
         }
 
         .header__phone {
             color: var(--charcoal);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .btn {
-            padding: 14px 32px;
+            padding: 14px 28px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.4s;
+            border-radius: 8px;
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -125,8 +137,13 @@
         }
 
         .btn--primary:hover {
-            background: var(--gold);
+            background: #a06550;
             transform: translateY(-2px);
+        }
+
+        .btn--sm {
+            padding: 10px 20px;
+            font-size: 0.8rem;
         }
 
         .btn--outline {
@@ -147,14 +164,16 @@
 
         .btn--white:hover {
             background: var(--cream);
+            transform: translateY(-2px);
         }
 
-        /* === HERO CREATIVE === */
+        /* === HERO === */
         .hero {
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.1fr;
             position: relative;
+            background: var(--cream);
         }
 
         .hero__content {
@@ -164,38 +183,34 @@
             padding: 140px 8% 100px;
         }
 
-        .hero__badge {
+        .hero__tag {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            background: var(--white);
-            border-radius: 50px;
-            width: fit-content;
+            gap: 12px;
             margin-bottom: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        .hero__badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--sage);
-            border-radius: 50%;
+        .hero__tag-line {
+            width: 50px;
+            height: 2px;
+            background: var(--terracotta);
         }
 
-        .hero__badge-text {
+        .hero__tag-text {
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--charcoal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--terracotta);
         }
 
         .hero__title {
             font-family: var(--font-title);
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 700;
-            line-height: 1.05;
+            line-height: 1.1;
             margin-bottom: 24px;
-            letter-spacing: -2px;
+            color: var(--charcoal);
         }
 
         .hero__title span {
@@ -203,16 +218,52 @@
         }
 
         .hero__text {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--gray);
             margin-bottom: 40px;
             line-height: 1.8;
-            max-width: 450px;
+            max-width: 480px;
         }
 
         .hero__ctas {
             display: flex;
             gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .hero__stats {
+            display: flex;
+            gap: 48px;
+        }
+
+        .hero__stat {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .hero__stat::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--terracotta), var(--olive));
+            border-radius: 2px;
+        }
+
+        .hero__stat-number {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1;
+        }
+
+        .hero__stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 4px;
         }
 
         .hero__visual {
@@ -223,91 +274,32 @@
         .hero__image {
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80') center/cover;
+            background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80') center/cover;
         }
 
-        .hero__floating {
+        .hero__image::after {
+            content: '';
             position: absolute;
-            bottom: 60px;
-            left: -60px;
-            background: var(--white);
-            padding: 32px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 32px;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(181,115,90,0.1) 0%, transparent 50%);
         }
 
-        .hero__stat {
-            text-align: center;
-        }
-
-        .hero__stat-number {
-            font-family: var(--font-title);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--terracotta);
-            line-height: 1;
-        }
-
-        .hero__stat-label {
-            font-size: 0.8rem;
-            color: var(--gray);
-            margin-top: 8px;
-        }
-
-        /* === MARQUEE === */
-        .marquee {
-            background: var(--charcoal);
-            padding: 24px 0;
-            overflow: hidden;
-        }
-
-        .marquee__track {
-            display: flex;
-            animation: marquee 40s linear infinite;
-        }
-
-        .marquee__item {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            padding: 0 30px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .marquee__item::after {
-            content: '★';
-            font-size: 0.75rem;
-            color: var(--gold);
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* === SERVICES WARM === */
+        /* === SERVICES === */
         .services {
-            padding: 120px 5%;
+            padding: 140px 5%;
             background: var(--white);
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 80px;
+            max-width: 1400px;
+            margin: 0 auto 80px;
         }
 
         .section-tag {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .section-tag__line {
@@ -320,7 +312,7 @@
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: var(--terracotta);
         }
 
@@ -328,7 +320,6 @@
             font-family: var(--font-title);
             font-size: 3rem;
             color: var(--charcoal);
-            letter-spacing: -1px;
         }
 
         .services__grid {
@@ -341,48 +332,38 @@
 
         .service-card {
             position: relative;
-            padding: 40px 32px;
+            padding: 48px 32px;
             background: var(--cream);
-            border-radius: 24px;
+            border-radius: 16px;
             text-decoration: none;
             color: inherit;
             transition: all 0.4s;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--terracotta), var(--gold));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+            border: 1px solid transparent;
         }
 
         .service-card:hover {
+            background: var(--white);
+            border-color: var(--sand);
             transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.08);
         }
 
         .service-card__icon {
-            width: 64px;
-            height: 64px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--white);
-            border-radius: 16px;
-            font-size: 1.75rem;
+            border-radius: 12px;
             margin-bottom: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            color: var(--terracotta);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-card__icon {
+            background: var(--terracotta);
+            color: var(--white);
         }
 
         .service-card__title {
@@ -394,18 +375,18 @@
         .service-card__text {
             font-size: 0.9rem;
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* === ABOUT WARM === */
+        /* === ABOUT === */
         .about {
-            padding: 120px 5%;
-            background: var(--cream);
+            padding: 140px 5%;
+            background: var(--sand);
         }
 
         .about__grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 1fr;
             gap: 100px;
             align-items: center;
             max-width: 1400px;
@@ -418,9 +399,9 @@
 
         .about__image-main {
             aspect-ratio: 4/5;
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.12);
         }
 
         .about__image-main img {
@@ -429,33 +410,39 @@
             object-fit: cover;
         }
 
-        .about__image-secondary {
+        .about__badge {
             position: absolute;
-            bottom: -40px;
-            right: -40px;
-            width: 200px;
-            height: 200px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 8px solid var(--cream);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            bottom: -30px;
+            right: -30px;
+            background: var(--terracotta);
+            color: var(--white);
+            padding: 28px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(181,115,90,0.3);
         }
 
-        .about__image-secondary img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .about__badge-number {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about__badge-label {
+            font-size: 0.8rem;
+            margin-top: 4px;
+            opacity: 0.9;
         }
 
         .about__content .section-tag {
-            justify-content: flex-start;
+            margin-bottom: 16px;
         }
 
         .about__title {
             font-family: var(--font-title);
             font-size: 2.75rem;
             margin-bottom: 24px;
-            letter-spacing: -1px;
         }
 
         .about__text {
@@ -468,7 +455,7 @@
         .about__features {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 20px;
         }
 
         .feature {
@@ -477,33 +464,34 @@
             gap: 16px;
             padding: 20px;
             background: var(--white);
-            border-radius: 16px;
+            border-radius: 12px;
         }
 
         .feature__icon {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--terracotta), var(--gold));
+            background: var(--terracotta);
             color: var(--white);
-            border-radius: 12px;
-            font-size: 1.25rem;
+            border-radius: 10px;
+            flex-shrink: 0;
         }
 
         .feature__title {
             font-weight: 600;
+            margin-bottom: 2px;
         }
 
         .feature__text {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gray);
         }
 
-        /* === WORK WARM === */
+        /* === WORK === */
         .work {
-            padding: 120px 5%;
+            padding: 140px 5%;
             background: var(--white);
         }
 
@@ -511,10 +499,8 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 60px;
             max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 60px;
         }
 
         .work__grid {
@@ -527,13 +513,14 @@
 
         .work-card {
             position: relative;
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
+            background: var(--charcoal);
         }
 
         .work-card__image {
-            aspect-ratio: 4/5;
+            aspect-ratio: 3/4;
             overflow: hidden;
         }
 
@@ -541,22 +528,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.6s;
+            opacity: 0.9;
         }
 
         .work-card:hover .work-card__image img {
             transform: scale(1.08);
-        }
-
-        .work-card__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(45,45,45,0.9) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .work-card:hover .work-card__overlay {
             opacity: 1;
         }
 
@@ -566,22 +543,15 @@
             left: 0;
             right: 0;
             padding: 32px;
+            background: linear-gradient(to top, rgba(42,42,42,0.95) 0%, transparent 100%);
             color: var(--white);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.4s;
-        }
-
-        .work-card:hover .work-card__content {
-            transform: translateY(0);
-            opacity: 1;
         }
 
         .work-card__tag {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 6px 14px;
             background: var(--terracotta);
-            border-radius: 50px;
+            border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 600;
             margin-bottom: 12px;
@@ -589,28 +559,32 @@
 
         .work-card__title {
             font-family: var(--font-title);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
         }
 
-        /* === CTA WARM === */
+        /* === CTA === */
         .cta {
             position: relative;
-            padding: 160px 5%;
+            padding: 140px 5%;
             background: var(--charcoal);
             overflow: hidden;
         }
 
-        .cta__pattern {
+        .cta::before {
+            content: '';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(196,132,108,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 20% 80%, rgba(201,169,110,0.1) 0%, transparent 50%);
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80') center/cover;
+            opacity: 0.15;
         }
 
         .cta__content {
             position: relative;
             z-index: 1;
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
             text-align: center;
             color: var(--white);
@@ -618,29 +592,38 @@
 
         .cta__title {
             font-family: var(--font-title);
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 24px;
-            letter-spacing: -1px;
         }
 
         .cta__title span {
-            color: var(--gold);
+            color: var(--terracotta-light);
         }
 
         .cta__text {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             opacity: 0.8;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
             line-height: 1.8;
         }
 
         .cta__buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
         }
 
-        /* === FOOTER WARM === */
+        .cta__buttons .btn--outline {
+            border-color: rgba(255,255,255,0.3);
+            color: var(--white);
+        }
+
+        .cta__buttons .btn--outline:hover {
+            background: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* === FOOTER === */
         .footer {
             background: #1a1a1a;
             color: var(--white);
@@ -671,7 +654,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--gold);
+            color: var(--terracotta-light);
             margin-bottom: 24px;
         }
 
@@ -684,7 +667,7 @@
             transition: color 0.3s;
         }
 
-        .footer a:hover { color: var(--gold); }
+        .footer a:hover { color: var(--terracotta-light); }
 
         .footer__bottom {
             max-width: 1400px;
@@ -697,7 +680,7 @@
             color: var(--gray);
         }
 
-        .footer__bottom a { color: var(--gold); }
+        .footer__bottom a { color: var(--terracotta-light); }
 
         /* === RESPONSIVE === */
         @media (max-width: 1200px) {
@@ -707,24 +690,24 @@
 
         @media (max-width: 1024px) {
             .hero { grid-template-columns: 1fr; }
-            .hero__visual { min-height: 50vh; }
-            .hero__floating { left: 20px; bottom: 20px; }
+            .hero__visual { min-height: 60vh; order: -1; }
+            .hero__content { padding: 80px 5%; }
+            .hero__title { font-size: 3rem; }
             .about__grid { grid-template-columns: 1fr; gap: 60px; }
-            .about__image-secondary { right: 20px; bottom: -20px; }
+            .about__badge { right: 20px; bottom: -20px; }
             .footer__grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
             .nav { display: none; }
-            .hero__content { padding: 120px 5% 60px; }
-            .hero__title { font-size: 2.75rem; }
-            .hero__floating { position: relative; left: 0; bottom: 0; margin: 20px; }
-            .marquee { display: none; }
+            .hero__title { font-size: 2.5rem; }
+            .hero__stats { flex-direction: column; gap: 24px; }
+            .hero__ctas { flex-direction: column; }
             .services__grid { grid-template-columns: 1fr; }
             .about__features { grid-template-columns: 1fr; }
             .work__grid { grid-template-columns: 1fr; }
             .work__header { flex-direction: column; gap: 24px; align-items: flex-start; }
-            .cta__title { font-size: 2.5rem; }
+            .cta__title { font-size: 2rem; }
             .cta__buttons { flex-direction: column; }
             .footer__grid { grid-template-columns: 1fr; text-align: center; }
             .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
@@ -746,89 +729,79 @@
             </nav>
             <div class="header__cta">
                 <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
-                <a href="#contact" class="btn btn--primary">Devis gratuit</a>
+                <a href="#contact" class="btn btn--primary btn--sm">Devis gratuit</a>
             </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero__content">
-            <div class="hero__badge">
-                <span class="hero__badge-dot"></span>
-                <span class="hero__badge-text">Artisan depuis 10 ans</span>
+            <div class="hero__tag">
+                <span class="hero__tag-line"></span>
+                <span class="hero__tag-text">Artisan à Reims</span>
             </div>
-            <h1 class="hero__title">Donnons vie à vos <span>projets</span></h1>
-            <p class="hero__text">Peinture, revêtements, plomberie, électricité. Un artisan passionné au service de vos rêves de rénovation à Reims et ses environs.</p>
+            <h1 class="hero__title">Votre projet de <span>rénovation</span> mérite le meilleur</h1>
+            <p class="hero__text">Peinture, revêtements, plomberie, électricité. Un artisan expérimenté et passionné pour transformer votre intérieur avec soin et précision.</p>
             <div class="hero__ctas">
-                <a href="#contact" class="btn btn--primary">Demander un devis</a>
-                <a href="#work" class="btn btn--outline">Nos réalisations</a>
+                <a href="#contact" class="btn btn--primary">Demander un devis gratuit</a>
+                <a href="#work" class="btn btn--outline">Voir nos réalisations</a>
+            </div>
+            <div class="hero__stats">
+                <div class="hero__stat">
+                    <div class="hero__stat-number">150+</div>
+                    <div class="hero__stat-label">Chantiers réalisés</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number">10 ans</div>
+                    <div class="hero__stat-label">D'expérience</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number">100%</div>
+                    <div class="hero__stat-label">Clients satisfaits</div>
+                </div>
             </div>
         </div>
         <div class="hero__visual">
             <div class="hero__image"></div>
-            <div class="hero__floating">
-                <div class="hero__stat">
-                    <div class="hero__stat-number">150+</div>
-                    <div class="hero__stat-label">Chantiers</div>
-                </div>
-                <div class="hero__stat">
-                    <div class="hero__stat-number">100%</div>
-                    <div class="hero__stat-label">Satisfaits</div>
-                </div>
-            </div>
         </div>
     </section>
-
-    <div class="marquee">
-        <div class="marquee__track">
-            <div class="marquee__item">Peinture</div>
-            <div class="marquee__item">Carrelage</div>
-            <div class="marquee__item">Parquet</div>
-            <div class="marquee__item">Plomberie</div>
-            <div class="marquee__item">Électricité</div>
-            <div class="marquee__item">Salle de bain</div>
-            <div class="marquee__item">Cuisine</div>
-            <div class="marquee__item">Rénovation</div>
-            <div class="marquee__item">Peinture</div>
-            <div class="marquee__item">Carrelage</div>
-            <div class="marquee__item">Parquet</div>
-            <div class="marquee__item">Plomberie</div>
-            <div class="marquee__item">Électricité</div>
-            <div class="marquee__item">Salle de bain</div>
-            <div class="marquee__item">Cuisine</div>
-            <div class="marquee__item">Rénovation</div>
-        </div>
-    </div>
 
     <section class="services" id="services">
         <div class="section-header">
             <div class="section-tag">
                 <span class="section-tag__line"></span>
                 <span class="section-tag__text">Nos services</span>
-                <span class="section-tag__line"></span>
             </div>
             <h2 class="section-title">Expertise complète en rénovation</h2>
         </div>
         <div class="services__grid">
             <a href="#" class="service-card">
-                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div>
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
                 <h3 class="service-card__title">Peinture</h3>
-                <p class="service-card__text">Intérieure, extérieure et ravalement de façade avec finitions soignées.</p>
+                <p class="service-card__text">Intérieure, extérieure et ravalement de façade avec des finitions impeccables.</p>
             </a>
             <a href="#" class="service-card">
-                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </div>
                 <h3 class="service-card__title">Revêtements</h3>
-                <p class="service-card__text">Carrelage, parquet, faïence et tous types de sols souples.</p>
+                <p class="service-card__text">Carrelage, parquet, faïence et tous types de sols souples posés avec précision.</p>
             </a>
             <a href="#" class="service-card">
-                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                </div>
                 <h3 class="service-card__title">Plomberie</h3>
-                <p class="service-card__text">Installation et rénovation salle de bain, cuisine, chauffage.</p>
+                <p class="service-card__text">Installation et rénovation salle de bain, cuisine, chauffage et sanitaires.</p>
             </a>
             <a href="#" class="service-card">
-                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
                 <h3 class="service-card__title">Électricité</h3>
-                <p class="service-card__text">Mise aux normes, installation complète et dépannage rapide.</p>
+                <p class="service-card__text">Mise aux normes, installation complète et dépannage rapide et sécurisé.</p>
             </a>
         </div>
     </section>
@@ -837,10 +810,11 @@
         <div class="about__grid">
             <div class="about__images">
                 <div class="about__image-main">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Artisan">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Artisan au travail">
                 </div>
-                <div class="about__image-secondary">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Rénovation">
+                <div class="about__badge">
+                    <div class="about__badge-number">10+</div>
+                    <div class="about__badge-label">Années d'expérience</div>
                 </div>
             </div>
             <div class="about__content">
@@ -848,32 +822,40 @@
                     <span class="section-tag__line"></span>
                     <span class="section-tag__text">À propos</span>
                 </div>
-                <h2 class="about__title">Un artisan passionné à votre service</h2>
-                <p class="about__text">Depuis plus de 10 ans, je mets mon savoir-faire et ma passion au service de vos projets de rénovation. Chaque chantier est unique, et je m'engage à vous offrir un travail soigné et personnalisé.</p>
+                <h2 class="about__title">Un artisan de confiance à vos côtés</h2>
+                <p class="about__text">Fort de plus de 10 ans d'expérience dans le bâtiment, je mets mon savoir-faire et mon exigence au service de vos projets. Chaque chantier est unique et mérite une attention particulière.</p>
                 <div class="about__features">
                     <div class="feature">
-                        <div class="feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
                         <div>
                             <div class="feature__title">Artisan qualifié</div>
                             <div class="feature__text">Assuré et certifié</div>
                         </div>
                     </div>
                     <div class="feature">
-                        <div class="feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
                         <div>
                             <div class="feature__title">Devis sous 48h</div>
                             <div class="feature__text">Gratuit et détaillé</div>
                         </div>
                     </div>
                     <div class="feature">
-                        <div class="feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        </div>
                         <div>
                             <div class="feature__title">Chantier propre</div>
                             <div class="feature__text">Organisation rigoureuse</div>
                         </div>
                     </div>
                     <div class="feature">
-                        <div class="feature__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
                         <div>
                             <div class="feature__title">Délais respectés</div>
                             <div class="feature__text">Engagement tenu</div>
@@ -898,9 +880,8 @@
         <div class="work__grid">
             <div class="work-card">
                 <div class="work-card__image">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Appartement">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Appartement rénové">
                 </div>
-                <div class="work-card__overlay"></div>
                 <div class="work-card__content">
                     <span class="work-card__tag">Rénovation complète</span>
                     <h3 class="work-card__title">Appartement T3 - Reims Centre</h3>
@@ -908,9 +889,8 @@
             </div>
             <div class="work-card">
                 <div class="work-card__image">
-                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain moderne">
                 </div>
-                <div class="work-card__overlay"></div>
                 <div class="work-card__content">
                     <span class="work-card__tag">Salle de bain</span>
                     <h3 class="work-card__title">Création salle d'eau moderne</h3>
@@ -918,9 +898,8 @@
             </div>
             <div class="work-card">
                 <div class="work-card__image">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Cuisine">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Cuisine rénovée">
                 </div>
-                <div class="work-card__overlay"></div>
                 <div class="work-card__content">
                     <span class="work-card__tag">Cuisine</span>
                     <h3 class="work-card__title">Rénovation cuisine équipée</h3>
@@ -930,13 +909,12 @@
     </section>
 
     <section class="cta" id="contact">
-        <div class="cta__pattern"></div>
         <div class="cta__content">
             <h2 class="cta__title">Prêt à <span>transformer</span> votre intérieur ?</h2>
-            <p class="cta__text">Contactez-nous pour un devis gratuit et personnalisé. Réponse garantie sous 48h.</p>
+            <p class="cta__text">Contactez-nous pour un devis gratuit et sans engagement. Réponse garantie sous 48h.</p>
             <div class="cta__buttons">
                 <a href="#" class="btn btn--white">Demander un devis</a>
-                <a href="tel:0351001296" class="btn btn--outline" style="border-color: white; color: white;">03 51 00 12 96</a>
+                <a href="tel:0351001296" class="btn btn--outline">03 51 00 12 96</a>
             </div>
         </div>
     </section>
@@ -983,7 +961,6 @@
     </footer>
 
     <script>
-        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {

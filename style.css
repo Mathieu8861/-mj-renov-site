@@ -285,6 +285,18 @@ select {
     color: var(--color-primary);
 }
 
+.nav__link--highlight {
+    background: var(--color-secondary);
+    color: var(--color-white) !important;
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+    border-radius: var(--radius-sm);
+}
+
+.nav__link--highlight:hover {
+    background: var(--color-primary);
+    color: var(--color-white) !important;
+}
+
 .nav__dropdown {
     position: relative;
 }

@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ Rénov - Demo 1 : Slider Hero Plein Écran</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #233547;
+            --secondary: #3d5f79;
+            --cream: #e5e1d9;
+            --white: #ffffff;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        /* === HEADER TRANSPARENT === */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s;
+        }
+
+        .header.scrolled {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 48px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            height: 50px;
+            filter: brightness(0) invert(1);
+            transition: filter 0.4s;
+        }
+
+        .header.scrolled .logo img {
+            filter: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .header.scrolled .nav a {
+            color: var(--primary);
+        }
+
+        .nav a:hover {
+            opacity: 0.7;
+        }
+
+        .header__cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header__phone {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.4s;
+        }
+
+        .header.scrolled .header__phone {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn--white {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn--white:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .btn--primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background: var(--secondary);
+        }
+
+        /* === HERO SLIDER PLEIN ÉCRAN === */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide__bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            transition: transform 6s ease-out;
+        }
+
+        .slide.active .slide__bg {
+            transform: scale(1);
+        }
+
+        /* Images Unsplash rénovation */
+        .slide:nth-child(1) .slide__bg {
+            background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1920&q=80');
+        }
+        .slide:nth-child(2) .slide__bg {
+            background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1920&q=80');
+        }
+        .slide:nth-child(3) .slide__bg {
+            background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80');
+        }
+        .slide:nth-child(4) .slide__bg {
+            background-image: url('https://images.unsplash.com/photo-1585128792020-803d29415281?w=1920&q=80');
+        }
+
+        .slide__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(35,53,71,0.85) 0%, rgba(61,95,121,0.6) 100%);
+        }
+
+        .slide__content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            color: var(--white);
+        }
+
+        .slide__tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--cream);
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s 0.3s;
+        }
+
+        .slide.active .slide__tag {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide__title {
+            font-family: var(--font-title);
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.05;
+            max-width: 700px;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s 0.5s;
+        }
+
+        .slide.active .slide__title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide__text {
+            font-size: 1.2rem;
+            max-width: 500px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s 0.7s;
+        }
+
+        .slide.active .slide__text {
+            opacity: 0.9;
+            transform: translateY(0);
+        }
+
+        .slide__cta {
+            display: flex;
+            gap: 16px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s 0.9s;
+        }
+
+        .slide.active .slide__cta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 60px;
+            left: 10%;
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 60px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-dot::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: var(--white);
+            transition: width 5s linear;
+        }
+
+        .slider-dot.active::after {
+            width: 100%;
+        }
+
+        .slider-arrows {
+            position: absolute;
+            bottom: 60px;
+            right: 10%;
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .slider-arrow {
+            width: 56px;
+            height: 56px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: var(--white);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .slider-arrow:hover {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+        }
+
+        /* === STATS BAR === */
+        .stats-bar {
+            background: var(--primary);
+            padding: 60px 10%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .stat-item__number {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--cream);
+        }
+
+        .stat-item__label {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* === SERVICES === */
+        .services {
+            padding: 120px 10%;
+            background: var(--white);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card__bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s;
+        }
+
+        .service-card:hover .service-card__bg {
+            transform: scale(1.1);
+        }
+
+        .service-card:nth-child(1) .service-card__bg {
+            background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&q=80');
+        }
+        .service-card:nth-child(2) .service-card__bg {
+            background-image: url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80');
+        }
+        .service-card:nth-child(3) .service-card__bg {
+            background-image: url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&q=80');
+        }
+        .service-card:nth-child(4) .service-card__bg {
+            background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80');
+        }
+
+        .service-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(35,53,71,0.9) 0%, transparent 60%);
+        }
+
+        .service-card__content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+            color: var(--white);
+        }
+
+        .service-card__title {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .service-card__text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* === ABOUT === */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+
+        .about__image {
+            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80') center/cover;
+        }
+
+        .about__content {
+            padding: 100px 80px;
+            background: #f8f8f6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about__title {
+            font-family: var(--font-title);
+            font-size: 2.75rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .about__text {
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .about__list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .about__list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(35,53,71,0.1);
+            font-weight: 500;
+        }
+
+        .about__list li::before {
+            content: '✓';
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cream);
+            color: var(--primary);
+            border-radius: 50%;
+            font-weight: 700;
+        }
+
+        /* === RÉALISATIONS === */
+        .work {
+            padding: 120px 10%;
+            background: var(--white);
+        }
+
+        .work__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .work-card {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .work-card__bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s;
+        }
+
+        .work-card:hover .work-card__bg {
+            transform: scale(1.08);
+        }
+
+        .work-card:nth-child(1) .work-card__bg {
+            background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80');
+        }
+        .work-card:nth-child(2) .work-card__bg {
+            background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80');
+        }
+        .work-card:nth-child(3) .work-card__bg {
+            background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80');
+        }
+
+        .work-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(35,53,71,0.85) 0%, transparent 50%);
+        }
+
+        .work-card__content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+            color: var(--white);
+        }
+
+        .work-card__tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .work-card__title {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+        }
+
+        /* === CTA === */
+        .cta {
+            position: relative;
+            padding: 150px 10%;
+            background: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80') center/cover;
+        }
+
+        .cta__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(35,53,71,0.9);
+        }
+
+        .cta__content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            color: var(--white);
+        }
+
+        .cta__title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta__text {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta__buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn--outline-white {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn--outline-white:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 10% 40px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer__logo img {
+            height: 50px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+
+        .footer__about {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .footer h4 {
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            color: var(--cream);
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--cream);
+        }
+
+        .footer__bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .slide__title { font-size: 3.5rem; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .services__grid { grid-template-columns: repeat(2, 1fr); }
+            .about { grid-template-columns: 1fr; }
+            .about__image { min-height: 400px; }
+            .work__grid { grid-template-columns: 1fr 1fr; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 16px 24px; }
+            .nav { display: none; }
+            .slide__title { font-size: 2.5rem; }
+            .slide__content { padding: 0 24px; }
+            .slider-nav, .slider-arrows { display: none; }
+            .stats-bar { padding: 40px 24px; }
+            .services { padding: 80px 24px; }
+            .services__grid { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; gap: 24px; align-items: flex-start; }
+            .about__content { padding: 60px 24px; }
+            .work { padding: 80px 24px; }
+            .work__grid { grid-template-columns: 1fr; }
+            .cta { padding: 80px 24px; }
+            .cta__title { font-size: 2.25rem; }
+            .cta__buttons { flex-direction: column; }
+            .footer { padding: 60px 24px 40px; }
+            .footer__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <a href="/" class="logo">
+            <img src="assets/images/logo.png" alt="MJ Rénov">
+        </a>
+        <nav class="nav">
+            <a href="#services">Services</a>
+            <a href="#about">À propos</a>
+            <a href="#realisations">Réalisations</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header__cta">
+            <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
+            <a href="#contact" class="btn btn--white">Devis gratuit</a>
+        </div>
+    </header>
+
+    <section class="hero-slider">
+        <div class="slide active">
+            <div class="slide__bg"></div>
+            <div class="slide__overlay"></div>
+            <div class="slide__content">
+                <span class="slide__tag">Rénovation intérieure</span>
+                <h1 class="slide__title">Transformez votre intérieur</h1>
+                <p class="slide__text">Des travaux de qualité réalisés par un artisan de confiance à Reims et ses environs.</p>
+                <div class="slide__cta">
+                    <a href="#contact" class="btn btn--white">Demander un devis</a>
+                    <a href="#services" class="btn btn--outline-white">Nos services</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide__bg"></div>
+            <div class="slide__overlay"></div>
+            <div class="slide__content">
+                <span class="slide__tag">Cuisine & Salle de bain</span>
+                <h1 class="slide__title">Des espaces repensés</h1>
+                <p class="slide__text">Création et rénovation de cuisines et salles de bain sur mesure.</p>
+                <div class="slide__cta">
+                    <a href="#contact" class="btn btn--white">Demander un devis</a>
+                    <a href="#realisations" class="btn btn--outline-white">Voir nos réalisations</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide__bg"></div>
+            <div class="slide__overlay"></div>
+            <div class="slide__content">
+                <span class="slide__tag">Peinture & Revêtements</span>
+                <h1 class="slide__title">Finitions impeccables</h1>
+                <p class="slide__text">Peinture intérieure, extérieure, carrelage, parquet. Un travail soigné.</p>
+                <div class="slide__cta">
+                    <a href="#contact" class="btn btn--white">Demander un devis</a>
+                    <a href="#services" class="btn btn--outline-white">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide__bg"></div>
+            <div class="slide__overlay"></div>
+            <div class="slide__content">
+                <span class="slide__tag">Plomberie & Électricité</span>
+                <h1 class="slide__title">Installations aux normes</h1>
+                <p class="slide__text">Mise aux normes, rénovation et dépannage. Sécurité garantie.</p>
+                <div class="slide__cta">
+                    <a href="#contact" class="btn btn--white">Demander un devis</a>
+                    <a href="tel:0351001296" class="btn btn--outline-white">Appeler maintenant</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+
+        <div class="slider-arrows">
+            <button class="slider-arrow slider-prev">←</button>
+            <button class="slider-arrow slider-next">→</button>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-item__number">150+</div>
+            <div class="stat-item__label">Chantiers réalisés</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-item__number">10 ans</div>
+            <div class="stat-item__label">D'expérience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-item__number">100%</div>
+            <div class="stat-item__label">Clients satisfaits</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-item__number">30 km</div>
+            <div class="stat-item__label">Autour de Reims</div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <div>
+                <div class="section-tag">Nos expertises</div>
+                <h2 class="section-title">Services de rénovation</h2>
+            </div>
+            <a href="#" class="btn btn--primary">Tous nos services</a>
+        </div>
+        <div class="services__grid">
+            <div class="service-card">
+                <div class="service-card__bg"></div>
+                <div class="service-card__overlay"></div>
+                <div class="service-card__content">
+                    <h3 class="service-card__title">Peinture</h3>
+                    <p class="service-card__text">Intérieure, extérieure, ravalement de façade</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-card__bg"></div>
+                <div class="service-card__overlay"></div>
+                <div class="service-card__content">
+                    <h3 class="service-card__title">Revêtements</h3>
+                    <p class="service-card__text">Carrelage, parquet, faïence, sols souples</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-card__bg"></div>
+                <div class="service-card__overlay"></div>
+                <div class="service-card__content">
+                    <h3 class="service-card__title">Plomberie</h3>
+                    <p class="service-card__text">Salle de bain, cuisine, chauffage</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-card__bg"></div>
+                <div class="service-card__overlay"></div>
+                <div class="service-card__content">
+                    <h3 class="service-card__title">Électricité</h3>
+                    <p class="service-card__text">Mise aux normes, installation, dépannage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about__image"></div>
+        <div class="about__content">
+            <div class="section-tag">À propos</div>
+            <h2 class="about__title">Un artisan de confiance à vos côtés</h2>
+            <p class="about__text">Fort de plus de 10 ans d'expérience dans le bâtiment, je mets mon savoir-faire à votre service pour tous vos projets de rénovation à Reims et ses environs.</p>
+            <ul class="about__list">
+                <li>Artisan qualifié et assuré</li>
+                <li>Devis gratuit et détaillé sous 48h</li>
+                <li>Chantier propre et organisé</li>
+                <li>Respect des délais annoncés</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary">En savoir plus</a>
+        </div>
+    </section>
+
+    <section class="work" id="realisations">
+        <div class="section-header">
+            <div>
+                <div class="section-tag">Portfolio</div>
+                <h2 class="section-title">Nos réalisations</h2>
+            </div>
+            <a href="#" class="btn btn--primary">Voir tout</a>
+        </div>
+        <div class="work__grid">
+            <div class="work-card">
+                <div class="work-card__bg"></div>
+                <div class="work-card__overlay"></div>
+                <div class="work-card__content">
+                    <div class="work-card__tag">Rénovation complète</div>
+                    <h3 class="work-card__title">Appartement T3 - Reims Centre</h3>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-card__bg"></div>
+                <div class="work-card__overlay"></div>
+                <div class="work-card__content">
+                    <div class="work-card__tag">Salle de bain</div>
+                    <h3 class="work-card__title">Création salle d'eau - Tinqueux</h3>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-card__bg"></div>
+                <div class="work-card__overlay"></div>
+                <div class="work-card__content">
+                    <div class="work-card__tag">Cuisine</div>
+                    <h3 class="work-card__title">Rénovation cuisine - Cormontreuil</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="cta__overlay"></div>
+        <div class="cta__content">
+            <h2 class="cta__title">Un projet de rénovation ?</h2>
+            <p class="cta__text">Contactez-nous pour un devis gratuit et sans engagement. Réponse garantie sous 48h.</p>
+            <div class="cta__buttons">
+                <a href="#" class="btn btn--white">Demander un devis</a>
+                <a href="tel:0351001296" class="btn btn--outline-white">03 51 00 12 96</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo">
+                    <img src="assets/images/logo.png" alt="MJ Rénov">
+                </div>
+                <p class="footer__about">Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Réalisations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Peinture</a></li>
+                    <li><a href="#">Revêtements</a></li>
+                    <li><a href="#">Plomberie</a></li>
+                    <li><a href="#">Électricité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>35 Bd Carteret, 51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 MJ Rénov - Tous droits réservés</p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Slider functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetSlider() {
+            clearInterval(slideInterval);
+            startSlider();
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetSlider();
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetSlider();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetSlider();
+        });
+
+        startSlider();
+    </script>
+
+</body>
+</html>

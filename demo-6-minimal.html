@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ Rénov - Demo 6 : Minimal Élégant</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #233547;
+            --secondary: #3d5f79;
+            --black: #111111;
+            --white: #ffffff;
+            --gray: #888888;
+            --light: #fafafa;
+            --border: #e5e5e5;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* === HEADER ULTRA MINIMAL === */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 48px;
+        }
+
+        .nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--black);
+        }
+
+        .header__contact {
+            font-size: 0.875rem;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* === HERO MINIMAL === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 60px 100px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .hero__content {
+            max-width: 800px;
+        }
+
+        .hero__label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+
+        .hero__title {
+            font-family: var(--font-title);
+            font-size: 5.5rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 40px;
+        }
+
+        .hero__text {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 480px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        .hero__cta {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn--primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background: var(--primary);
+        }
+
+        .btn--link {
+            padding: 0;
+            color: var(--black);
+            border-bottom: 1px solid var(--black);
+        }
+
+        .btn--link:hover {
+            color: var(--gray);
+            border-color: var(--gray);
+        }
+
+        .hero__image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            height: 70vh;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80') center/cover;
+        }
+
+        /* === SECTION === */
+        .section {
+            padding: 140px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section--full {
+            max-width: none;
+            padding: 0;
+        }
+
+        .section__header {
+            margin-bottom: 80px;
+        }
+
+        .section__label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .section__title {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        /* === SERVICES MINIMAL === */
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-top: 1px solid var(--border);
+        }
+
+        .service-item {
+            padding: 60px;
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item:nth-child(2n) {
+            border-right: none;
+        }
+
+        .service-item:hover {
+            background: var(--light);
+        }
+
+        .service-item__number {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+
+        .service-item__title {
+            font-family: var(--font-title);
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .service-item__text {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .service-item__arrow {
+            margin-top: 32px;
+            font-size: 1.5rem;
+            color: var(--gray);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .service-item:hover .service-item__arrow {
+            transform: translateX(8px);
+            color: var(--black);
+        }
+
+        /* === IMAGE BAND === */
+        .image-band {
+            height: 70vh;
+            background: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80') center/cover;
+        }
+
+        /* === ABOUT MINIMAL === */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .about__image {
+            aspect-ratio: 4/5;
+            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80') center/cover;
+        }
+
+        .about__content .section__title {
+            margin-bottom: 32px;
+        }
+
+        .about__text {
+            font-size: 1.0625rem;
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 40px;
+        }
+
+        .about__list {
+            list-style: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .about__list li {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about__list li span:first-child {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .about__list li span:last-child {
+            font-weight: 500;
+        }
+
+        /* === STATS === */
+        .stats {
+            background: var(--black);
+            color: var(--white);
+            padding: 100px 60px;
+        }
+
+        .stats__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item__number {
+            font-family: var(--font-title);
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .stat-item__label {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-top: 12px;
+        }
+
+        /* === WORK MINIMAL === */
+        .work__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .work__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .work-item {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .work-item__image {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .work-item__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .work-item:hover .work-item__image img {
+            transform: scale(1.05);
+        }
+
+        .work-item__category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .work-item__title {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        /* === CTA MINIMAL === */
+        .cta {
+            padding: 160px 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta__title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .cta__text {
+            font-size: 1.125rem;
+            color: var(--gray);
+            margin-bottom: 48px;
+            line-height: 1.8;
+        }
+
+        .cta__buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .cta__phone {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .cta__phone a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 4px;
+        }
+
+        /* === FOOTER MINIMAL === */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 80px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer__logo {
+            margin-bottom: 24px;
+        }
+
+        .footer__logo img {
+            height: 40px;
+        }
+
+        .footer__about {
+            color: var(--gray);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .footer h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .footer ul { list-style: none; }
+
+        .footer ul li { margin-bottom: 12px; }
+
+        .footer a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover { color: var(--gray); }
+
+        .footer__bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8125rem;
+            color: var(--gray);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1200px) {
+            .hero__title { font-size: 4rem; }
+            .hero__image { display: none; }
+            .services__grid { grid-template-columns: 1fr; }
+            .service-item { border-right: none; }
+            .about { grid-template-columns: 1fr; gap: 60px; }
+            .work__grid { grid-template-columns: 1fr 1fr; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .header__inner { padding: 16px 24px; }
+            .nav { display: none; }
+            .hero { padding: 120px 24px 80px; }
+            .hero__title { font-size: 2.75rem; letter-spacing: -1px; }
+            .hero__text { font-size: 1rem; }
+            .hero__cta { flex-direction: column; align-items: flex-start; }
+            .section { padding: 80px 24px; }
+            .section__title { font-size: 2.25rem; }
+            .service-item { padding: 40px 24px; }
+            .stats { padding: 60px 24px; }
+            .stats__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .stat-item__number { font-size: 2.5rem; }
+            .work__grid { grid-template-columns: 1fr; }
+            .work__header { flex-direction: column; gap: 24px; align-items: flex-start; }
+            .cta { padding: 80px 24px; }
+            .cta__title { font-size: 2.25rem; }
+            .cta__buttons { flex-direction: column; }
+            .footer { padding: 60px 24px; }
+            .footer__grid { grid-template-columns: 1fr; gap: 48px; }
+            .footer__bottom { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__inner">
+            <a href="/" class="logo">
+                <img src="assets/images/logo.png" alt="MJ Rénov">
+            </a>
+            <nav class="nav">
+                <a href="#services">Services</a>
+                <a href="#about">À propos</a>
+                <a href="#work">Réalisations</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="tel:0351001296" class="header__contact">03 51 00 12 96</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero__content">
+            <div class="hero__label">Artisan à Reims</div>
+            <h1 class="hero__title">Rénovation intérieure</h1>
+            <p class="hero__text">Peinture, revêtements, plomberie, électricité. Un savoir-faire artisanal au service de vos projets depuis plus de 10 ans.</p>
+            <div class="hero__cta">
+                <a href="#contact" class="btn btn--primary">Demander un devis</a>
+                <a href="#work" class="btn btn--link">Voir nos réalisations</a>
+            </div>
+        </div>
+        <div class="hero__image"></div>
+    </section>
+
+    <section class="section section--full" id="services">
+        <div class="section" style="padding-bottom: 0;">
+            <div class="section__header">
+                <div class="section__label">Services</div>
+                <h2 class="section__title">Nos expertises</h2>
+            </div>
+        </div>
+        <div class="services__grid">
+            <a href="#" class="service-item">
+                <div class="service-item__number">01</div>
+                <h3 class="service-item__title">Peinture</h3>
+                <p class="service-item__text">Peinture intérieure et extérieure, ravalement de façade, traitement des surfaces. Finitions soignées et durables.</p>
+                <span class="service-item__arrow">→</span>
+            </a>
+            <a href="#" class="service-item">
+                <div class="service-item__number">02</div>
+                <h3 class="service-item__title">Revêtements sols & murs</h3>
+                <p class="service-item__text">Carrelage, parquet, faïence, sols souples. Pose experte et finitions impeccables pour tous vos espaces.</p>
+                <span class="service-item__arrow">→</span>
+            </a>
+            <a href="#" class="service-item">
+                <div class="service-item__number">03</div>
+                <h3 class="service-item__title">Plomberie</h3>
+                <p class="service-item__text">Installation, rénovation et dépannage. Salle de bain, cuisine, chauffage. Travail propre et soigné.</p>
+                <span class="service-item__arrow">→</span>
+            </a>
+            <a href="#" class="service-item">
+                <div class="service-item__number">04</div>
+                <h3 class="service-item__title">Électricité</h3>
+                <p class="service-item__text">Mise aux normes, installation complète, dépannage et rénovation électrique. Sécurité garantie.</p>
+                <span class="service-item__arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <div class="image-band"></div>
+
+    <section class="section" id="about">
+        <div class="about">
+            <div class="about__image"></div>
+            <div class="about__content">
+                <div class="section__label">À propos</div>
+                <h2 class="section__title">Un artisan de confiance</h2>
+                <p class="about__text">Fort de plus de 10 ans d'expérience dans le bâtiment, je mets mon savoir-faire à votre service pour tous vos projets de rénovation à Reims et ses environs. Mon engagement : un travail soigné, le respect des délais et une communication transparente.</p>
+                <ul class="about__list">
+                    <li>
+                        <span>Expérience</span>
+                        <span>10+ années</span>
+                    </li>
+                    <li>
+                        <span>Chantiers réalisés</span>
+                        <span>150+</span>
+                    </li>
+                    <li>
+                        <span>Zone d'intervention</span>
+                        <span>30 km autour de Reims</span>
+                    </li>
+                    <li>
+                        <span>Délai devis</span>
+                        <span>48h</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats__grid">
+            <div class="stat-item">
+                <div class="stat-item__number">150+</div>
+                <div class="stat-item__label">Chantiers réalisés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-item__number">10</div>
+                <div class="stat-item__label">Années d'expérience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-item__number">100%</div>
+                <div class="stat-item__label">Clients satisfaits</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-item__number">48h</div>
+                <div class="stat-item__label">Délai de réponse</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="work">
+        <div class="work__header">
+            <div>
+                <div class="section__label">Portfolio</div>
+                <h2 class="section__title">Réalisations récentes</h2>
+            </div>
+            <a href="#" class="btn btn--link">Voir tout →</a>
+        </div>
+        <div class="work__grid">
+            <a href="#" class="work-item">
+                <div class="work-item__image">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Appartement Reims">
+                </div>
+                <div class="work-item__category">Rénovation complète</div>
+                <h3 class="work-item__title">Appartement T3 - Reims Centre</h3>
+            </a>
+            <a href="#" class="work-item">
+                <div class="work-item__image">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain">
+                </div>
+                <div class="work-item__category">Salle de bain</div>
+                <h3 class="work-item__title">Création salle d'eau - Tinqueux</h3>
+            </a>
+            <a href="#" class="work-item">
+                <div class="work-item__image">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Cuisine">
+                </div>
+                <div class="work-item__category">Cuisine</div>
+                <h3 class="work-item__title">Rénovation cuisine - Cormontreuil</h3>
+            </a>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <h2 class="cta__title">Un projet de rénovation ?</h2>
+        <p class="cta__text">Contactez-nous pour un devis gratuit et sans engagement. Réponse garantie sous 48h.</p>
+        <div class="cta__buttons">
+            <a href="#" class="btn btn--primary">Demander un devis gratuit</a>
+        </div>
+        <div class="cta__phone">
+            <a href="tel:0351001296">03 51 00 12 96</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo">
+                    <img src="assets/images/logo.png" alt="MJ Rénov">
+                </div>
+                <p class="footer__about">Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Réalisations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Peinture</a></li>
+                    <li><a href="#">Revêtements</a></li>
+                    <li><a href="#">Plomberie</a></li>
+                    <li><a href="#">Électricité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>35 Bd Carteret<br>51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 MJ Rénov - Tous droits réservés</p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - MJ Rénov | Artisan Rénovation Reims depuis 10 ans</title>
+    <meta name="description" content="Découvrez MJ Rénov, artisan rénovation à Reims depuis plus de 10 ans. Notre histoire, nos valeurs et notre engagement qualité pour vos projets.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
+            --white: #ffffff;
+            --gray: #64748b;
+            --orange-cta: #e07a3d;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--gris-pierre); color: var(--bleu-profond); overflow-x: hidden; }
+
+        /* === HEADER === */
+        .header { position: fixed; width: 100%; top: 0; z-index: 100; padding: 16px 5%; transition: all 0.4s; }
+        .header.scrolled { background: var(--white); box-shadow: 0 4px 30px rgba(35,53,71,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; background: var(--white); padding: 12px 32px; border-radius: 60px; box-shadow: 0 4px 24px rgba(35,53,71,0.1); }
+        .header.scrolled .header__inner { background: transparent; box-shadow: none; padding: 12px 0; }
+        .logo img { height: 40px; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
+        .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
+        .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .header__cta { display: flex; align-items: center; gap: 20px; }
+        .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        .btn { padding: 14px 28px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border-radius: 8px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .btn--primary { background: var(--orange-cta); color: var(--white); }
+        .btn--primary:hover { background: #c96a2f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(224,122,61,0.3); }
+        .btn--sm { padding: 10px 20px; font-size: 0.8rem; }
+        .btn--outline { border: 2px solid var(--bleu-profond); color: var(--bleu-profond); background: transparent; }
+        .btn--outline:hover { background: var(--bleu-profond); color: var(--white); }
+
+        /* === PAGE HEADER === */
+        .page-header { padding: 180px 5% 100px; background: var(--bleu-profond); color: var(--white); text-align: center; }
+        .page-header__tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .page-header__tag-line { width: 40px; height: 2px; background: var(--orange-cta); }
+        .page-header__tag-text { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--orange-cta); }
+        .page-header__title { font-family: var(--font-title); font-size: 3.5rem; margin-bottom: 20px; }
+        .page-header__text { font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+        /* === STORY === */
+        .story { padding: 120px 5%; background: var(--white); }
+        .story__inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        .story__image { position: relative; }
+        .story__image img { width: 100%; border-radius: 16px; box-shadow: 0 30px 60px rgba(35,53,71,0.12); }
+        .story__badge { position: absolute; bottom: -30px; right: -30px; background: var(--orange-cta); color: var(--white); padding: 28px; border-radius: 16px; text-align: center; box-shadow: 0 20px 40px rgba(224,122,61,0.3); }
+        .story__badge-number { font-family: var(--font-title); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+        .story__badge-label { font-size: 0.8rem; margin-top: 4px; opacity: 0.9; }
+        .story__content { }
+        .story__tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .story__tag-line { width: 40px; height: 2px; background: var(--bleu-archi); }
+        .story__tag-text { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--bleu-archi); }
+        .story__title { font-family: var(--font-title); font-size: 2.5rem; margin-bottom: 24px; }
+        .story__text { color: var(--gray); font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px; }
+
+        /* === VALUES === */
+        .values { padding: 120px 5%; background: var(--beige-ciment); }
+        .values__header { max-width: 600px; margin: 0 auto 80px; text-align: center; }
+        .values__tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .values__tag-line { width: 40px; height: 2px; background: var(--bleu-archi); }
+        .values__tag-text { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--bleu-archi); }
+        .values__title { font-family: var(--font-title); font-size: 2.5rem; }
+
+        .values__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1400px; margin: 0 auto; }
+        .value-card { padding: 40px 32px; background: var(--white); border-radius: 16px; text-align: center; transition: all 0.4s; }
+        .value-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(35,53,71,0.1); }
+        .value-card__icon { width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; background: var(--bleu-archi); color: var(--white); border-radius: 50%; margin: 0 auto 24px; }
+        .value-card__title { font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 12px; }
+        .value-card__text { color: var(--gray); font-size: 0.9rem; line-height: 1.7; }
+
+        /* === STATS === */
+        .stats { padding: 100px 5%; background: var(--bleu-profond); }
+        .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .stat { text-align: center; color: var(--white); }
+        .stat__number { font-family: var(--font-title); font-size: 4rem; font-weight: 700; color: var(--orange-cta); line-height: 1; margin-bottom: 8px; }
+        .stat__label { font-size: 1rem; opacity: 0.8; }
+
+        /* === GUARANTEES === */
+        .guarantees { padding: 120px 5%; }
+        .guarantees__header { max-width: 600px; margin: 0 auto 80px; text-align: center; }
+        .guarantees__tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .guarantees__tag-line { width: 40px; height: 2px; background: var(--bleu-archi); }
+        .guarantees__tag-text { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--bleu-archi); }
+        .guarantees__title { font-family: var(--font-title); font-size: 2.5rem; }
+
+        .guarantees__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; }
+        .guarantee { display: flex; gap: 24px; padding: 32px; background: var(--white); border-radius: 16px; box-shadow: 0 4px 20px rgba(35,53,71,0.06); }
+        .guarantee__icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: var(--bleu-archi); color: var(--white); border-radius: 12px; flex-shrink: 0; }
+        .guarantee__content { }
+        .guarantee__title { font-family: var(--font-title); font-size: 1.2rem; margin-bottom: 8px; }
+        .guarantee__text { color: var(--gray); font-size: 0.9rem; line-height: 1.7; }
+
+        /* === CTA === */
+        .cta { position: relative; padding: 120px 5%; background: var(--bleu-profond); overflow: hidden; }
+        .cta::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80') center/cover; opacity: 0.12; }
+        .cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; text-align: center; color: var(--white); }
+        .cta__title { font-family: var(--font-title); font-size: 2.75rem; margin-bottom: 20px; }
+        .cta__title span { color: var(--beige-ciment); }
+        .cta__text { font-size: 1.1rem; opacity: 0.8; margin-bottom: 32px; line-height: 1.8; }
+        .cta__buttons { display: flex; justify-content: center; gap: 16px; }
+        .cta__buttons .btn--outline { border-color: rgba(255,255,255,0.3); color: var(--white); }
+        .cta__buttons .btn--outline:hover { background: var(--white); color: var(--bleu-profond); }
+
+        /* === FOOTER === */
+        .footer { background: #1a2530; color: var(--white); padding: 80px 5% 40px; }
+        .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto 60px; }
+        .footer__logo img { height: 45px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+        .footer__about { color: var(--gray); line-height: 1.8; }
+        .footer h4 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--beige-ciment); margin-bottom: 24px; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer a { color: var(--gray); text-decoration: none; transition: color 0.3s; }
+        .footer a:hover { color: var(--beige-ciment); }
+        .footer__bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); }
+        .footer__bottom a { color: var(--beige-ciment); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .story__inner { grid-template-columns: 1fr; gap: 60px; }
+            .story__badge { right: 20px; bottom: -20px; }
+            .values__grid { grid-template-columns: repeat(2, 1fr); }
+            .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+            .guarantees__grid { grid-template-columns: 1fr; }
+            .page-header__title { font-size: 2.5rem; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .page-header { padding: 140px 5% 60px; }
+            .page-header__title { font-size: 2rem; }
+            .story { padding: 80px 5%; }
+            .story__title { font-size: 2rem; }
+            .values { padding: 80px 5%; }
+            .values__grid { grid-template-columns: 1fr; }
+            .stats { padding: 60px 5%; }
+            .stat__number { font-size: 3rem; }
+            .guarantees { padding: 80px 5%; }
+            .cta__title { font-size: 2rem; }
+            .cta__buttons { flex-direction: column; }
+            .footer__grid { grid-template-columns: 1fr; text-align: center; }
+            .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
+            <nav class="nav">
+                <a href="index.html">Accueil</a>
+                <a href="services.html">Services</a>
+                <a href="realisations.html">Réalisations</a>
+                <a href="a-propos.html" class="active">À propos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="header__cta">
+                <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
+                <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header__tag">
+            <span class="page-header__tag-line"></span>
+            <span class="page-header__tag-text">À propos</span>
+            <span class="page-header__tag-line"></span>
+        </div>
+        <h1 class="page-header__title">Votre artisan de confiance</h1>
+        <p class="page-header__text">Depuis plus de 10 ans, nous accompagnons les particuliers dans leurs projets de rénovation à Reims.</p>
+    </section>
+
+    <section class="story">
+        <div class="story__inner">
+            <div class="story__image">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Majid EL HAOUARI - Artisan MJ Rénov">
+                <div class="story__badge">
+                    <div class="story__badge-number">10+</div>
+                    <div class="story__badge-label">Années d'expérience</div>
+                </div>
+            </div>
+            <div class="story__content">
+                <div class="story__tag">
+                    <span class="story__tag-line"></span>
+                    <span class="story__tag-text">Notre histoire</span>
+                </div>
+                <h2 class="story__title">Un artisan passionné à votre service</h2>
+                <p class="story__text">MJ Rénov est né de la passion de Majid EL HAOUARI pour le bâtiment et la rénovation. Après plus de 10 ans d'expérience dans le secteur, j'ai décidé de créer ma propre entreprise pour offrir un service de qualité, proche de mes clients.</p>
+                <p class="story__text">Basé à Reims, j'interviens dans toute l'agglomération et les communes environnantes dans un rayon de 30 kilomètres. Mon objectif : transformer vos espaces de vie en respectant vos attentes et votre budget.</p>
+                <p class="story__text">Chaque chantier est unique et mérite une attention particulière. C'est pourquoi je m'engage personnellement sur chaque projet, de l'étude à la livraison.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="values__header">
+            <div class="values__tag">
+                <span class="values__tag-line"></span>
+                <span class="values__tag-text">Nos valeurs</span>
+                <span class="values__tag-line"></span>
+            </div>
+            <h2 class="values__title">Ce qui nous anime au quotidien</h2>
+        </div>
+        <div class="values__grid">
+            <div class="value-card">
+                <div class="value-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h3 class="value-card__title">Qualité</h3>
+                <p class="value-card__text">Des finitions soignées et des matériaux de qualité pour un résultat durable.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3 class="value-card__title">Proximité</h3>
+                <p class="value-card__text">Un interlocuteur unique, disponible et à l'écoute tout au long du projet.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h3 class="value-card__title">Fiabilité</h3>
+                <p class="value-card__text">Respect des délais et des engagements pris lors du devis.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <h3 class="value-card__title">Transparence</h3>
+                <p class="value-card__text">Des devis clairs et détaillés, sans mauvaise surprise à la fin du chantier.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats__grid">
+            <div class="stat">
+                <div class="stat__number">150+</div>
+                <div class="stat__label">Chantiers réalisés</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">10</div>
+                <div class="stat__label">Années d'expérience</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">100%</div>
+                <div class="stat__label">Clients satisfaits</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">30km</div>
+                <div class="stat__label">Zone d'intervention</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guarantees">
+        <div class="guarantees__header">
+            <div class="guarantees__tag">
+                <span class="guarantees__tag-line"></span>
+                <span class="guarantees__tag-text">Nos garanties</span>
+                <span class="guarantees__tag-line"></span>
+            </div>
+            <h2 class="guarantees__title">Travailler avec nous, c'est l'assurance de</h2>
+        </div>
+        <div class="guarantees__grid">
+            <div class="guarantee">
+                <div class="guarantee__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+                <div class="guarantee__content">
+                    <h3 class="guarantee__title">Devis gratuit sous 48h</h3>
+                    <p class="guarantee__text">Nous nous engageons à vous fournir un devis détaillé dans les 48 heures suivant votre demande.</p>
+                </div>
+            </div>
+            <div class="guarantee">
+                <div class="guarantee__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="guarantee__content">
+                    <h3 class="guarantee__title">Artisan assuré</h3>
+                    <p class="guarantee__text">Garantie décennale et responsabilité civile professionnelle pour votre tranquillité.</p>
+                </div>
+            </div>
+            <div class="guarantee">
+                <div class="guarantee__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <div class="guarantee__content">
+                    <h3 class="guarantee__title">Chantier propre</h3>
+                    <p class="guarantee__text">Protection des espaces non concernés et nettoyage soigné en fin de chantier.</p>
+                </div>
+            </div>
+            <div class="guarantee">
+                <div class="guarantee__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="guarantee__content">
+                    <h3 class="guarantee__title">Satisfaction garantie</h3>
+                    <p class="guarantee__text">Nous ne considérons un chantier terminé que lorsque vous êtes pleinement satisfait.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta__content">
+            <h2 class="cta__title">Prêt à <span>collaborer</span> ?</h2>
+            <p class="cta__text">Parlons de votre projet. Premier contact sans engagement, devis gratuit et conseils personnalisés.</p>
+            <div class="cta__buttons">
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+                <a href="tel:0351001296" class="btn btn--outline">03 51 00 12 96</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="assets/images/logo.png" alt="MJ Rénov"></div>
+                <p class="footer__about">Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#peinture">Peinture</a></li>
+                    <li><a href="services.html#revetements">Revêtements</a></li>
+                    <li><a href="services.html#plomberie">Plomberie</a></li>
+                    <li><a href="services.html#electricite">Électricité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>35 Bd Carteret, 51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 MJ Rénov - Tous droits réservés</p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - MJ Rénov | Peinture, Carrelage, Plomberie, Électricité à Reims</title>
+    <meta name="description" content="Découvrez tous les services de rénovation MJ Rénov à Reims : peinture intérieure et extérieure, carrelage, parquet, plomberie, électricité. Devis gratuit.">
+    <meta property="og:title" content="Services de Rénovation - MJ Rénov Reims">
+    <meta property="og:description" content="Peinture, revêtements, plomberie, électricité. Tous vos travaux de rénovation par un artisan qualifié.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
+            --white: #ffffff;
+            --gray: #64748b;
+            --orange-cta: #e07a3d;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--gris-pierre); color: var(--bleu-profond); overflow-x: hidden; }
+
+        /* === HEADER === */
+        .header { position: fixed; width: 100%; top: 0; z-index: 100; padding: 16px 5%; transition: all 0.4s; }
+        .header.scrolled { background: var(--white); box-shadow: 0 4px 30px rgba(35,53,71,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; background: var(--white); padding: 12px 32px; border-radius: 60px; box-shadow: 0 4px 24px rgba(35,53,71,0.1); }
+        .header.scrolled .header__inner { background: transparent; box-shadow: none; padding: 12px 0; }
+        .logo img { height: 40px; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
+        .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
+        .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .header__cta { display: flex; align-items: center; gap: 20px; }
+        .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        .btn { padding: 14px 28px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border-radius: 8px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .btn--primary { background: var(--orange-cta); color: var(--white); }
+        .btn--primary:hover { background: #c96a2f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(224,122,61,0.3); }
+        .btn--sm { padding: 10px 20px; font-size: 0.8rem; }
+        .btn--outline { border: 2px solid var(--bleu-profond); color: var(--bleu-profond); background: transparent; }
+        .btn--outline:hover { background: var(--bleu-profond); color: var(--white); }
+        .btn--white { background: var(--white); color: var(--bleu-profond); }
+        .btn--white:hover { background: var(--beige-ciment); transform: translateY(-2px); }
+
+        /* === PAGE HEADER === */
+        .page-header { padding: 180px 5% 100px; background: var(--bleu-profond); color: var(--white); text-align: center; }
+        .page-header__tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .page-header__tag-line { width: 40px; height: 2px; background: var(--orange-cta); }
+        .page-header__tag-text { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--orange-cta); }
+        .page-header__title { font-family: var(--font-title); font-size: 3.5rem; margin-bottom: 20px; }
+        .page-header__text { font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+        /* === SERVICES DETAIL === */
+        .service-detail { padding: 120px 5%; }
+        .service-detail:nth-child(even) { background: var(--white); }
+        .service-detail__inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .service-detail:nth-child(even) .service-detail__inner { direction: rtl; }
+        .service-detail:nth-child(even) .service-detail__inner > * { direction: ltr; }
+        .service-detail__image { border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px rgba(35,53,71,0.12); }
+        .service-detail__image img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .service-detail__content { }
+        .service-detail__icon { width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; background: var(--bleu-archi); color: var(--white); border-radius: 16px; margin-bottom: 24px; }
+        .service-detail__title { font-family: var(--font-title); font-size: 2.5rem; margin-bottom: 20px; color: var(--bleu-profond); }
+        .service-detail__text { color: var(--gray); font-size: 1.05rem; line-height: 1.9; margin-bottom: 32px; }
+        .service-detail__list { list-style: none; margin-bottom: 32px; }
+        .service-detail__list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--beige-ciment); color: var(--graphite); }
+        .service-detail__list li svg { color: var(--bleu-archi); flex-shrink: 0; }
+
+        /* === CTA === */
+        .cta { position: relative; padding: 120px 5%; background: var(--bleu-profond); overflow: hidden; }
+        .cta::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80') center/cover; opacity: 0.12; }
+        .cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; text-align: center; color: var(--white); }
+        .cta__title { font-family: var(--font-title); font-size: 2.75rem; margin-bottom: 20px; }
+        .cta__title span { color: var(--beige-ciment); }
+        .cta__text { font-size: 1.1rem; opacity: 0.8; margin-bottom: 32px; line-height: 1.8; }
+        .cta__buttons { display: flex; justify-content: center; gap: 16px; }
+        .cta__buttons .btn--outline { border-color: rgba(255,255,255,0.3); color: var(--white); }
+        .cta__buttons .btn--outline:hover { background: var(--white); color: var(--bleu-profond); }
+
+        /* === FOOTER === */
+        .footer { background: #1a2530; color: var(--white); padding: 80px 5% 40px; }
+        .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto 60px; }
+        .footer__logo img { height: 45px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+        .footer__about { color: var(--gray); line-height: 1.8; }
+        .footer h4 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--beige-ciment); margin-bottom: 24px; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer a { color: var(--gray); text-decoration: none; transition: color 0.3s; }
+        .footer a:hover { color: var(--beige-ciment); }
+        .footer__bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); }
+        .footer__bottom a { color: var(--beige-ciment); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .service-detail__inner { grid-template-columns: 1fr; gap: 40px; }
+            .service-detail:nth-child(even) .service-detail__inner { direction: ltr; }
+            .page-header__title { font-size: 2.5rem; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .page-header { padding: 140px 5% 60px; }
+            .page-header__title { font-size: 2rem; }
+            .service-detail { padding: 80px 5%; }
+            .service-detail__title { font-size: 1.75rem; }
+            .cta__title { font-size: 2rem; }
+            .cta__buttons { flex-direction: column; }
+            .footer__grid { grid-template-columns: 1fr; text-align: center; }
+            .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
+            <nav class="nav">
+                <a href="index.html">Accueil</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="realisations.html">Réalisations</a>
+                <a href="a-propos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="header__cta">
+                <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
+                <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header__tag">
+            <span class="page-header__tag-line"></span>
+            <span class="page-header__tag-text">Nos services</span>
+            <span class="page-header__tag-line"></span>
+        </div>
+        <h1 class="page-header__title">Expertise complète en rénovation</h1>
+        <p class="page-header__text">De la peinture à l'électricité, nous intervenons sur tous les corps de métier pour transformer votre intérieur.</p>
+    </section>
+
+    <section class="service-detail" id="peinture">
+        <div class="service-detail__inner">
+            <div class="service-detail__image">
+                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80" alt="Travaux de peinture">
+            </div>
+            <div class="service-detail__content">
+                <div class="service-detail__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <h2 class="service-detail__title">Peinture</h2>
+                <p class="service-detail__text">Nous réalisons tous vos travaux de peinture intérieure et extérieure avec des finitions soignées. Notre expertise nous permet d'intervenir sur tous types de supports.</p>
+                <ul class="service-detail__list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Peinture intérieure (murs, plafonds, boiseries)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Peinture extérieure et ravalement de façade</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Pose de papier peint et revêtements muraux</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Traitement et préparation des supports</li>
+                </ul>
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="revetements">
+        <div class="service-detail__inner">
+            <div class="service-detail__image">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Pose de carrelage">
+            </div>
+            <div class="service-detail__content">
+                <div class="service-detail__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </div>
+                <h2 class="service-detail__title">Revêtements de sol et mur</h2>
+                <p class="service-detail__text">Carrelage, parquet, faïence... Nous posons tous types de revêtements avec précision pour un rendu esthétique et durable.</p>
+                <ul class="service-detail__list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Carrelage sol et mur (grès cérame, faïence)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Parquet massif, contrecollé et stratifié</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Sols souples (vinyle, lino, moquette)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Ragréage et préparation des sols</li>
+                </ul>
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="plomberie">
+        <div class="service-detail__inner">
+            <div class="service-detail__image">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain moderne">
+            </div>
+            <div class="service-detail__content">
+                <div class="service-detail__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                </div>
+                <h2 class="service-detail__title">Plomberie</h2>
+                <p class="service-detail__text">De l'installation complète à la rénovation de salle de bain, nous assurons tous vos travaux de plomberie avec professionnalisme.</p>
+                <ul class="service-detail__list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Création et rénovation de salle de bain</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Installation sanitaires (WC, lavabo, douche)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Plomberie cuisine (évier, lave-vaisselle)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Remplacement et réparation de canalisations</li>
+                </ul>
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="electricite">
+        <div class="service-detail__inner">
+            <div class="service-detail__image">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Installation électrique">
+            </div>
+            <div class="service-detail__content">
+                <div class="service-detail__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <h2 class="service-detail__title">Électricité</h2>
+                <p class="service-detail__text">Mise aux normes, installation complète ou dépannage, nous intervenons pour tous vos besoins électriques en toute sécurité.</p>
+                <ul class="service-detail__list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Mise aux normes électriques (NF C 15-100)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Installation tableau électrique</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Pose de prises, interrupteurs, luminaires</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Dépannage et recherche de pannes</li>
+                </ul>
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta__content">
+            <h2 class="cta__title">Un projet de <span>rénovation</span> ?</h2>
+            <p class="cta__text">Contactez-nous pour un devis gratuit et personnalisé. Nous étudions votre projet et vous répondons sous 48h.</p>
+            <div class="cta__buttons">
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+                <a href="tel:0351001296" class="btn btn--outline">03 51 00 12 96</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="assets/images/logo.png" alt="MJ Rénov"></div>
+                <p class="footer__about">Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#peinture">Peinture</a></li>
+                    <li><a href="services.html#revetements">Revêtements</a></li>
+                    <li><a href="services.html#plomberie">Plomberie</a></li>
+                    <li><a href="services.html#electricite">Électricité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>35 Bd Carteret, 51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 MJ Rénov - Tous droits réservés</p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+
+</body>
+</html>

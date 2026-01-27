@@ -493,17 +493,18 @@
         }
 
         .about__list li::before {
-            content: '✓';
+            content: '';
             width: 32px;
             height: 32px;
+            min-width: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(61,95,121,0.3);
-            color: var(--beige-ciment);
             border-radius: 50%;
-            font-size: 0.8rem;
-            font-weight: 700;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e5e1d9' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         /* === WORK === */
@@ -826,14 +827,14 @@
             </div>
             <div class="hero__stats">
                 <div class="hero-stat">
-                    <div class="hero-stat__icon">🏠</div>
+                    <div class="hero-stat__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
                     <div>
                         <div class="hero-stat__number">150+</div>
                         <div class="hero-stat__label">Chantiers réalisés</div>
                     </div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat__icon">⭐</div>
+                    <div class="hero-stat__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
                     <div>
                         <div class="hero-stat__number">100%</div>
                         <div class="hero-stat__label">Clients satisfaits</div>
@@ -858,22 +859,22 @@
         </div>
         <div class="services__grid">
             <a href="#" class="service-card">
-                <div class="service-card__icon">🎨</div>
+                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/><path d="M8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/><path d="M21 15l-5-5L5 21"/></svg></div>
                 <h3 class="service-card__title">Peinture</h3>
                 <p class="service-card__text">Intérieure, extérieure et ravalement de façade</p>
             </a>
             <a href="#" class="service-card">
-                <div class="service-card__icon">🔲</div>
+                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
                 <h3 class="service-card__title">Revêtements</h3>
                 <p class="service-card__text">Carrelage, parquet, faïence et sols souples</p>
             </a>
             <a href="#" class="service-card">
-                <div class="service-card__icon">🔧</div>
+                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
                 <h3 class="service-card__title">Plomberie</h3>
                 <p class="service-card__text">Salle de bain, cuisine et chauffage</p>
             </a>
             <a href="#" class="service-card">
-                <div class="service-card__icon">⚡</div>
+                <div class="service-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
                 <h3 class="service-card__title">Électricité</h3>
                 <p class="service-card__text">Mise aux normes et installation complète</p>
             </a>

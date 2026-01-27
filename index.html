@@ -3,481 +3,978 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MJ Rénov - Entreprise de rénovation à Reims. Peinture, revêtements sols et murs, plomberie, électricité. Devis gratuit sous 48h.">
-
-    <!-- Open Graph -->
+    <title>MJ Rénov - Artisan Rénovation à Reims</title>
+    <meta name="description" content="MJ Rénov, votre artisan de confiance pour tous vos travaux de rénovation à Reims : peinture, carrelage, plomberie, électricité. Devis gratuit sous 48h.">
     <meta property="og:title" content="MJ Rénov - Rénovation à Reims">
     <meta property="og:description" content="Votre artisan de confiance pour tous vos travaux de rénovation à Reims et alentours.">
     <meta property="og:image" content="assets/images/og-image.jpg">
     <meta property="og:url" content="https://mj-renov-reims.com">
-
-    <title>MJ Rénov - Rénovation de bâtiments à Reims | Devis gratuit</title>
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            /* Couleurs client MJ Rénov */
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
+            --white: #ffffff;
+            --gray: #64748b;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--gris-pierre);
+            color: var(--bleu-profond);
+            overflow-x: hidden;
+        }
+
+        /* === HEADER === */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            padding: 16px 5%;
+            transition: all 0.4s;
+        }
+
+        .header.scrolled {
+            background: var(--white);
+            box-shadow: 0 4px 30px rgba(35,53,71,0.08);
+        }
+
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 12px 32px;
+            border-radius: 60px;
+            box-shadow: 0 4px 24px rgba(35,53,71,0.1);
+        }
+
+        .header.scrolled .header__inner {
+            background: transparent;
+            box-shadow: none;
+            padding: 12px 0;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: var(--bleu-profond);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bleu-archi);
+            transition: width 0.3s;
+        }
+
+        .nav a:hover::after { width: 100%; }
+
+        .header__cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header__phone {
+            color: var(--bleu-profond);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn--primary {
+            background: var(--bleu-archi);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background: var(--bleu-profond);
+            transform: translateY(-2px);
+        }
+
+        .btn--sm {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+        }
+
+        .btn--outline {
+            border: 2px solid var(--bleu-profond);
+            color: var(--bleu-profond);
+            background: transparent;
+        }
+
+        .btn--outline:hover {
+            background: var(--bleu-profond);
+            color: var(--white);
+        }
+
+        .btn--white {
+            background: var(--white);
+            color: var(--bleu-profond);
+        }
+
+        .btn--white:hover {
+            background: var(--beige-ciment);
+            transform: translateY(-2px);
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            position: relative;
+            background: var(--gris-pierre);
+        }
+
+        .hero__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 140px 8% 100px;
+        }
+
+        .hero__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .hero__tag-line {
+            width: 50px;
+            height: 2px;
+            background: var(--bleu-archi);
+        }
+
+        .hero__tag-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--bleu-archi);
+        }
+
+        .hero__title {
+            font-family: var(--font-title);
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--bleu-profond);
+        }
+
+        .hero__title span {
+            color: var(--bleu-archi);
+        }
+
+        .hero__text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 480px;
+        }
+
+        .hero__ctas {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .hero__stats {
+            display: flex;
+            gap: 48px;
+        }
+
+        .hero__stat {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .hero__stat::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--bleu-archi), var(--bleu-profond));
+            border-radius: 2px;
+        }
+
+        .hero__stat-number {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bleu-profond);
+            line-height: 1;
+        }
+
+        .hero__stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        .hero__visual {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero__image {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80') center/cover;
+        }
+
+        .hero__image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(61,95,121,0.15) 0%, transparent 50%);
+        }
+
+        /* === SERVICES === */
+        .services {
+            padding: 140px 5%;
+            background: var(--white);
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 80px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-tag__line {
+            width: 40px;
+            height: 2px;
+            background: var(--bleu-archi);
+        }
+
+        .section-tag__text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--bleu-archi);
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            color: var(--bleu-profond);
+        }
+
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 48px 32px;
+            background: var(--gris-pierre);
+            border-radius: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            background: var(--white);
+            border-color: var(--beige-ciment);
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px rgba(35,53,71,0.1);
+        }
+
+        .service-card__icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            color: var(--bleu-archi);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-card__icon {
+            background: var(--bleu-archi);
+            color: var(--white);
+        }
+
+        .service-card__title {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--bleu-profond);
+        }
+
+        .service-card__text {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* === ABOUT === */
+        .about {
+            padding: 140px 5%;
+            background: var(--beige-ciment);
+        }
+
+        .about__grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about__images {
+            position: relative;
+        }
+
+        .about__image-main {
+            aspect-ratio: 4/5;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(35,53,71,0.15);
+        }
+
+        .about__image-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about__badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--bleu-archi);
+            color: var(--white);
+            padding: 28px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(61,95,121,0.3);
+        }
+
+        .about__badge-number {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about__badge-label {
+            font-size: 0.8rem;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        .about__content .section-tag {
+            margin-bottom: 16px;
+        }
+
+        .about__title {
+            font-family: var(--font-title);
+            font-size: 2.75rem;
+            margin-bottom: 24px;
+            color: var(--bleu-profond);
+        }
+
+        .about__text {
+            color: var(--graphite);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 40px;
+        }
+
+        .about__features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 12px;
+        }
+
+        .feature__icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bleu-archi);
+            color: var(--white);
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .feature__title {
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: var(--bleu-profond);
+        }
+
+        .feature__text {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* === WORK === */
+        .work {
+            padding: 140px 5%;
+            background: var(--white);
+        }
+
+        .work__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .work__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .work-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--bleu-profond);
+        }
+
+        .work-card__image {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+        }
+
+        .work-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s;
+            opacity: 0.9;
+        }
+
+        .work-card:hover .work-card__image img {
+            transform: scale(1.08);
+            opacity: 1;
+        }
+
+        .work-card__content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+            background: linear-gradient(to top, rgba(35,53,71,0.95) 0%, transparent 100%);
+            color: var(--white);
+        }
+
+        .work-card__tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--bleu-archi);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .work-card__title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+        }
+
+        /* === CTA === */
+        .cta {
+            position: relative;
+            padding: 140px 5%;
+            background: var(--bleu-profond);
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80') center/cover;
+            opacity: 0.12;
+        }
+
+        .cta__content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta__title {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .cta__title span {
+            color: var(--beige-ciment);
+        }
+
+        .cta__text {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta__buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .cta__buttons .btn--outline {
+            border-color: rgba(255,255,255,0.3);
+            color: var(--white);
+        }
+
+        .cta__buttons .btn--outline:hover {
+            background: var(--white);
+            color: var(--bleu-profond);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: #1a2530;
+            color: var(--white);
+            padding: 100px 5% 40px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 80px;
+            max-width: 1400px;
+            margin: 0 auto 80px;
+        }
+
+        .footer__logo img {
+            height: 45px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+
+        .footer__about {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .footer h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--beige-ciment);
+            margin-bottom: 24px;
+        }
+
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 14px; }
+
+        .footer a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover { color: var(--beige-ciment); }
+
+        .footer__bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .footer__bottom a { color: var(--beige-ciment); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1200px) {
+            .services__grid { grid-template-columns: repeat(2, 1fr); }
+            .work__grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero__visual { min-height: 60vh; order: -1; }
+            .hero__content { padding: 80px 5%; }
+            .hero__title { font-size: 3rem; }
+            .about__grid { grid-template-columns: 1fr; gap: 60px; }
+            .about__badge { right: 20px; bottom: -20px; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .hero__title { font-size: 2.5rem; }
+            .hero__stats { flex-direction: column; gap: 24px; }
+            .hero__ctas { flex-direction: column; }
+            .services__grid { grid-template-columns: 1fr; }
+            .about__features { grid-template-columns: 1fr; }
+            .work__grid { grid-template-columns: 1fr; }
+            .work__header { flex-direction: column; gap: 24px; align-items: flex-start; }
+            .cta__title { font-size: 2rem; }
+            .cta__buttons { flex-direction: column; }
+            .footer__grid { grid-template-columns: 1fr; text-align: center; }
+            .footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="header" id="header">
-        <div class="header__top">
-            <div class="container header__top-inner">
-                <a href="tel:0351001296" class="header__phone">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    03 51 00 12 96
-                </a>
-                <span class="header__location">Reims et alentours (30km)</span>
+        <div class="header__inner">
+            <a href="/" class="logo">
+                <img src="assets/images/logo.png" alt="MJ Rénov">
+            </a>
+            <nav class="nav">
+                <a href="#services">Services</a>
+                <a href="#about">À propos</a>
+                <a href="#work">Réalisations</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header__cta">
+                <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
+                <a href="#contact" class="btn btn--primary btn--sm">Devis gratuit</a>
             </div>
         </div>
-        <nav class="nav">
-            <div class="container nav__inner">
-                <a href="/" class="nav__logo">
-                    <img src="assets/images/logo.png" alt="MJ Rénov">
-                </a>
-
-                <ul class="nav__menu" id="nav-menu">
-                    <li><a href="index.html" class="nav__link active">Accueil</a></li>
-                    <li class="nav__dropdown">
-                        <a href="services.html" class="nav__link">Nos services</a>
-                        <ul class="nav__dropdown-menu">
-                            <li><a href="services.html#peinture">Peinture</a></li>
-                            <li><a href="services.html#revetements">Revêtements sols & murs</a></li>
-                            <li><a href="services.html#plomberie">Plomberie</a></li>
-                            <li><a href="services.html#electricite">Électricité</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="savoir-faire.html" class="nav__link">Savoir-faire</a></li>
-                    <li><a href="realisations.html" class="nav__link">Réalisations</a></li>
-                    <li><a href="contact.html" class="nav__link">Contact</a></li>
-                    <li><a href="demos.html" class="nav__link nav__link--highlight">Démos</a></li>
-                </ul>
-
-                <a href="contact.html" class="btn btn--cta nav__cta">Devis gratuit</a>
-
-                <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </nav>
     </header>
 
-    <!-- Main -->
-    <main>
-        <!-- Hero avec formulaire -->
-        <section class="hero">
-            <div class="hero__bg">
-                <div class="hero__bg-placeholder"></div>
+    <section class="hero">
+        <div class="hero__content">
+            <div class="hero__tag">
+                <span class="hero__tag-line"></span>
+                <span class="hero__tag-text">Artisan à Reims</span>
             </div>
-            <div class="container hero__grid">
-                <div class="hero__content">
-                    <h1 class="hero__title">Votre artisan<br><span>rénovation</span> à Reims</h1>
-                    <p class="hero__text">Peinture, revêtements, plomberie, électricité. MJ Rénov réalise tous vos travaux de rénovation intérieure et extérieure avec soin et professionnalisme.</p>
-
-                    <div class="hero__trust">
-                        <div class="hero__trust-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span>Devis gratuit sous 48h</span>
-                        </div>
-                        <div class="hero__trust-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span>Artisan qualifié</span>
-                        </div>
-                        <div class="hero__trust-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span>Intervention rapide</span>
-                        </div>
-                    </div>
-
-                    <a href="tel:0351001296" class="btn btn--phone">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        03 51 00 12 96
-                    </a>
+            <h1 class="hero__title">Votre projet de <span>rénovation</span> mérite le meilleur</h1>
+            <p class="hero__text">Peinture, revêtements, plomberie, électricité. Un artisan expérimenté et passionné pour transformer votre intérieur avec soin et précision.</p>
+            <div class="hero__ctas">
+                <a href="#contact" class="btn btn--primary">Demander un devis gratuit</a>
+                <a href="#work" class="btn btn--outline">Voir nos réalisations</a>
+            </div>
+            <div class="hero__stats">
+                <div class="hero__stat">
+                    <div class="hero__stat-number">150+</div>
+                    <div class="hero__stat-label">Chantiers réalisés</div>
                 </div>
-
-                <div class="hero__form-wrapper">
-                    <div class="hero__form-card">
-                        <h2 class="hero__form-title">Demandez votre devis gratuit</h2>
-                        <p class="hero__form-subtitle">Réponse sous 48h</p>
-                        <form class="hero__form" id="devis-form">
-                            <div class="form-group">
-                                <input type="text" id="nom" name="nom" placeholder="Votre nom *" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="telephone" name="telephone" placeholder="Téléphone *" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Email *" required>
-                            </div>
-                            <div class="form-group">
-                                <select id="type-travaux" name="type-travaux" required>
-                                    <option value="">Type de travaux *</option>
-                                    <option value="peinture">Peinture</option>
-                                    <option value="revetements">Revêtements sols/murs</option>
-                                    <option value="plomberie">Plomberie</option>
-                                    <option value="electricite">Électricité</option>
-                                    <option value="renovation-complete">Rénovation complète</option>
-                                    <option value="autre">Autre</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Décrivez votre projet..." rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn--primary btn--full">Envoyer ma demande</button>
-                        </form>
-                    </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number">10 ans</div>
+                    <div class="hero__stat-label">D'expérience</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-number">100%</div>
+                    <div class="hero__stat-label">Clients satisfaits</div>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="hero__visual">
+            <div class="hero__image"></div>
+        </div>
+    </section>
 
-        <!-- Bandeau de confiance -->
-        <section class="trust-banner">
-            <div class="container">
-                <div class="trust-banner__grid">
-                    <div class="trust-banner__item">
-                        <span class="trust-banner__number">+150</span>
-                        <span class="trust-banner__label">Chantiers réalisés</span>
-                    </div>
-                    <div class="trust-banner__item">
-                        <span class="trust-banner__number">10 ans</span>
-                        <span class="trust-banner__label">D'expérience</span>
-                    </div>
-                    <div class="trust-banner__item">
-                        <span class="trust-banner__number">100%</span>
-                        <span class="trust-banner__label">Clients satisfaits</span>
-                    </div>
-                    <div class="trust-banner__item">
-                        <span class="trust-banner__number">30 km</span>
-                        <span class="trust-banner__label">Autour de Reims</span>
-                    </div>
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-tag">
+                <span class="section-tag__line"></span>
+                <span class="section-tag__text">Nos services</span>
+            </div>
+            <h2 class="section-title">Expertise complète en rénovation</h2>
+        </div>
+        <div class="services__grid">
+            <a href="#" class="service-card">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <h3 class="service-card__title">Peinture</h3>
+                <p class="service-card__text">Intérieure, extérieure et ravalement de façade avec des finitions impeccables.</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </div>
+                <h3 class="service-card__title">Revêtements</h3>
+                <p class="service-card__text">Carrelage, parquet, faïence et tous types de sols souples posés avec précision.</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                </div>
+                <h3 class="service-card__title">Plomberie</h3>
+                <p class="service-card__text">Installation et rénovation salle de bain, cuisine, chauffage et sanitaires.</p>
+            </a>
+            <a href="#" class="service-card">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <h3 class="service-card__title">Électricité</h3>
+                <p class="service-card__text">Mise aux normes, installation complète et dépannage rapide et sécurisé.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about__grid">
+            <div class="about__images">
+                <div class="about__image-main">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Artisan au travail">
+                </div>
+                <div class="about__badge">
+                    <div class="about__badge-number">10+</div>
+                    <div class="about__badge-label">Années d'expérience</div>
                 </div>
             </div>
-        </section>
-
-        <!-- Services -->
-        <section class="section" id="services">
-            <div class="container">
-                <h2 class="section__title">Nos <span>prestations</span></h2>
-                <p class="section__subtitle">Des services complets pour tous vos projets de rénovation</p>
-
-                <div class="services-grid">
-                    <a href="services.html#peinture" class="service-card">
-                        <div class="service-card__image">
-                            <div class="service-card__placeholder"></div>
-                        </div>
-                        <div class="service-card__content">
-                            <h3 class="service-card__title">Peinture</h3>
-                            <p class="service-card__text">Peinture intérieure et extérieure, ravalement de façade, traitement des surfaces.</p>
-                            <span class="service-card__link">Découvrir →</span>
-                        </div>
-                    </a>
-
-                    <a href="services.html#revetements" class="service-card">
-                        <div class="service-card__image">
-                            <div class="service-card__placeholder"></div>
-                        </div>
-                        <div class="service-card__content">
-                            <h3 class="service-card__title">Revêtements sols & murs</h3>
-                            <p class="service-card__text">Carrelage, parquet, faïence, sols souples. Pose soignée et finitions impeccables.</p>
-                            <span class="service-card__link">Découvrir →</span>
-                        </div>
-                    </a>
-
-                    <a href="services.html#plomberie" class="service-card">
-                        <div class="service-card__image">
-                            <div class="service-card__placeholder"></div>
-                        </div>
-                        <div class="service-card__content">
-                            <h3 class="service-card__title">Plomberie</h3>
-                            <p class="service-card__text">Installation, rénovation et dépannage. Salle de bain, cuisine, chauffage.</p>
-                            <span class="service-card__link">Découvrir →</span>
-                        </div>
-                    </a>
-
-                    <a href="services.html#electricite" class="service-card">
-                        <div class="service-card__image">
-                            <div class="service-card__placeholder"></div>
-                        </div>
-                        <div class="service-card__content">
-                            <h3 class="service-card__title">Électricité</h3>
-                            <p class="service-card__text">Mise aux normes, installation complète, dépannage et rénovation électrique.</p>
-                            <span class="service-card__link">Découvrir →</span>
-                        </div>
-                    </a>
+            <div class="about__content">
+                <div class="section-tag">
+                    <span class="section-tag__line"></span>
+                    <span class="section-tag__text">À propos</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- Comment ça marche -->
-        <section class="section section--light" id="process">
-            <div class="container">
-                <h2 class="section__title">Comment <span>ça marche</span></h2>
-                <p class="section__subtitle">Un accompagnement simple et transparent de A à Z</p>
-
-                <div class="process-grid">
-                    <div class="process-step">
-                        <div class="process-step__number">1</div>
-                        <h3 class="process-step__title">Prise de contact</h3>
-                        <p class="process-step__text">Appelez-nous ou remplissez le formulaire. Nous vous recontactons sous 48h pour comprendre votre projet.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <div class="process-step__number">2</div>
-                        <h3 class="process-step__title">Visite & Devis</h3>
-                        <p class="process-step__text">Nous nous déplaçons gratuitement pour évaluer les travaux et vous remettre un devis détaillé.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <div class="process-step__number">3</div>
-                        <h3 class="process-step__title">Réalisation</h3>
-                        <p class="process-step__text">Une fois le devis accepté, nous planifions les travaux et les réalisons dans les délais convenus.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <div class="process-step__number">4</div>
-                        <h3 class="process-step__title">Réception</h3>
-                        <p class="process-step__text">Nous faisons le tour du chantier ensemble pour valider la conformité des travaux réalisés.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- À propos / Artisan -->
-        <section class="section" id="artisan">
-            <div class="container">
-                <div class="artisan-grid">
-                    <div class="artisan-image">
-                        <div class="artisan-image__placeholder">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                <circle cx="12" cy="7" r="4"/>
-                            </svg>
-                            <span>Photo de M. El Haouari</span>
+                <h2 class="about__title">Un artisan de confiance à vos côtés</h2>
+                <p class="about__text">Fort de plus de 10 ans d'expérience dans le bâtiment, je mets mon savoir-faire et mon exigence au service de vos projets. Chaque chantier est unique et mérite une attention particulière.</p>
+                <div class="about__features">
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <div>
+                            <div class="feature__title">Artisan qualifié</div>
+                            <div class="feature__text">Assuré et certifié</div>
                         </div>
                     </div>
-
-                    <div class="artisan-content">
-                        <h2 class="section__title section__title--left">Votre artisan <span>de confiance</span></h2>
-                        <p class="artisan-content__intro">Majid El Haouari, gérant de MJ Rénov</p>
-                        <p class="artisan-content__text">Fort de plus de 10 ans d'expérience dans le bâtiment, je mets mon savoir-faire à votre service pour tous vos projets de rénovation à Reims et ses environs.</p>
-                        <p class="artisan-content__text">Mon engagement : un travail soigné, le respect des délais et une communication transparente tout au long de votre chantier.</p>
-
-                        <ul class="artisan-list">
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                Artisan qualifié et assuré
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                Devis gratuit et détaillé
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                Chantier propre et organisé
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                Respect des délais annoncés
-                            </li>
-                        </ul>
-
-                        <a href="savoir-faire.html" class="btn btn--primary">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Réalisations -->
-        <section class="section section--dark" id="realisations">
-            <div class="container">
-                <h2 class="section__title section__title--light">Nos <span>réalisations</span></h2>
-                <p class="section__subtitle section__subtitle--light">Découvrez quelques-uns de nos chantiers récents</p>
-
-                <div class="realisations-grid">
-                    <div class="realisation-card">
-                        <div class="realisation-card__image">
-                            <div class="realisation-card__placeholder"></div>
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </div>
-                        <div class="realisation-card__content">
-                            <span class="realisation-card__category">Rénovation complète</span>
-                            <h3 class="realisation-card__title">Appartement T3 - Reims Centre</h3>
+                        <div>
+                            <div class="feature__title">Devis sous 48h</div>
+                            <div class="feature__text">Gratuit et détaillé</div>
                         </div>
                     </div>
-
-                    <div class="realisation-card">
-                        <div class="realisation-card__image">
-                            <div class="realisation-card__placeholder"></div>
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                         </div>
-                        <div class="realisation-card__content">
-                            <span class="realisation-card__category">Salle de bain</span>
-                            <h3 class="realisation-card__title">Création salle d'eau - Tinqueux</h3>
-                        </div>
-                    </div>
-
-                    <div class="realisation-card">
-                        <div class="realisation-card__image">
-                            <div class="realisation-card__placeholder"></div>
-                        </div>
-                        <div class="realisation-card__content">
-                            <span class="realisation-card__category">Peinture</span>
-                            <h3 class="realisation-card__title">Ravalement façade - Cormontreuil</h3>
+                        <div>
+                            <div class="feature__title">Chantier propre</div>
+                            <div class="feature__text">Organisation rigoureuse</div>
                         </div>
                     </div>
-                </div>
-
-                <div class="section__cta">
-                    <a href="realisations.html" class="btn btn--accent">Voir toutes nos réalisations</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Zone d'intervention -->
-        <section class="section" id="zone">
-            <div class="container">
-                <h2 class="section__title">Zone <span>d'intervention</span></h2>
-                <p class="section__subtitle">Nous intervenons à Reims et dans un rayon de 30 km</p>
-
-                <div class="zone-content">
-                    <div class="zone-cities">
-                        <div class="zone-cities__column">
-                            <h4>Reims et agglomération</h4>
-                            <ul>
-                                <li>Reims</li>
-                                <li>Tinqueux</li>
-                                <li>Cormontreuil</li>
-                                <li>Bétheny</li>
-                                <li>Saint-Brice-Courcelles</li>
-                            </ul>
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                         </div>
-                        <div class="zone-cities__column">
-                            <h4>Communes environnantes</h4>
-                            <ul>
-                                <li>Witry-lès-Reims</li>
-                                <li>Cernay-lès-Reims</li>
-                                <li>Bezannes</li>
-                                <li>Thillois</li>
-                                <li>Et plus encore...</li>
-                            </ul>
+                        <div>
+                            <div class="feature__title">Délais respectés</div>
+                            <div class="feature__text">Engagement tenu</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Final -->
-        <section class="section section--cta" id="contact-cta">
-            <div class="container">
-                <div class="cta-box">
-                    <h2 class="cta-box__title">Un projet de rénovation ?</h2>
-                    <p class="cta-box__text">Contactez-nous pour un devis gratuit et sans engagement.<br>Réponse garantie sous 48h.</p>
-                    <div class="cta-box__buttons">
-                        <a href="contact.html" class="btn btn--white btn--lg">Demander un devis</a>
-                        <a href="tel:0351001296" class="btn btn--outline-white btn--lg">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                            03 51 00 12 96
-                        </a>
-                    </div>
+    <section class="work" id="work">
+        <div class="work__header">
+            <div>
+                <div class="section-tag">
+                    <span class="section-tag__line"></span>
+                    <span class="section-tag__text">Portfolio</span>
+                </div>
+                <h2 class="section-title">Nos réalisations</h2>
+            </div>
+            <a href="#" class="btn btn--outline">Voir tout</a>
+        </div>
+        <div class="work__grid">
+            <div class="work-card">
+                <div class="work-card__image">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Appartement rénové">
+                </div>
+                <div class="work-card__content">
+                    <span class="work-card__tag">Rénovation complète</span>
+                    <h3 class="work-card__title">Appartement T3 - Reims Centre</h3>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="work-card">
+                <div class="work-card__image">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain moderne">
+                </div>
+                <div class="work-card__content">
+                    <span class="work-card__tag">Salle de bain</span>
+                    <h3 class="work-card__title">Création salle d'eau moderne</h3>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-card__image">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Cuisine rénovée">
+                </div>
+                <div class="work-card__content">
+                    <span class="work-card__tag">Cuisine</span>
+                    <h3 class="work-card__title">Rénovation cuisine équipée</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
+    <section class="cta" id="contact">
+        <div class="cta__content">
+            <h2 class="cta__title">Prêt à <span>transformer</span> votre intérieur ?</h2>
+            <p class="cta__text">Contactez-nous pour un devis gratuit et sans engagement. Réponse garantie sous 48h.</p>
+            <div class="cta__buttons">
+                <a href="#" class="btn btn--white">Demander un devis</a>
+                <a href="tel:0351001296" class="btn btn--outline">03 51 00 12 96</a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__about">
-                    <div class="footer__logo">
-                        <img src="assets/images/logo.png" alt="MJ Rénov">
-                    </div>
-                    <p>Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours. Peinture, revêtements, plomberie, électricité.</p>
-                    <div class="footer__contact-direct">
-                        <a href="tel:0351001296" class="footer__phone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                            03 51 00 12 96
-                        </a>
-                    </div>
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo">
+                    <img src="assets/images/logo.png" alt="MJ Rénov">
                 </div>
-
-                <div class="footer__links">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="services.html">Nos services</a></li>
-                        <li><a href="savoir-faire.html">Savoir-faire</a></li>
-                        <li><a href="realisations.html">Réalisations</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="services.html#peinture">Peinture</a></li>
-                        <li><a href="services.html#revetements">Revêtements</a></li>
-                        <li><a href="services.html#plomberie">Plomberie</a></li>
-                        <li><a href="services.html#electricite">Électricité</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__contact">
-                    <h4>Contact</h4>
-                    <p>
-                        <strong>MJ Rénov</strong><br>
-                        35 Bd Carteret<br>
-                        51100 Reims
-                    </p>
-                    <p><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></p>
-                    <p><a href="tel:0351001296">03 51 00 12 96</a></p>
-                </div>
+                <p class="footer__about">Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours.</p>
             </div>
-
-            <div class="footer__bottom">
-                <p>&copy; 2026 MJ Rénov - Tous droits réservés | SIRET : 452 922 966 00042</p>
-                <p>Site réalisé par <a href="https://regen-agency.fr" target="_blank" rel="noopener">Regen Agency</a></p>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#work">Réalisations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Peinture</a></li>
+                    <li><a href="#">Revêtements</a></li>
+                    <li><a href="#">Plomberie</a></li>
+                    <li><a href="#">Électricité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>35 Bd Carteret, 51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 MJ Rénov - Tous droits réservés</p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
 </body>
 </html>

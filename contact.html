@@ -82,6 +82,15 @@
         .contact-card__value { font-weight: 600; font-size: 1.1rem; color: var(--bleu-profond); }
         .contact-card__value a { color: inherit; text-decoration: none; }
         .contact-card__value a:hover { color: var(--bleu-archi); }
+        .contact-card__sub { font-size: 0.8rem; color: var(--gray); margin-top: 4px; }
+
+        .contact-card--urgence { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
+        .contact-card--urgence .contact-card__icon { background: rgba(255,255,255,0.2); }
+        .contact-card--urgence .contact-card__label { color: rgba(255,255,255,0.9); }
+        .contact-card--urgence .contact-card__value { color: var(--white); }
+        .contact-card--urgence .contact-card__value a { color: var(--white); }
+        .contact-card--urgence .contact-card__value a:hover { color: var(--beige-ciment); }
+        .contact-card--urgence .contact-card__sub { color: rgba(255,255,255,0.8); }
 
         .contact__hours { margin-top: 40px; padding: 28px; background: var(--beige-ciment); border-radius: 16px; }
         .contact__hours-title { font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
@@ -246,17 +255,28 @@
                             <div class="contact-card__value">54-56 chau. Saint-Martin, 51100 Reims</div>
                         </div>
                     </div>
+
+                    <div class="contact-card contact-card--urgence">
+                        <div class="contact-card__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
+                        <div class="contact-card__content">
+                            <div class="contact-card__label">Urgence 7j/7 - 24h/24</div>
+                            <div class="contact-card__value"><a href="tel:0351001296">03 51 00 12 96</a></div>
+                            <div class="contact-card__sub">Plomberie • Électricité • Serrurerie</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="contact__hours">
                     <h3 class="contact__hours-title">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        Horaires
+                        Horaires bureau
                     </h3>
                     <div class="contact__hours-list">
                         <div class="contact__hours-item">
                             <span>Lundi - Vendredi</span>
-                            <span>8h00 - 18h00</span>
+                            <span>9h00 - 17h00</span>
                         </div>
                         <div class="contact__hours-item">
                             <span>Samedi</span>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJ Rénov - Entreprise Rénovation à Reims depuis 20 ans</title>
+    <title>MJ Rénov - Entreprise Rénovation à Reims depuis 25 ans</title>
     <meta name="description" content="MJ Rénov, 18 professionnels qualifiés pour tous vos travaux de rénovation à Reims : peinture, carrelage, plomberie, électricité. Certifiés Qualibat RGE. Devis gratuit sous 48h.">
     <meta property="og:title" content="MJ Rénov - Rénovation à Reims">
     <meta property="og:description" content="Une équipe de 18 professionnels pour tous vos travaux de rénovation à Reims et dans un rayon de 50 km.">
@@ -108,6 +108,21 @@
         }
 
         .nav a:hover::after { width: 100%; }
+
+        .nav__urgence {
+            background: #dc2626;
+            color: var(--white) !important;
+            padding: 8px 16px !important;
+            border-radius: 6px;
+            animation: pulse-urgence 2s infinite;
+        }
+
+        .nav__urgence::after { display: none !important; }
+
+        @keyframes pulse-urgence {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }
+        }
 
         .header__cta {
             display: flex;
@@ -288,6 +303,117 @@
             background: linear-gradient(135deg, rgba(61,95,121,0.15) 0%, transparent 50%);
         }
 
+        /* === URGENCE BANNER === */
+        .urgence {
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: var(--white);
+        }
+
+        .urgence__inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .urgence__content {}
+
+        .urgence__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .urgence__badge svg { animation: ring 1s infinite; }
+
+        @keyframes ring {
+            0%, 100% { transform: rotate(0); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        .urgence__title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .urgence__text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .urgence__services {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .urgence__service {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .urgence__service svg {
+            background: rgba(255,255,255,0.2);
+            padding: 6px;
+            border-radius: 6px;
+        }
+
+        .urgence__cta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .urgence__phone {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            color: #dc2626;
+            padding: 20px 32px;
+            border-radius: 12px;
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .urgence__phone:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .urgence__available {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .urgence { padding: 40px 5%; }
+            .urgence__inner { grid-template-columns: 1fr; text-align: center; }
+            .urgence__title { font-size: 1.75rem; }
+            .urgence__text { font-size: 0.95rem; }
+            .urgence__services { flex-wrap: wrap; justify-content: center; gap: 12px; }
+            .urgence__cta { align-items: center; }
+            .urgence__phone { font-size: 1.25rem; padding: 16px 24px; }
+        }
+
         /* === SERVICES === */
         .services {
             padding: 140px 5%;
@@ -366,6 +492,19 @@
 
         .service-card:hover .service-card__icon {
             background: var(--gris-pierre);
+        }
+
+        .service-card--urgence {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+
+        .service-card--urgence:hover {
+            background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+        }
+
+        .service-card--urgence .service-card__icon {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
         }
 
         .service-card__title {
@@ -626,6 +765,56 @@
         .cta__buttons .btn--outline:hover {
             background: var(--white);
             color: var(--bleu-profond);
+        }
+
+        /* === PARTNERS === */
+        .partners {
+            padding: 60px 5%;
+            background: var(--beige-ciment);
+        }
+
+        .partners__inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .partners__header {
+            margin-bottom: 32px;
+        }
+
+        .partners__title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+        }
+
+        .partners__logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .partner {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--bleu-archi);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .partners { padding: 40px 5%; }
+            .partners__logos { gap: 24px; }
+            .partner { font-size: 0.9rem; }
         }
 
         /* === FOOTER === */
@@ -923,7 +1112,7 @@
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
-                <a href="demos.html">Démos</a>
+                <a href="#urgence" class="nav__urgence">Urgence 7j/7</a>
             </nav>
             <div class="header__cta">
                 <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
@@ -951,11 +1140,11 @@
             </div>
             <div class="hero__stats">
                 <div class="hero__stat">
-                    <div class="hero__stat-number">150+</div>
+                    <div class="hero__stat-number">3000+</div>
                     <div class="hero__stat-label">Chantiers réalisés</div>
                 </div>
                 <div class="hero__stat">
-                    <div class="hero__stat-number">+20 ans</div>
+                    <div class="hero__stat-number">25 ans</div>
                     <div class="hero__stat-label">D'expérience</div>
                 </div>
                 <div class="hero__stat">
@@ -969,6 +1158,40 @@
         </div>
     </section>
 
+    <section class="urgence" id="urgence">
+        <div class="urgence__inner">
+            <div class="urgence__content">
+                <div class="urgence__badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Dépannage d'urgence 7j/7 - 24h/24
+                </div>
+                <h2 class="urgence__title">Une urgence ? On intervient rapidement !</h2>
+                <p class="urgence__text">Fuite d'eau, panne électrique, serrure bloquée... Notre équipe intervient en urgence à Reims et alentours.</p>
+                <div class="urgence__services">
+                    <div class="urgence__service">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        Plomberie
+                    </div>
+                    <div class="urgence__service">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        Électricité
+                    </div>
+                    <div class="urgence__service">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        Serrurerie
+                    </div>
+                </div>
+            </div>
+            <div class="urgence__cta">
+                <a href="tel:0351001296" class="urgence__phone">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    03 51 00 12 96
+                </a>
+                <span class="urgence__available">Disponible 7j/7 - 24h/24</span>
+            </div>
+        </div>
+    </section>
+
     <section class="services" id="services">
         <div class="section-header">
             <div class="section-tag">
@@ -978,33 +1201,61 @@
             <h2 class="section-title">Expertise complète en rénovation</h2>
         </div>
         <div class="services__grid">
-            <a href="#" class="service-card">
+            <a href="services.html#peinture" class="service-card">
                 <div class="service-card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                 </div>
                 <h3 class="service-card__title">Peinture</h3>
                 <p class="service-card__text">Intérieure, extérieure et ravalement de façade avec des finitions impeccables.</p>
             </a>
-            <a href="#" class="service-card">
+            <a href="services.html#revetements" class="service-card">
                 <div class="service-card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                 </div>
                 <h3 class="service-card__title">Revêtements</h3>
                 <p class="service-card__text">Carrelage, parquet, faïence et tous types de sols souples posés avec précision.</p>
             </a>
-            <a href="#" class="service-card">
+            <a href="services.html#plomberie" class="service-card">
                 <div class="service-card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                 </div>
                 <h3 class="service-card__title">Plomberie</h3>
                 <p class="service-card__text">Installation et rénovation salle de bain, cuisine, chauffage et sanitaires.</p>
             </a>
-            <a href="#" class="service-card">
+            <a href="services.html#electricite" class="service-card">
                 <div class="service-card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 </div>
                 <h3 class="service-card__title">Électricité</h3>
                 <p class="service-card__text">Mise aux normes, installation complète et dépannage rapide et sécurisé.</p>
+            </a>
+            <a href="services.html#menuiserie" class="service-card">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+                </div>
+                <h3 class="service-card__title">Menuiserie</h3>
+                <p class="service-card__text">Pose de portes, fenêtres, volets et aménagements intérieurs sur mesure.</p>
+            </a>
+            <a href="services.html#placoplatre" class="service-card">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                </div>
+                <h3 class="service-card__title">Placoplâtre</h3>
+                <p class="service-card__text">Cloisons, doublages, faux plafonds et isolation intérieure professionnelle.</p>
+            </a>
+            <a href="#urgence" class="service-card service-card--urgence">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <h3 class="service-card__title">Urgence 7j/7</h3>
+                <p class="service-card__text">Dépannage rapide plomberie, électricité et serrurerie 24h/24.</p>
+            </a>
+            <a href="contact.html" class="service-card">
+                <div class="service-card__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <h3 class="service-card__title">Rénovation complète</h3>
+                <p class="service-card__text">Coordination de tous les corps de métier pour votre projet clé en main.</p>
             </a>
         </div>
     </section>
@@ -1016,7 +1267,7 @@
                     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Artisan au travail">
                 </div>
                 <div class="about__badge">
-                    <div class="about__badge-number">20+</div>
+                    <div class="about__badge-number">25</div>
                     <div class="about__badge-label">Années d'expérience</div>
                 </div>
             </div>
@@ -1026,42 +1277,42 @@
                     <span class="section-tag__text">À propos</span>
                 </div>
                 <h2 class="about__title">Une équipe de confiance à vos côtés</h2>
-                <p class="about__text">Forte de plus de 20 ans d'expérience dans le bâtiment, notre équipe de 18 professionnels qualifiés met son savoir-faire et son exigence au service de vos projets. Certifiés Qualibat RGE et Professionnel du Gaz, nous intervenons dans un rayon de 50 km autour de Reims.</p>
+                <p class="about__text">Forte de 25 ans d'expérience dans le bâtiment et plus de 3000 chantiers réalisés, notre équipe met son savoir-faire et son exigence au service de vos projets. Certifiés Qualibat RGE et Quali Gaz, nous intervenons dans un rayon de 50 km autour de Reims avec un interlocuteur unique par dossier.</p>
                 <div class="about__features">
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div>
+                            <div class="feature__title">1 interlocuteur unique</div>
+                            <div class="feature__text">Par dossier client</div>
+                        </div>
+                    </div>
                     <div class="feature">
                         <div class="feature__icon">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </div>
                         <div>
-                            <div class="feature__title">Équipe qualifiée</div>
-                            <div class="feature__text">Qualibat RGE</div>
+                            <div class="feature__title">Certifié Quali Gaz</div>
+                            <div class="feature__text">+ Qualibat RGE</div>
                         </div>
                     </div>
                     <div class="feature">
                         <div class="feature__icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         </div>
                         <div>
-                            <div class="feature__title">Devis sous 48h</div>
-                            <div class="feature__text">Gratuit et détaillé</div>
+                            <div class="feature__title">Coordination projet</div>
+                            <div class="feature__text">1 pro par corps de métier</div>
                         </div>
                     </div>
                     <div class="feature">
                         <div class="feature__icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                         </div>
                         <div>
-                            <div class="feature__title">Chantier propre</div>
-                            <div class="feature__text">Organisation rigoureuse</div>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature__icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        </div>
-                        <div>
-                            <div class="feature__title">Délais respectés</div>
-                            <div class="feature__text">Engagement tenu</div>
+                            <div class="feature__title">Garantie décennale</div>
+                            <div class="feature__text">10 ans tous services</div>
                         </div>
                     </div>
                 </div>
@@ -1122,6 +1373,22 @@
         </div>
     </section>
 
+    <section class="partners">
+        <div class="partners__inner">
+            <div class="partners__header">
+                <span class="partners__title">Ils nous font confiance</span>
+            </div>
+            <div class="partners__logos">
+                <div class="partner">Plurial Habitat</div>
+                <div class="partner">Reims Habitat</div>
+                <div class="partner">AXA Assurances</div>
+                <div class="partner">MAIF</div>
+                <div class="partner">Groupama</div>
+                <div class="partner">MACIF</div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer__grid">
             <div>
@@ -1133,19 +1400,20 @@
             <div>
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#work">Réalisations</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="#">Peinture</a></li>
-                    <li><a href="#">Revêtements</a></li>
-                    <li><a href="#">Plomberie</a></li>
-                    <li><a href="#">Électricité</a></li>
+                    <li><a href="services.html#peinture">Peinture</a></li>
+                    <li><a href="services.html#revetements">Revêtements</a></li>
+                    <li><a href="services.html#plomberie">Plomberie</a></li>
+                    <li><a href="services.html#electricite">Électricité</a></li>
+                    <li><a href="index.html#urgence">Urgence 7j/7</a></li>
                 </ul>
             </div>
             <div>
@@ -1153,7 +1421,7 @@
                 <ul>
                     <li><a href="tel:0351001296">03 51 00 12 96</a></li>
                     <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
-                    <li>35 Bd Carteret, 51100 Reims</li>
+                    <li>54-56 chau. Saint-Martin, 51100 Reims</li>
                 </ul>
             </div>
         </div>

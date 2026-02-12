@@ -46,6 +46,9 @@
         .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
         .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
         .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .nav__urgence { background: #dc2626; color: var(--white) !important; padding: 8px 16px !important; border-radius: 6px; animation: pulse-urgence 2s infinite; }
+        .nav__urgence::after { display: none !important; }
+        @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
         .header__cta { display: flex; align-items: center; gap: 20px; }
         .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
 
@@ -162,7 +165,7 @@
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
-                <a href="demos.html">Démos</a>
+                <a href="index.html#urgence" class="nav__urgence">Urgence 7j/7</a>
             </nav>
             <div class="header__cta">
                 <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
@@ -274,6 +277,72 @@
         </div>
     </section>
 
+    <section class="service-detail" id="menuiserie">
+        <div class="service-detail__inner">
+            <div class="service-detail__image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Menuiserie">
+            </div>
+            <div class="service-detail__content">
+                <div class="service-detail__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+                </div>
+                <h2 class="service-detail__title">Menuiserie</h2>
+                <p class="service-detail__text">Pose et remplacement de menuiseries intérieures et extérieures. Nous travaillons avec des matériaux de qualité pour des finitions durables.</p>
+                <ul class="service-detail__list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Pose de portes intérieures et extérieures</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Installation de fenêtres et volets</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Aménagements sur mesure (placards, dressings)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Serrurerie et dépannage d'urgence</li>
+                </ul>
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="placoplatre">
+        <div class="service-detail__inner">
+            <div class="service-detail__image">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Placoplâtre">
+            </div>
+            <div class="service-detail__content">
+                <div class="service-detail__icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                </div>
+                <h2 class="service-detail__title">Placoplâtre</h2>
+                <p class="service-detail__text">Création de cloisons, doublages et faux plafonds. Nos plaquistes qualifiés réalisent tous vos projets d'aménagement intérieur.</p>
+                <ul class="service-detail__list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Cloisons séparatives et de distribution</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Doublages isolants thermiques et phoniques</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Faux plafonds (suspendus, tendus)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Habillages et niches décoratives</li>
+                </ul>
+                <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail service-detail--urgence" id="urgence">
+        <div class="service-detail__inner">
+            <div class="service-detail__image">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="Dépannage urgence">
+            </div>
+            <div class="service-detail__content">
+                <div class="service-detail__icon" style="background: #dc2626;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <h2 class="service-detail__title">Urgence 7j/7 - 24h/24</h2>
+                <p class="service-detail__text">Fuite d'eau, panne électrique, serrure bloquée... Notre équipe intervient rapidement pour tous vos dépannages urgents à Reims et alentours.</p>
+                <ul class="service-detail__list">
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Plomberie : fuites, débouchage, chauffe-eau</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Électricité : pannes, courts-circuits, tableaux</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Serrurerie : ouverture de porte, remplacement</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Intervention rapide dans un rayon de 50 km</li>
+                </ul>
+                <a href="tel:0351001296" class="btn btn--primary" style="background: #dc2626;">Appeler maintenant : 03 51 00 12 96</a>
+            </div>
+        </div>
+    </section>
+
     <section class="cta">
         <div class="cta__content">
             <h2 class="cta__title">Un projet de <span>rénovation</span> ?</h2>
@@ -314,7 +383,7 @@
                 <ul>
                     <li><a href="tel:0351001296">03 51 00 12 96</a></li>
                     <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
-                    <li>35 Bd Carteret, 51100 Reims</li>
+                    <li>54-56 chau. Saint-Martin, 51100 Reims</li>
                 </ul>
             </div>
         </div>

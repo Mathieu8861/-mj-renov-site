@@ -44,6 +44,9 @@
         .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
         .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
         .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .nav__urgence { background: #dc2626; color: var(--white) !important; padding: 8px 16px !important; border-radius: 6px; animation: pulse-urgence 2s infinite; }
+        .nav__urgence::after { display: none !important; }
+        @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
         .header__cta { display: flex; align-items: center; gap: 20px; }
         .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
 
@@ -158,7 +161,7 @@
                 <a href="realisations.html" class="active">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
-                <a href="demos.html">Démos</a>
+                <a href="index.html#urgence" class="nav__urgence">Urgence 7j/7</a>
             </nav>
             <div class="header__cta">
                 <a href="tel:0351001296" class="header__phone">03 51 00 12 96</a>
@@ -360,7 +363,7 @@
                 <ul>
                     <li><a href="tel:0351001296">03 51 00 12 96</a></li>
                     <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
-                    <li>35 Bd Carteret, 51100 Reims</li>
+                    <li>54-56 chau. Saint-Martin, 51100 Reims</li>
                 </ul>
             </div>
         </div>

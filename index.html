@@ -634,6 +634,10 @@
             color: var(--gray);
         }
 
+        .certifications { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+        .certif-badge { display: flex; align-items: center; gap: 8px; background: var(--bleu-profond); color: var(--white); padding: 10px 18px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; }
+        .certif-badge svg { flex-shrink: 0; }
+
         /* === WORK === */
         .work {
             padding: 140px 5%;
@@ -877,6 +881,12 @@
 
         .footer__bottom a { color: var(--beige-ciment); }
 
+        /* === FLOATING PHONE === */
+        .floating-phone { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; background: #dc2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4); animation: pulse-urgence 2s infinite; transition: transform 0.3s; }
+        .floating-phone:hover { transform: scale(1.1); }
+        .floating-phone__tooltip { position: absolute; right: 70px; background: #dc2626; color: white; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .floating-phone:hover .floating-phone__tooltip { opacity: 1; }
+
         /* === MENU BURGER === */
         .menu-toggle {
             display: none;
@@ -1116,7 +1126,7 @@
             </nav>
             <div class="header__cta">
                 <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
-                <a href="#urgence" class="btn btn--urgence btn--sm">Urgence 7j/7</a>
+                <a href="depannage.html" class="btn btn--urgence btn--sm">Urgence 7j/7</a>
             </div>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -1165,20 +1175,20 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     Urgence 7j/7 - 24h/24
                 </div>
-                <h2 class="urgence__title">Dépannage rapide : plomberie, électricité, serrurerie</h2>
+                <h2 class="urgence__title">Dépannage rapide : serrurerie, plomberie, vitrerie</h2>
             </div>
             <div class="urgence__services">
+                <div class="urgence__service">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Serrurerie
+                </div>
                 <div class="urgence__service">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                     Plomberie
                 </div>
                 <div class="urgence__service">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                    Électricité
-                </div>
-                <div class="urgence__service">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    Serrurerie
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="3" x2="21" y2="21"></line></svg>
+                    Vitrerie
                 </div>
             </div>
             <a href="tel:0351001296" class="urgence__phone">
@@ -1239,12 +1249,12 @@
                 <h3 class="service-card__title">Placoplâtre</h3>
                 <p class="service-card__text">Cloisons, doublages, faux plafonds et isolation intérieure professionnelle.</p>
             </a>
-            <a href="#urgence" class="service-card service-card--urgence">
+            <a href="depannage.html" class="service-card service-card--urgence">
                 <div class="service-card__icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                 </div>
                 <h3 class="service-card__title">Urgence 7j/7</h3>
-                <p class="service-card__text">Dépannage rapide plomberie, électricité et serrurerie 24h/24.</p>
+                <p class="service-card__text">Dépannage rapide serrurerie, plomberie et vitrerie 24h/24.</p>
             </a>
             <a href="contact.html" class="service-card">
                 <div class="service-card__icon">
@@ -1273,7 +1283,7 @@
                     <span class="section-tag__text">À propos</span>
                 </div>
                 <h2 class="about__title">Une équipe de confiance à vos côtés</h2>
-                <p class="about__text">Forte de 25 ans d'expérience dans le bâtiment et plus de 3000 chantiers réalisés, notre équipe met son savoir-faire et son exigence au service de vos projets. Certifiés Qualibat RGE et Quali Gaz, nous intervenons dans un rayon de 50 km autour de Reims avec un interlocuteur unique par dossier.</p>
+                <p class="about__text">Forte de 25 ans d'expérience dans le bâtiment et plus de 3000 chantiers réalisés, notre équipe met son savoir-faire et son exigence au service de vos projets. Certifiés Quali Elec, Quali Gaz et RGE, nous intervenons dans un rayon de 50 km autour de Reims avec un interlocuteur unique par dossier.</p>
                 <div class="about__features">
                     <div class="feature">
                         <div class="feature__icon">
@@ -1289,8 +1299,8 @@
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </div>
                         <div>
-                            <div class="feature__title">Certifié Quali Gaz</div>
-                            <div class="feature__text">+ Qualibat RGE</div>
+                            <div class="feature__title">Certifications</div>
+                            <div class="feature__text">Quali Elec, Quali Gaz, RGE</div>
                         </div>
                     </div>
                     <div class="feature">
@@ -1310,6 +1320,20 @@
                             <div class="feature__title">Garantie décennale</div>
                             <div class="feature__text">10 ans tous services</div>
                         </div>
+                    </div>
+                </div>
+                <div class="certifications">
+                    <div class="certif-badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        Quali Elec
+                    </div>
+                    <div class="certif-badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        Quali Gaz
+                    </div>
+                    <div class="certif-badge" style="background: #16a34a;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        RGE
                     </div>
                 </div>
             </div>
@@ -1385,6 +1409,11 @@
         </div>
     </section>
 
+    <a href="tel:0351001296" class="floating-phone" aria-label="Appeler MJ Rénov - Urgence">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="floating-phone__tooltip">03 51 00 12 96</span>
+    </a>
+
     <footer class="footer">
         <div class="footer__grid">
             <div>
@@ -1409,7 +1438,7 @@
                     <li><a href="services.html#revetements">Revêtements</a></li>
                     <li><a href="services.html#plomberie">Plomberie</a></li>
                     <li><a href="services.html#electricite">Électricité</a></li>
-                    <li><a href="index.html#urgence">Urgence 7j/7</a></li>
+                    <li><a href="depannage.html">Urgence 7j/7</a></li>
                 </ul>
             </div>
             <div>

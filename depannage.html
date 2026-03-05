@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dépannage Urgence 7j/7 24h/24 - MJ Rénov | Serrurerie, Plomberie, Vitrerie à Reims</title>
+    <meta name="description" content="Dépannage urgence à Reims et 50 km : serrurerie, plomberie, vitrerie. Intervention en moins de 30 minutes, 7j/7 24h/24. Devis clair avant intervention.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
+            --white: #ffffff;
+            --gray: #64748b;
+            --orange-cta: #e07a3d;
+            --rouge-urgence: #dc2626;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--gris-pierre); color: var(--bleu-profond); overflow-x: hidden; }
+
+        /* === HEADER === */
+        .header { position: fixed; width: 100%; top: 0; z-index: 100; padding: 16px 5%; transition: all 0.4s; }
+        .header.scrolled { background: var(--white); box-shadow: 0 4px 30px rgba(35,53,71,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; background: var(--white); padding: 12px 32px; border-radius: 60px; box-shadow: 0 4px 24px rgba(35,53,71,0.1); }
+        .header.scrolled .header__inner { background: transparent; box-shadow: none; padding: 12px 0; }
+        .logo img { height: 40px; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
+        .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
+        .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .header__cta { display: flex; align-items: center; gap: 20px; }
+
+        .btn { padding: 14px 28px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border-radius: 8px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .btn--primary { background: var(--orange-cta); color: var(--white); }
+        .btn--primary:hover { background: #c96a2f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(224,122,61,0.3); }
+        .btn--sm { padding: 10px 20px; font-size: 0.8rem; }
+        .btn--urgence { background: var(--rouge-urgence); color: var(--white); animation: pulse-urgence 2s infinite; }
+        .btn--urgence:hover { background: #b91c1c; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3); }
+        @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
+        .btn--outline { border: 2px solid var(--bleu-profond); color: var(--bleu-profond); background: transparent; }
+        .btn--outline:hover { background: var(--bleu-profond); color: var(--white); }
+
+        /* === HERO URGENCE === */
+        .hero-urgence {
+            padding: 180px 5% 100px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-urgence::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80') center/cover;
+            opacity: 0.08;
+        }
+
+        .hero-urgence__inner {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-urgence__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-urgence__title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-urgence__text {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+
+        .hero-urgence__phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            color: var(--rouge-urgence);
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-family: var(--font-title);
+            font-size: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .hero-urgence__phone:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero-urgence__stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .hero-urgence__stat {
+            text-align: center;
+        }
+
+        .hero-urgence__stat-number {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .hero-urgence__stat-label {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* === SERVICES URGENCE === */
+        .dep-services {
+            padding: 100px 5%;
+            background: var(--white);
+        }
+
+        .dep-services__header {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .dep-services__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .dep-services__tag-line {
+            width: 40px;
+            height: 2px;
+            background: var(--rouge-urgence);
+        }
+
+        .dep-services__tag-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--rouge-urgence);
+        }
+
+        .dep-services__title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+        }
+
+        /* === SERVICE BLOCK === */
+        .dep-block {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .dep-block:nth-child(even) {
+            direction: rtl;
+        }
+
+        .dep-block:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .dep-block__image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(35,53,71,0.1);
+        }
+
+        .dep-block__image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .dep-block__content {}
+
+        .dep-block__icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--rouge-urgence);
+            color: var(--white);
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+
+        .dep-block__title {
+            font-family: var(--font-title);
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+        }
+
+        .dep-block__subtitle {
+            color: var(--rouge-urgence);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .dep-block__list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .dep-block__list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--beige-ciment);
+            color: var(--graphite);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .dep-block__list li svg {
+            color: var(--rouge-urgence);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        /* === POURQUOI === */
+        .pourquoi {
+            padding: 100px 5%;
+            background: var(--bleu-profond);
+            color: var(--white);
+        }
+
+        .pourquoi__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pourquoi__title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            margin-bottom: 48px;
+        }
+
+        .pourquoi__grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .pourquoi__item {
+            padding: 32px 20px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .pourquoi__item:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateY(-4px);
+        }
+
+        .pourquoi__icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--rouge-urgence);
+            border-radius: 12px;
+            margin: 0 auto 16px;
+        }
+
+        .pourquoi__item-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .pourquoi__item-text {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+
+        /* === CTA === */
+        .cta { position: relative; padding: 100px 5%; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); overflow: hidden; }
+        .cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; text-align: center; color: var(--white); }
+        .cta__title { font-family: var(--font-title); font-size: 2.75rem; margin-bottom: 20px; }
+        .cta__text { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; line-height: 1.8; }
+        .cta__buttons { display: flex; justify-content: center; gap: 16px; }
+        .cta__phone { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--rouge-urgence); padding: 16px 32px; border-radius: 10px; font-family: var(--font-title); font-size: 1.4rem; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+        .cta__phone:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+        /* === FOOTER === */
+        .footer { background: #1a2530; color: var(--white); padding: 80px 5% 40px; }
+        .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto 60px; }
+        .footer__logo img { height: 45px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+        .footer__about { color: var(--gray); line-height: 1.8; }
+        .footer h4 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--beige-ciment); margin-bottom: 24px; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer a { color: var(--gray); text-decoration: none; transition: color 0.3s; }
+        .footer a:hover { color: var(--beige-ciment); }
+        .footer__bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); }
+        .footer__bottom a { color: var(--beige-ciment); }
+
+        /* === FLOATING PHONE === */
+        .floating-phone { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; background: #dc2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4); animation: pulse-urgence 2s infinite; transition: transform 0.3s; }
+        .floating-phone:hover { transform: scale(1.1); }
+        .floating-phone__tooltip { position: absolute; right: 70px; background: #dc2626; color: white; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .floating-phone:hover .floating-phone__tooltip { opacity: 1; }
+
+        /* === MENU BURGER === */
+        .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; cursor: pointer; z-index: 1001; }
+        .menu-toggle span { display: block; width: 100%; height: 2px; background: var(--bleu-profond); transition: all 0.3s; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .dep-block { grid-template-columns: 1fr; gap: 40px; }
+            .dep-block:nth-child(even) { direction: ltr; }
+            .pourquoi__grid { grid-template-columns: repeat(3, 1fr); }
+            .hero-urgence__title { font-size: 2.5rem; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .header { padding: 12px 4%; }
+            .header__inner { padding: 10px 16px; border-radius: 40px; }
+            .logo img { height: 32px; }
+            .menu-toggle { display: flex; }
+            .nav { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 24px; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 1000; }
+            .nav.active { opacity: 1; visibility: visible; }
+            .nav a { font-size: 1.25rem; padding: 12px 0; }
+            .header__cta { display: none; }
+            .hero-urgence { padding: 130px 5% 60px; }
+            .hero-urgence__title { font-size: 1.75rem; }
+            .hero-urgence__text { font-size: 0.95rem; }
+            .hero-urgence__phone { font-size: 1.4rem; padding: 16px 28px; }
+            .hero-urgence__stats { gap: 24px; flex-wrap: wrap; }
+            .hero-urgence__stat-number { font-size: 1.5rem; }
+            .dep-services { padding: 60px 5%; }
+            .dep-services__title { font-size: 1.75rem; }
+            .dep-block__title { font-size: 1.4rem; }
+            .dep-block__image img { height: 250px; }
+            .pourquoi { padding: 60px 5%; }
+            .pourquoi__title { font-size: 1.75rem; }
+            .pourquoi__grid { grid-template-columns: 1fr 1fr; }
+            .cta { padding: 60px 5%; }
+            .cta__title { font-size: 1.75rem; }
+            .cta__buttons { flex-direction: column; gap: 12px; align-items: center; }
+            .footer { padding: 48px 5% 24px; }
+            .footer__grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+            .footer__bottom { flex-direction: column; gap: 12px; text-align: center; padding-top: 24px; }
+        }
+        @media (max-width: 480px) {
+            .hero-urgence__title { font-size: 1.5rem; }
+            .pourquoi__grid { grid-template-columns: 1fr; }
+            .cta__title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
+            <nav class="nav" id="nav">
+                <a href="index.html">Accueil</a>
+                <a href="services.html">Services</a>
+                <a href="realisations.html">Réalisations</a>
+                <a href="a-propos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="header__cta">
+                <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+                <a href="depannage.html" class="btn btn--urgence btn--sm">Urgence 7j/7</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-urgence">
+        <div class="hero-urgence__inner">
+            <div class="hero-urgence__badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Dépannage d'urgence 7j/7 - 24h/24
+            </div>
+            <h1 class="hero-urgence__title">MJ Rénov - Dépannage Urgence à Reims et 50 km autour</h1>
+            <p class="hero-urgence__text">Depuis plus de 25 ans d'expérience, MJ Rénov intervient en moins de 30 minutes à Reims, Tinqueux, Cormontreuil, Bétheny, Épernay, Châlons-en-Champagne et alentours pour tous vos dépannages urgents en serrurerie, plomberie et vitrerie.</p>
+            <a href="tel:0351001296" class="hero-urgence__phone">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                03 51 00 12 96
+            </a>
+            <div class="hero-urgence__stats">
+                <div class="hero-urgence__stat">
+                    <div class="hero-urgence__stat-number">- de 30 min</div>
+                    <div class="hero-urgence__stat-label">Temps d'intervention</div>
+                </div>
+                <div class="hero-urgence__stat">
+                    <div class="hero-urgence__stat-number">7j/7</div>
+                    <div class="hero-urgence__stat-label">24h/24</div>
+                </div>
+                <div class="hero-urgence__stat">
+                    <div class="hero-urgence__stat-number">50 km</div>
+                    <div class="hero-urgence__stat-label">Autour de Reims</div>
+                </div>
+                <div class="hero-urgence__stat">
+                    <div class="hero-urgence__stat-number">25 ans</div>
+                    <div class="hero-urgence__stat-label">D'expérience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dep-services">
+        <div class="dep-services__header">
+            <div class="dep-services__tag">
+                <span class="dep-services__tag-line"></span>
+                <span class="dep-services__tag-text">Nos interventions d'urgence</span>
+                <span class="dep-services__tag-line"></span>
+            </div>
+            <h2 class="dep-services__title">Serrurerie, plomberie et vitrerie</h2>
+        </div>
+
+        <div class="dep-block">
+            <div class="dep-block__image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Serrurerie urgence">
+            </div>
+            <div class="dep-block__content">
+                <div class="dep-block__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <h3 class="dep-block__title">Serrurerie</h3>
+                <p class="dep-block__subtitle">Intervention rapide</p>
+                <ul class="dep-block__list">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Ouverture de porte : perte de clés, porte claquée / bloquée, dysfonctionnement, dégradation / cambriolage, clé cassée...</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Remplacement de serrure, installation de serrures multipoints</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Devis clair avant intervention, sans surprise</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Équipe expérimentée, efficace et professionnelle</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="dep-block">
+            <div class="dep-block__image">
+                <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80" alt="Plomberie urgence">
+            </div>
+            <div class="dep-block__content">
+                <div class="dep-block__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                </div>
+                <h3 class="dep-block__title">Plomberie</h3>
+                <p class="dep-block__subtitle">Dépannage rapide et fiable</p>
+                <ul class="dep-block__list">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Fuite d'eau, canalisation bouchée, recherche de fuite, chauffe-eau, robinetterie, inspection caméra</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Devis transparent avant travaux</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Intervention rapide et efficace pour particuliers et professionnels</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="dep-block">
+            <div class="dep-block__image">
+                <img src="https://images.unsplash.com/photo-1596455607563-ad6193f76b17?w=800&q=80" alt="Vitrerie urgence">
+            </div>
+            <div class="dep-block__content">
+                <div class="dep-block__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="3" x2="21" y2="21"></line></svg>
+                </div>
+                <h3 class="dep-block__title">Vitrerie</h3>
+                <p class="dep-block__subtitle">Remplacement et prise en charge assurance</p>
+                <ul class="dep-block__list">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Bris de glace, vandalisme, évènement climatique, accident domestique, mise en sécurité</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Prise en charge jusqu'à 99 € de la franchise assurance client</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Devis clair avant intervention et travail rapide</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Équipe réactive et expérimentée</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="pourquoi">
+        <div class="pourquoi__inner">
+            <h2 class="pourquoi__title">Pourquoi choisir MJ Rénov ?</h2>
+            <div class="pourquoi__grid">
+                <div class="pourquoi__item">
+                    <div class="pourquoi__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <div class="pourquoi__item-title">25 ans de savoir-faire</div>
+                    <div class="pourquoi__item-text">Dans le bâtiment et le dépannage</div>
+                </div>
+                <div class="pourquoi__item">
+                    <div class="pourquoi__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div class="pourquoi__item-title">Moins de 30 min</div>
+                    <div class="pourquoi__item-text">Devis clair avant toute action</div>
+                </div>
+                <div class="pourquoi__item">
+                    <div class="pourquoi__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div class="pourquoi__item-title">Reims et 50 km</div>
+                    <div class="pourquoi__item-text">Large zone de couverture</div>
+                </div>
+                <div class="pourquoi__item">
+                    <div class="pourquoi__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="pourquoi__item-title">Professionnalisme</div>
+                    <div class="pourquoi__item-text">Efficacité garantie</div>
+                </div>
+                <div class="pourquoi__item">
+                    <div class="pourquoi__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <div class="pourquoi__item-title">Transparence</div>
+                    <div class="pourquoi__item-text">Sécurité pour vos urgences</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta__content">
+            <h2 class="cta__title">Une urgence ? Appelez-nous maintenant</h2>
+            <p class="cta__text">Notre équipe intervient 7j/7, 24h/24 à Reims et dans un rayon de 50 km. Devis clair avant toute intervention.</p>
+            <div class="cta__buttons">
+                <a href="tel:0351001296" class="cta__phone">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    03 51 00 12 96
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="tel:0351001296" class="floating-phone" aria-label="Appeler MJ Rénov - Urgence">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="floating-phone__tooltip">03 51 00 12 96</span>
+    </a>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="assets/images/logo.png" alt="MJ Rénov"></div>
+                <p class="footer__about">Votre équipe de confiance pour tous vos travaux de rénovation et dépannages urgents à Reims et dans un rayon de 50 km.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#peinture">Peinture</a></li>
+                    <li><a href="services.html#plomberie">Plomberie</a></li>
+                    <li><a href="services.html#electricite">Électricité</a></li>
+                    <li><a href="depannage.html">Urgence 7j/7</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>54-56 chau. Saint-Martin, 51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 MJ Rénov - Tous droits réservés</p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -140,6 +140,12 @@
         .footer__bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); }
         .footer__bottom a { color: var(--beige-ciment); }
 
+        /* === FLOATING PHONE === */
+        .floating-phone { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; background: #dc2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4); animation: pulse-urgence 2s infinite; transition: transform 0.3s; }
+        .floating-phone:hover { transform: scale(1.1); }
+        .floating-phone__tooltip { position: absolute; right: 70px; background: #dc2626; color: white; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .floating-phone:hover .floating-phone__tooltip { opacity: 1; }
+
         /* === MENU BURGER === */
         .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; cursor: pointer; z-index: 1001; }
         .menu-toggle span { display: block; width: 100%; height: 2px; background: var(--bleu-profond); transition: all 0.3s; }
@@ -199,7 +205,7 @@
             </nav>
             <div class="header__cta">
                 <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
-                <a href="index.html#urgence" class="btn btn--urgence btn--sm">Urgence 7j/7</a>
+                <a href="depannage.html" class="btn btn--urgence btn--sm">Urgence 7j/7</a>
             </div>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -263,7 +269,7 @@
                         <div class="contact-card__content">
                             <div class="contact-card__label">Urgence 7j/7 - 24h/24</div>
                             <div class="contact-card__value"><a href="tel:0351001296">03 51 00 12 96</a></div>
-                            <div class="contact-card__sub">Plomberie • Électricité • Serrurerie</div>
+                            <div class="contact-card__sub">Serrurerie • Plomberie • Vitrerie</div>
                         </div>
                     </div>
                 </div>
@@ -348,6 +354,11 @@
     <section class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2618.123456789!2d4.0297!3d49.2583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDE1JzI5LjkiTiA0wrAwMSc0Ni45IkU!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
+
+    <a href="tel:0351001296" class="floating-phone" aria-label="Appeler MJ Rénov - Urgence">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="floating-phone__tooltip">03 51 00 12 96</span>
+    </a>
 
     <footer class="footer">
         <div class="footer__grid">

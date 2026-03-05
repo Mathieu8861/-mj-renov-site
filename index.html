@@ -639,12 +639,12 @@
         .certif-badge img { height: 36px; width: auto; object-fit: contain; }
 
         /* === HERO CERTIFS === */
-        .hero__certifs { position: absolute; bottom: 32px; right: 32px; display: flex; gap: 12px; z-index: 2; }
-        .hero__certif-img { height: 70px; width: auto; background: rgba(255,255,255,0.92); padding: 8px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); backdrop-filter: blur(4px); transition: transform 0.3s; }
+        .hero__certifs { position: absolute; top: 50%; right: 24px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 2; }
+        .hero__certif-img { height: 64px; width: auto; background: rgba(255,255,255,0.92); padding: 8px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); backdrop-filter: blur(4px); transition: transform 0.3s; }
         .hero__certif-img:hover { transform: scale(1.08); }
         @media (max-width: 768px) {
-            .hero__certifs { bottom: 16px; right: 16px; gap: 8px; }
-            .hero__certif-img { height: 50px; padding: 6px; }
+            .hero__certifs { top: auto; bottom: 16px; right: 16px; transform: none; flex-direction: row; gap: 8px; }
+            .hero__certif-img { height: 44px; padding: 5px; }
         }
 
         /* === WORK === */

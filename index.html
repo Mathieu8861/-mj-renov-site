@@ -635,8 +635,17 @@
         }
 
         .certifications { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
-        .certif-badge { display: flex; align-items: center; gap: 8px; background: var(--bleu-profond); color: var(--white); padding: 10px 18px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; }
-        .certif-badge svg { flex-shrink: 0; }
+        .certif-badge { display: flex; align-items: center; gap: 10px; background: var(--white); padding: 10px 18px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; color: var(--bleu-profond); box-shadow: 0 2px 12px rgba(35,53,71,0.08); }
+        .certif-badge img { height: 36px; width: auto; object-fit: contain; }
+
+        /* === HERO CERTIFS === */
+        .hero__certifs { position: absolute; bottom: 32px; right: 32px; display: flex; gap: 12px; z-index: 2; }
+        .hero__certif-img { height: 70px; width: auto; background: rgba(255,255,255,0.92); padding: 8px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); backdrop-filter: blur(4px); transition: transform 0.3s; }
+        .hero__certif-img:hover { transform: scale(1.08); }
+        @media (max-width: 768px) {
+            .hero__certifs { bottom: 16px; right: 16px; gap: 8px; }
+            .hero__certif-img { height: 50px; padding: 6px; }
+        }
 
         /* === WORK === */
         .work {
@@ -805,21 +814,30 @@
         }
 
         .partner {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--bleu-archi);
-            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.6;
             transition: opacity 0.3s;
+            filter: grayscale(100%);
         }
 
         .partner:hover {
             opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .partner img {
+            height: 40px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
         }
 
         @media (max-width: 768px) {
             .partners { padding: 40px 5%; }
-            .partners__logos { gap: 24px; }
-            .partner { font-size: 0.9rem; }
+            .partners__logos { gap: 24px 32px; }
+            .partner img { height: 30px; max-width: 110px; }
         }
 
         /* === FOOTER === */
@@ -1165,6 +1183,11 @@
         </div>
         <div class="hero__visual">
             <div class="hero__image"></div>
+            <div class="hero__certifs">
+                <img src="assets/images/qualifelec.png" alt="Qualifelec" class="hero__certif-img">
+                <img src="assets/images/qualigaz.jpg" alt="Qualigaz" class="hero__certif-img">
+                <img src="assets/images/rge.png" alt="RGE Qualibat" class="hero__certif-img">
+            </div>
         </div>
     </section>
 
@@ -1324,15 +1347,15 @@
                 </div>
                 <div class="certifications">
                     <div class="certif-badge">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <img src="assets/images/qualifelec.png" alt="Qualifelec">
                         Quali Elec
                     </div>
                     <div class="certif-badge">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <img src="assets/images/qualigaz.jpg" alt="Qualigaz">
                         Quali Gaz
                     </div>
-                    <div class="certif-badge" style="background: #16a34a;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                    <div class="certif-badge">
+                        <img src="assets/images/rge.png" alt="RGE Qualibat">
                         RGE
                     </div>
                 </div>
@@ -1399,12 +1422,15 @@
                 <span class="partners__title">Ils nous font confiance</span>
             </div>
             <div class="partners__logos">
-                <div class="partner">Plurial Habitat</div>
-                <div class="partner">Reims Habitat</div>
-                <div class="partner">AXA Assurances</div>
-                <div class="partner">MAIF</div>
-                <div class="partner">Groupama</div>
-                <div class="partner">MACIF</div>
+                <div class="partner"><img src="assets/images/Plurihabitat.png" alt="Plurihabitat"></div>
+                <div class="partner"><img src="assets/images/eiffage.png" alt="Eiffage"></div>
+                <div class="partner"><img src="assets/images/groupama.png" alt="Groupama"></div>
+                <div class="partner"><img src="assets/images/AG2R.png" alt="AG2R La Mondiale"></div>
+                <div class="partner"><img src="assets/images/gmf.png" alt="GMF"></div>
+                <div class="partner"><img src="assets/images/caiiseepargne.png" alt="Caisse d'Épargne"></div>
+                <div class="partner"><img src="assets/images/efs.png" alt="EFS"></div>
+                <div class="partner"><img src="assets/images/gamme vert.png" alt="Gamm Vert"></div>
+                <div class="partner"><img src="assets/images/felljuice.png" alt="Feel Juice"></div>
             </div>
         </div>
     </section>

@@ -110,11 +110,13 @@
         .nav a:hover::after { width: 100%; }
 
         .nav__urgence {
+            display: none;
             background: #dc2626;
             color: var(--white) !important;
-            padding: 8px 16px !important;
-            border-radius: 6px;
+            padding: 12px 24px !important;
+            border-radius: 8px;
             animation: pulse-urgence 2s infinite;
+            margin-top: 8px;
         }
 
         .nav__urgence::after { display: none !important; }
@@ -994,6 +996,7 @@
 
             .header__cta { display: none; }
             .header__phone { display: none; }
+            .nav__urgence { display: inline-flex; }
 
             /* Hero mobile */
             .hero__visual { min-height: 45vh; }
@@ -1071,6 +1074,11 @@
             }
             .feature { padding: 16px; }
 
+            /* Certifications mobile */
+            .certifications { gap: 8px; flex-wrap: nowrap; justify-content: center; }
+            .certif-badge { padding: 8px 10px; font-size: 0.7rem; gap: 6px; }
+            .certif-badge img { height: 28px; }
+
             /* Work/Portfolio mobile */
             .work { padding: 60px 5%; }
             .work__header {
@@ -1141,6 +1149,7 @@
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
+                <a href="depannage.html" class="nav__urgence">Urgence 7j/7</a>
             </nav>
             <div class="header__cta">
                 <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>

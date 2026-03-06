@@ -44,7 +44,7 @@
         .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
         .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
         .nav a:hover::after, .nav a.active::after { width: 100%; }
-        .nav__urgence { background: #dc2626; color: var(--white) !important; padding: 8px 16px !important; border-radius: 6px; animation: pulse-urgence 2s infinite; }
+        .nav__urgence { display: none; background: #dc2626; color: var(--white) !important; padding: 12px 24px !important; border-radius: 8px; animation: pulse-urgence 2s infinite; margin-top: 8px; }
         .nav__urgence::after { display: none !important; }
         @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
         .header__cta { display: flex; align-items: center; gap: 20px; }
@@ -195,6 +195,7 @@
             .nav.active { opacity: 1; visibility: visible; }
             .nav a { font-size: 1.25rem; padding: 12px 0; }
             .header__cta { display: none; }
+            .nav__urgence { display: inline-flex; }
             .page-header { padding: 120px 5% 50px; }
             .page-header__title { font-size: 1.75rem; }
             .page-header__text { font-size: 0.95rem; }
@@ -214,6 +215,9 @@
             .guarantees { padding: 60px 5%; }
             .guarantees__title { font-size: 1.75rem; }
             .guarantee { padding: 20px; }
+            .certifications-bar { gap: 10px; flex-wrap: nowrap; justify-content: center; margin-top: 32px; }
+            .certif-badge { padding: 8px 10px; font-size: 0.7rem; gap: 6px; }
+            .certif-badge img { height: 28px; }
             .cta { padding: 60px 5%; }
             .cta__title { font-size: 1.75rem; }
             .cta__buttons { flex-direction: column; gap: 12px; }
@@ -242,6 +246,7 @@
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html" class="active">À propos</a>
                 <a href="contact.html">Contact</a>
+                <a href="depannage.html" class="nav__urgence">Urgence 7j/7</a>
             </nav>
             <div class="header__cta">
                 <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>

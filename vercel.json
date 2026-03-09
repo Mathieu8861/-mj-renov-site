@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "mjrenov.fr"
+        }
+      ],
+      "destination": "https://mj-renov-reims.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.mjrenov.fr"
+        }
+      ],
+      "destination": "https://mj-renov-reims.com/:path*",
+      "permanent": true
+    }
+  ]
+}

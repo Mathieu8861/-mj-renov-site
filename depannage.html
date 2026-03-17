@@ -125,6 +125,9 @@
             transition: all 0.3s;
         }
 
+        .hero-urgence__phones { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .hero-urgence__phone--secondary { font-size: 1.3rem; padding: 12px 28px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); }
+        .hero-urgence__phone--secondary:hover { background: rgba(255,255,255,0.25); }
         .hero-urgence__phone:hover {
             transform: scale(1.05);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
@@ -444,10 +447,16 @@
             </div>
             <h1 class="hero-urgence__title">MJ Rénov - Dépannage Urgence à Reims et 50 km autour</h1>
             <p class="hero-urgence__text">Depuis plus de 25 ans d'expérience, MJ Rénov intervient en moins de 30 minutes à Reims, Tinqueux, Cormontreuil, Bétheny, Épernay, Châlons-en-Champagne et alentours pour tous vos dépannages urgents en serrurerie, plomberie et vitrerie.</p>
-            <a href="tel:0351001296" class="hero-urgence__phone">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                03 51 00 12 96
-            </a>
+            <div class="hero-urgence__phones">
+                <a href="tel:0743605045" class="hero-urgence__phone">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    07 43 60 50 45
+                </a>
+                <a href="tel:0351001296" class="hero-urgence__phone hero-urgence__phone--secondary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    03 51 00 12 96
+                </a>
+            </div>
             <div class="hero-urgence__stats">
                 <div class="hero-urgence__stat">
                     <div class="hero-urgence__stat-number">- de 30 min</div>
@@ -584,17 +593,21 @@
             <h2 class="cta__title">Une urgence ? Appelez-nous maintenant</h2>
             <p class="cta__text">Notre équipe intervient 7j/7, 24h/24 à Reims et dans un rayon de 50 km. Devis clair avant toute intervention.</p>
             <div class="cta__buttons">
-                <a href="tel:0351001296" class="cta__phone">
+                <a href="tel:0743605045" class="cta__phone">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    07 43 60 50 45
+                </a>
+                <a href="tel:0351001296" class="cta__phone" style="background: transparent; border: 2px solid white; font-size: 1.1rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     03 51 00 12 96
                 </a>
             </div>
         </div>
     </section>
 
-    <a href="tel:0351001296" class="floating-phone" aria-label="Appeler MJ Rénov - Urgence">
+    <a href="tel:0743605045" class="floating-phone" aria-label="Appeler MJ Rénov - Urgence">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        <span class="floating-phone__tooltip">03 51 00 12 96</span>
+        <span class="floating-phone__tooltip">07 43 60 50 45</span>
     </a>
 
     <footer class="footer">

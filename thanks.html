@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande envoyée - MJ Rénov</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
+            --white: #ffffff;
+            --gray: #64748b;
+            --orange-cta: #e07a3d;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--gris-pierre); color: var(--bleu-profond); overflow-x: hidden; }
+
+        /* === HEADER === */
+        .header { position: fixed; width: 100%; top: 0; z-index: 100; padding: 16px 5%; transition: all 0.4s; }
+        .header.scrolled { background: var(--white); box-shadow: 0 4px 30px rgba(35,53,71,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; background: var(--white); padding: 12px 32px; border-radius: 60px; box-shadow: 0 4px 24px rgba(35,53,71,0.1); }
+        .header.scrolled .header__inner { background: transparent; box-shadow: none; padding: 12px 0; }
+        .logo img { height: 40px; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
+        .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
+        .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .nav__urgence { display: none; background: #dc2626; color: var(--white) !important; padding: 12px 24px !important; border-radius: 8px; animation: pulse-urgence 2s infinite; margin-top: 8px; }
+        .nav__urgence::after { display: none !important; }
+        @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
+        .header__cta { display: flex; align-items: center; gap: 20px; }
+        .btn { text-decoration: none; font-weight: 600; border-radius: 10px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; }
+        .btn--sm { padding: 10px 24px; font-size: 0.85rem; }
+        .btn--primary { background: var(--orange-cta); color: var(--white); }
+        .btn--primary:hover { background: #c96a30; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(224, 122, 61, 0.3); }
+        .btn--urgence { background: #dc2626; color: var(--white); animation: pulse-urgence 2s infinite; }
+        .btn--urgence:hover { background: #b91c1c; transform: translateY(-2px); }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+        .menu-toggle span { width: 28px; height: 2px; background: var(--bleu-profond); transition: all 0.3s; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* === OVERLAY === */
+        .thanks-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(35, 53, 71, 0.6);
+            backdrop-filter: blur(6px);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes checkmark {
+            0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        @keyframes pulse-check {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.3); }
+            50% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+        }
+
+        .thanks-modal {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px 40px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 24px 80px rgba(35, 53, 71, 0.25);
+            animation: slideUp 0.5s ease 0.1s both;
+        }
+
+        .thanks-check {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: checkmark 0.6s ease 0.3s both, pulse-check 2s infinite 0.9s;
+        }
+
+        .thanks-check svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .thanks-title {
+            font-family: var(--font-title);
+            font-size: 1.75rem;
+            color: var(--bleu-profond);
+            margin-bottom: 12px;
+        }
+
+        .thanks-text {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .thanks-highlight {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .thanks-highlight svg {
+            flex-shrink: 0;
+            color: #16a34a;
+        }
+
+        .thanks-highlight p {
+            font-size: 0.9rem;
+            color: var(--bleu-profond);
+            font-weight: 500;
+        }
+
+        .thanks-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 28px;
+        }
+
+        .thanks-btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .thanks-btn--primary {
+            background: var(--orange-cta);
+            color: var(--white);
+        }
+
+        .thanks-btn--primary:hover {
+            background: #c96a30;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 122, 61, 0.3);
+        }
+
+        .thanks-btn--secondary {
+            background: var(--gris-pierre);
+            color: var(--bleu-profond);
+        }
+
+        .thanks-btn--secondary:hover {
+            background: var(--beige-ciment);
+            transform: translateY(-2px);
+        }
+
+        /* === FOOTER === */
+        .footer { background: var(--bleu-profond); color: var(--white); padding: 64px 5% 32px; }
+        .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto; }
+        .footer__logo img { height: 48px; margin-bottom: 16px; }
+        .footer__about { color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 0.9rem; }
+        .footer h4 { font-family: var(--font-title); font-size: 1rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer ul { list-style: none; }
+        .footer li { margin-bottom: 10px; }
+        .footer a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer a:hover { color: var(--orange-cta); }
+        .footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 48px; padding-top: 24px; display: flex; justify-content: space-between; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .footer__bottom p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .nav { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 24px; transform: translateX(100%); transition: transform 0.4s; z-index: 100; }
+            .nav.active { transform: translateX(0); }
+            .nav__urgence { display: inline-flex; }
+            .header__cta { display: none; }
+            .menu-toggle { display: flex; }
+            .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .thanks-modal { padding: 36px 24px; }
+            .thanks-title { font-size: 1.4rem; }
+            .thanks-actions { flex-direction: column; }
+            .thanks-btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
+            <nav class="nav" id="nav">
+                <a href="index.html">Accueil</a>
+                <a href="services.html">Services</a>
+                <a href="realisations.html">Réalisations</a>
+                <a href="a-propos.html">À propos</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="depannage.html" class="nav__urgence">Urgence 7j/7</a>
+            </nav>
+            <div class="header__cta">
+                <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+                <a href="depannage.html" class="btn btn--urgence btn--sm">Urgence 7j/7</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="thanks-overlay">
+        <div class="thanks-modal">
+            <div class="thanks-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h1 class="thanks-title">Demande envoyée !</h1>
+            <p class="thanks-text">Merci pour votre confiance. Votre demande de devis a bien été transmise à notre équipe.</p>
+            <div class="thanks-highlight">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <p>Nous vous recontactons sous 48h maximum pour discuter de votre projet.</p>
+            </div>
+            <div class="thanks-actions">
+                <a href="index.html" class="thanks-btn thanks-btn--primary">Retour à l'accueil</a>
+                <a href="contact.html" class="thanks-btn thanks-btn--secondary">Nouvelle demande</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="assets/images/logo.png" alt="MJ Rénov"></div>
+                <p class="footer__about">Votre équipe de confiance pour tous vos travaux de rénovation à Reims et dans un rayon de 50 km.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#peinture">Peinture</a></li>
+                    <li><a href="services.html#revetements">Revêtements</a></li>
+                    <li><a href="services.html#plomberie">Plomberie</a></li>
+                    <li><a href="services.html#electricite">Électricité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>54-56 chau. Saint-Martin, 51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 MJ Rénov - Tous droits réservés</p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>

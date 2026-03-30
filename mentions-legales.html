@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales — MJ Rénov Rénovation Reims</title>
+    <meta name="description" content="Mentions légales et politique de confidentialité du site mj-renov-reims.com — MJ Rénov, entreprise de rénovation à Reims.">
+    <link rel="canonical" href="https://mj-renov-reims.com/mentions-legales.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mentions Légales — MJ Rénov Rénovation Reims">
+    <meta property="og:description" content="Mentions légales et politique de confidentialité du site mj-renov-reims.com — MJ Rénov, entreprise de rénovation à Reims.">
+    <meta property="og:url" content="https://mj-renov-reims.com/mentions-legales.html">
+    <meta property="og:image" content="https://mj-renov-reims.com/assets/images/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Plein';
+            src: url('assets/fonts/Plein-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bleu-profond: #233547;
+            --bleu-archi: #3d5f79;
+            --graphite: #3b4043;
+            --beige-ciment: #e5e1d9;
+            --gris-pierre: #f4f5f5;
+            --white: #ffffff;
+            --gray: #64748b;
+            --orange-cta: #e07a3d;
+            --font-title: 'Plein', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--gris-pierre); color: var(--bleu-profond); overflow-x: hidden; }
+
+        /* === HEADER === */
+        .header { position: fixed; width: 100%; top: 0; z-index: 100; padding: 16px 5%; transition: all 0.4s; }
+        .header.scrolled { background: var(--white); box-shadow: 0 4px 30px rgba(35,53,71,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; background: var(--white); padding: 12px 32px; border-radius: 60px; box-shadow: 0 4px 24px rgba(35,53,71,0.1); }
+        .header.scrolled .header__inner { background: transparent; box-shadow: none; padding: 12px 0; }
+        .logo img { height: 40px; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { color: var(--bleu-profond); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 8px 0; }
+        .nav a::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 0; height: 2px; background: var(--bleu-archi); transition: width 0.3s; }
+        .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .nav__urgence { display: none; background: #dc2626; color: var(--white) !important; padding: 12px 24px !important; border-radius: 8px; animation: pulse-urgence 2s infinite; margin-top: 8px; }
+        .nav__urgence::after { display: none !important; }
+        @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
+        .header__cta { display: flex; align-items: center; gap: 20px; }
+        .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        .btn { padding: 14px 28px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border-radius: 8px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .btn--primary { background: var(--orange-cta); color: var(--white); }
+        .btn--primary:hover { background: #c96a2f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(224,122,61,0.3); }
+        .btn--sm { padding: 10px 20px; font-size: 0.8rem; }
+        .btn--urgence { background: #dc2626; color: var(--white); animation: pulse-urgence 2s infinite; }
+        .btn--urgence:hover { background: #b91c1c; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3); }
+
+        /* === PAGE HEADER === */
+        .page-header { padding: 180px 5% 100px; background: var(--bleu-profond); color: var(--white); text-align: center; }
+        .page-header__content { max-width: 800px; margin: 0 auto; }
+        .page-header__tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .page-header__tag-line { width: 40px; height: 2px; background: var(--orange-cta); }
+        .page-header__tag-text { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--orange-cta); }
+        .page-header__title { font-family: var(--font-title); font-size: 3.5rem; margin-bottom: 20px; }
+
+        /* === LEGAL CONTENT === */
+        .legal { max-width: 800px; margin: 0 auto; padding: 60px 5% 80px; }
+        .legal h2 { font-family: var(--font-title); font-size: 1.3rem; color: var(--bleu-profond); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--beige-ciment); }
+        .legal h3 { font-size: 1rem; font-weight: 600; color: var(--bleu-archi); margin: 20px 0 8px; }
+        .legal p, .legal li { font-size: 0.95rem; line-height: 1.7; color: var(--graphite); margin-bottom: 8px; }
+        .legal ul { padding-left: 20px; margin-bottom: 16px; }
+        .legal a { color: var(--bleu-archi); text-decoration: underline; }
+
+        /* === FOOTER === */
+        .footer { background: #1a2530; color: var(--white); padding: 80px 5% 40px; }
+        .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto 60px; }
+        .footer__logo img { height: 45px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+        .footer__about { color: var(--gray); line-height: 1.8; }
+        .footer h4 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--beige-ciment); margin-bottom: 24px; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer a { color: var(--gray); text-decoration: none; transition: color 0.3s; }
+        .footer a:hover { color: var(--beige-ciment); }
+        .footer__bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); }
+        .footer__bottom a { color: var(--beige-ciment); }
+
+        /* === FLOATING PHONE === */
+        .floating-phone { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; background: #dc2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4); animation: pulse-urgence 2s infinite; transition: transform 0.3s; }
+        .floating-phone:hover { transform: scale(1.1); }
+        .floating-phone__tooltip { position: absolute; right: 70px; background: #dc2626; color: white; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .floating-phone:hover .floating-phone__tooltip { opacity: 1; }
+
+        /* === MENU BURGER === */
+        .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; cursor: pointer; z-index: 1001; }
+        .menu-toggle span { display: block; width: 100%; height: 2px; background: var(--bleu-profond); transition: all 0.3s; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .page-header__title { font-size: 2.5rem; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .header { padding: 12px 4%; }
+            .header__inner { padding: 10px 16px; border-radius: 40px; }
+            .logo img { height: 32px; }
+            .menu-toggle { display: flex; }
+            .nav { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 24px; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 1000; }
+            .nav.active { opacity: 1; visibility: visible; }
+            .nav a { font-size: 1.25rem; padding: 12px 0; }
+            .header__cta { display: none; }
+            .nav__urgence { display: inline-flex; }
+            .page-header { padding: 120px 5% 50px; }
+            .page-header__title { font-size: 1.75rem; }
+            .legal { padding: 40px 5% 60px; }
+            .legal h2 { font-size: 1.15rem; margin: 32px 0 12px; }
+            .footer { padding: 48px 5% 24px; }
+            .footer__grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+            .footer__bottom { flex-direction: column; gap: 12px; text-align: center; padding-top: 24px; }
+        }
+        @media (max-width: 480px) {
+            .page-header__title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
+            <nav class="nav" id="nav">
+                <a href="index.html">Accueil</a>
+                <a href="services.html">Services</a>
+                <a href="realisations.html">Réalisations</a>
+                <a href="a-propos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+                <a href="depannage.html" class="nav__urgence">Urgence 7j/7</a>
+            </nav>
+            <div class="header__cta">
+                <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+                <a href="depannage.html" class="btn btn--urgence btn--sm">Urgence 7j/7</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header__content">
+            <div class="page-header__tag">
+                <span class="page-header__tag-line"></span>
+                <span class="page-header__tag-text">Informations légales</span>
+                <span class="page-header__tag-line"></span>
+            </div>
+            <h1 class="page-header__title">Mentions légales</h1>
+        </div>
+    </section>
+
+    <div class="legal">
+
+        <h2>1. Éditeur du site</h2>
+        <p><strong>Raison sociale :</strong> M.J RENOV</p>
+        <p><strong>Forme juridique :</strong> SASU (Société par Actions Simplifiée Unipersonnelle)</p>
+        <p><strong>Capital social :</strong> 100 000 €</p>
+        <p><strong>Siège social :</strong> 56, 54 Chaussée Saint-Martin, 51100 Reims</p>
+        <p><strong>SIRET :</strong> 452 922 966 00042</p>
+        <p><strong>RCS :</strong> Reims 452 922 966</p>
+        <p><strong>Numéro de TVA :</strong> FR88452922966</p>
+        <p><strong>Code NAF :</strong> 41.20B — Construction d'autres bâtiments</p>
+        <p><strong>Directeur de la publication :</strong> Majid EL HAOUARI</p>
+        <p><strong>Téléphone :</strong> <a href="tel:0351001296">03 51 00 12 96</a></p>
+        <p><strong>Email :</strong> <a href="mailto:contact@mjrenov.fr">contact@mjrenov.fr</a></p>
+
+        <h2>2. Hébergement du site</h2>
+        <p><strong>Hébergeur :</strong> Vercel Inc.</p>
+        <p><strong>Adresse :</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, USA</p>
+        <p><strong>Site web :</strong> <a href="https://vercel.com" target="_blank" rel="noopener">https://vercel.com</a></p>
+
+        <h2>3. Noms de domaine</h2>
+        <p>Les noms de domaine <strong>mj-renov-reims.com</strong> et <strong>mjrenov.fr</strong> sont enregistrés et gérés chez OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.</p>
+
+        <h2>4. Messagerie électronique</h2>
+        <p>La messagerie électronique est hébergée chez OVH SAS, 2 rue Kellermann, 59100 Roubaix, France (Zimbra / MX Plan).</p>
+
+        <h2>5. Conception et réalisation du site</h2>
+        <p><strong>Regen Agency</strong> — SARL au capital de 200 €</p>
+        <p>60 rue François 1er, 75008 Paris</p>
+        <p><strong>SIRET :</strong> 985 275 460 00014</p>
+        <p><strong>Site :</strong> <a href="https://regen-agency.fr" target="_blank" rel="noopener">https://regen-agency.fr</a></p>
+        <p><strong>Email :</strong> <a href="mailto:contact.regenagency@gmail.com">contact.regenagency@gmail.com</a></p>
+
+        <h2>6. Propriété intellectuelle</h2>
+        <p>L'ensemble du contenu du site (textes, images, graphismes, logo, icônes, vidéos) est protégé par les lois relatives à la propriété intellectuelle. Toute reproduction, représentation, modification, publication, ou adaptation de tout ou partie des éléments du site est interdite sans autorisation écrite préalable de M.J RENOV.</p>
+
+        <h2>7. Protection des données personnelles (RGPD)</h2>
+
+        <h3>Responsable du traitement</h3>
+        <p>M.J RENOV — 56, 54 Chaussée Saint-Martin, 51100 Reims<br>
+        Contact : <a href="mailto:contact@mjrenov.fr">contact@mjrenov.fr</a></p>
+
+        <h3>Données collectées</h3>
+        <p>Via le formulaire de contact : nom, prénom, email, téléphone, message. Ces données sont collectées uniquement dans le but de répondre à votre demande de devis ou d'information.</p>
+
+        <h3>Base légale</h3>
+        <p>Intérêt légitime (réponse à une demande de contact initiée par l'utilisateur).</p>
+
+        <h3>Destinataires</h3>
+        <p>Les données sont transmises à M.J RENOV et à Regen Agency (prestataire technique). Elles ne sont ni vendues ni cédées à des tiers.</p>
+
+        <h3>Durée de conservation</h3>
+        <p>Les données sont conservées pendant une durée maximale de 3 ans à compter du dernier contact.</p>
+
+        <h3>Vos droits</h3>
+        <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+        <ul>
+            <li>Droit d'accès à vos données</li>
+            <li>Droit de rectification</li>
+            <li>Droit d'effacement (« droit à l'oubli »)</li>
+            <li>Droit à la limitation du traitement</li>
+            <li>Droit à la portabilité des données</li>
+            <li>Droit d'opposition</li>
+        </ul>
+        <p>Pour exercer ces droits, contactez-nous à <a href="mailto:contact@mjrenov.fr">contact@mjrenov.fr</a> ou par courrier à : M.J RENOV, 56-54 Chaussée Saint-Martin, 51100 Reims.</p>
+        <p>Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a> (www.cnil.fr).</p>
+
+        <h2>8. Cookies</h2>
+        <p>Le site utilise uniquement des cookies techniques nécessaires au bon fonctionnement du site. Aucun cookie publicitaire ou de traçage n'est déposé sans votre consentement.</p>
+
+        <h2>9. Limitation de responsabilité</h2>
+        <p>M.J RENOV s'efforce d'assurer l'exactitude des informations diffusées sur le site. Toutefois, elle ne peut garantir l'exactitude, la complétude et l'actualité des informations. M.J RENOV ne pourra être tenue responsable des dommages directs ou indirects résultant de l'accès ou de l'utilisation du site.</p>
+
+        <h2>10. Liens hypertextes</h2>
+        <p>Le site peut contenir des liens vers des sites tiers. M.J RENOV n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.</p>
+
+        <h2>11. Droit applicable</h2>
+        <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux de Reims seront seuls compétents.</p>
+
+    </div>
+
+    <a href="tel:0351001296" class="floating-phone" aria-label="Appeler MJ Rénov - Urgence">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="floating-phone__tooltip">03 51 00 12 96</span>
+    </a>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="assets/images/logo.png" alt="MJ Rénov"></div>
+                <p class="footer__about">Votre artisan de confiance pour tous vos travaux de rénovation à Reims et ses alentours.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#peinture">Peinture</a></li>
+                    <li><a href="services.html#revetements">Revêtements</a></li>
+                    <li><a href="services.html#plomberie">Plomberie</a></li>
+                    <li><a href="services.html#electricite">Électricité</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0351001296">03 51 00 12 96</a></li>
+                    <li><a href="mailto:contact@mj-renov-reims.com">contact@mj-renov-reims.com</a></li>
+                    <li>54-56 chau. Saint-Martin, 51100 Reims</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 MJ Rénov - Tous droits réservés | <a href="mentions-legales.html">Mentions légales</a></p>
+            <p>Site par <a href="https://regen-agency.fr">Regen Agency</a></p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Menu burger mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+
+</body>
+</html>

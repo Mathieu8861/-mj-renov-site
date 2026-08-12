@@ -18,6 +18,11 @@
     <meta name="geo.position" content="49.2583;4.0317">
     <meta name="ICBM" content="49.2583, 4.0317">
     <meta name="theme-color" content="#233547">
+    <meta name="keywords" content="entreprise rénovation Reims, artisan RGE Reims, Qualifelec, Qualigaz, tous corps d'état Marne">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À Propos | MJ Rénov — Entreprise Rénovation Reims depuis 25 ans">
+    <meta name="twitter:description" content="Artisan certifié RGE, Qualifelec et Qualigaz à Reims depuis 1999. 3 000+ chantiers réalisés.">
+    <meta name="twitter:image" content="https://mj-renov-reims.com/assets/images/logo.png">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,6 +64,13 @@
         .nav a:hover::after, .nav a.active::after { width: 100%; }
         .nav__urgence { display: none; background: #dc2626; color: var(--white) !important; padding: 12px 24px !important; border-radius: 8px; animation: pulse-urgence 2s infinite; margin-top: 8px; }
         .nav__urgence::after { display: none !important; }
+        .nav__drop { position: relative; display: inline-flex; }
+        .nav__drop-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 14px; box-shadow: 0 12px 32px rgba(35,53,71,0.16); padding: 10px 0; min-width: 240px; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; z-index: 300; }
+        .nav__drop:hover .nav__drop-menu, .nav__drop:focus-within .nav__drop-menu { opacity: 1; visibility: visible; }
+        .nav__drop-menu a { display: block; padding: 9px 22px; font-size: 0.9rem; white-space: nowrap; }
+        .nav__drop-menu a::after { display: none; }
+        .nav__drop-menu a:hover { background: var(--gris-pierre); }
+        @media (max-width: 768px) { .nav__drop { display: contents; } .nav__drop-menu { display: none; } }
         @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
         .header__cta { display: flex; align-items: center; gap: 20px; }
         .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
@@ -255,7 +267,18 @@
             <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
             <nav class="nav" id="nav">
                 <a href="index.html">Accueil</a>
-                <a href="services.html">Services</a>
+                <div class="nav__drop">
+                    <a href="services.html">Services</a>
+                    <div class="nav__drop-menu">
+                        <a href="services.html#peinture">Peinture et façade</a>
+                        <a href="services.html#revetements">Carrelage et sols</a>
+                        <a href="services.html#plomberie">Plomberie et salle de bain</a>
+                        <a href="services.html#electricite">Électricité</a>
+                        <a href="services.html#menuiserie">Menuiserie</a>
+                        <a href="services.html#placoplatre">Placoplâtre et isolation</a>
+                        <a href="depannage.html">Dépannage urgence</a>
+                    </div>
+                </div>
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html" class="active">À propos</a>
                 <a href="contact.html">Contact</a>
@@ -527,5 +550,9 @@
         });
     </script>
 
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mj-renov-reims.com/"},{"@type":"ListItem","position":2,"name":"À propos","item":"https://mj-renov-reims.com/a-propos.html"}]}
+</script>
 </body>
 </html>

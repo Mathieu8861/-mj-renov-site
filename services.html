@@ -18,6 +18,11 @@
     <meta name="geo.position" content="49.2583;4.0317">
     <meta name="ICBM" content="49.2583, 4.0317">
     <meta name="theme-color" content="#233547">
+    <meta name="keywords" content="peinture Reims, carrelage faïence Reims, parquet flottant, sols souples, plomberie salle de bain Reims, électricité Reims, menuiserie Reims, placoplâtre plâtrier, isolation RGE, ravalement façade Reims">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Services Rénovation Reims | Peinture, Plomberie, Électricité — MJ Rénov">
+    <meta name="twitter:description" content="Artisan tous corps d'état à Reims : peinture, carrelage, plomberie, électricité. Devis gratuit.">
+    <meta name="twitter:image" content="https://mj-renov-reims.com/assets/images/logo.png">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,6 +64,13 @@
         .nav a:hover::after, .nav a.active::after { width: 100%; }
         .nav__urgence { display: none; background: #dc2626; color: var(--white) !important; padding: 12px 24px !important; border-radius: 8px; animation: pulse-urgence 2s infinite; margin-top: 8px; }
         .nav__urgence::after { display: none !important; }
+        .nav__drop { position: relative; display: inline-flex; }
+        .nav__drop-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 14px; box-shadow: 0 12px 32px rgba(35,53,71,0.16); padding: 10px 0; min-width: 240px; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; z-index: 300; }
+        .nav__drop:hover .nav__drop-menu, .nav__drop:focus-within .nav__drop-menu { opacity: 1; visibility: visible; }
+        .nav__drop-menu a { display: block; padding: 9px 22px; font-size: 0.9rem; white-space: nowrap; }
+        .nav__drop-menu a::after { display: none; }
+        .nav__drop-menu a:hover { background: var(--gris-pierre); }
+        @media (max-width: 768px) { .nav__drop { display: contents; } .nav__drop-menu { display: none; } }
         @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
         .header__cta { display: flex; align-items: center; gap: 20px; }
         .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
@@ -172,6 +184,17 @@
             .service-detail__title { font-size: 1.35rem; }
             .cta__title { font-size: 1.5rem; }
         }
+
+        /* === FAQ === */
+        .faq { padding: 100px 5%; background: var(--white); }
+        .faq__inner { max-width: 860px; margin: 0 auto; }
+        .faq__title { font-family: var(--font-title); font-size: 2.5rem; color: var(--bleu-profond); text-align: center; margin-bottom: 48px; }
+        .faq__item { background: var(--gris-pierre); border-radius: 14px; margin-bottom: 14px; }
+        .faq__item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 26px; font-weight: 600; color: var(--bleu-profond); font-size: 1.05rem; }
+        .faq__item summary::-webkit-details-marker { display: none; }
+        .faq__item summary::after { content: '+'; font-size: 1.5rem; color: var(--bleu-archi); flex-shrink: 0; transition: transform 0.25s; }
+        .faq__item[open] summary::after { transform: rotate(45deg); }
+        .faq__item p { padding: 0 26px 22px; color: var(--graphite); line-height: 1.8; }
     </style>
 </head>
 <body>
@@ -181,7 +204,18 @@
             <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
             <nav class="nav" id="nav">
                 <a href="index.html">Accueil</a>
-                <a href="services.html" class="active">Services</a>
+                <div class="nav__drop">
+                    <a href="services.html" class="active">Services</a>
+                    <div class="nav__drop-menu">
+                        <a href="services.html#peinture">Peinture et façade</a>
+                        <a href="services.html#revetements">Carrelage et sols</a>
+                        <a href="services.html#plomberie">Plomberie et salle de bain</a>
+                        <a href="services.html#electricite">Électricité</a>
+                        <a href="services.html#menuiserie">Menuiserie</a>
+                        <a href="services.html#placoplatre">Placoplâtre et isolation</a>
+                        <a href="depannage.html">Dépannage urgence</a>
+                    </div>
+                </div>
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
@@ -219,7 +253,7 @@
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                 </div>
                 <h2 class="service-detail__title">Peinture</h2>
-                <p class="service-detail__text">Nous réalisons tous vos travaux de peinture intérieure et extérieure avec des finitions soignées. Notre expertise nous permet d'intervenir sur tous types de supports.</p>
+                <p class="service-detail__text">Nous réalisons tous vos travaux de peinture et de décoration intérieure et extérieure avec des finitions soignées. Notre expertise nous permet d'intervenir sur tous types de supports.</p>
                 <ul class="service-detail__list">
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Peinture intérieure (murs, plafonds, boiseries)</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Peinture extérieure et ravalement de façade</li>
@@ -244,7 +278,7 @@
                 <p class="service-detail__text">Carrelage, parquet, faïence... Nous posons tous types de revêtements avec précision pour un rendu esthétique et durable.</p>
                 <ul class="service-detail__list">
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Carrelage sol et mur (grès cérame, faïence)</li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Parquet massif, contrecollé et stratifié</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Parquet massif, contrecollé, flottant et stratifié</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Sols souples (vinyle, lino, moquette)</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Ragréage et préparation des sols</li>
                 </ul>
@@ -269,6 +303,7 @@
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Installation sanitaires (WC, lavabo, douche)</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Plomberie cuisine (évier, lave-vaisselle)</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Remplacement et réparation de canalisations</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Recherche de fuite et reprise après dégât des eaux</li>
                 </ul>
                 <a href="contact.html" class="btn btn--primary">Demander un devis</a>
             </div>
@@ -311,7 +346,7 @@
                 <ul class="service-detail__list">
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Pose de portes intérieures et extérieures</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Installation de fenêtres et volets</li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Aménagements sur mesure (placards, dressings)</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Agencement sur mesure (placards, dressings, rangements)</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Serrurerie et dépannage d'urgence</li>
                 </ul>
                 <a href="contact.html" class="btn btn--primary">Demander un devis</a>
@@ -329,10 +364,10 @@
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
                 </div>
                 <h2 class="service-detail__title">Placoplâtre</h2>
-                <p class="service-detail__text">Création de cloisons, doublages et faux plafonds. Nos plaquistes qualifiés réalisent tous vos projets d'aménagement intérieur.</p>
+                <p class="service-detail__text">Création de cloisons, doublages et faux plafonds. Nos plaquistes et plâtriers qualifiés réalisent tous vos projets d'aménagement intérieur, y compris l'habillage complet de votre extension.</p>
                 <ul class="service-detail__list">
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Cloisons séparatives et de distribution</li>
-                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Doublages isolants thermiques et phoniques</li>
+                    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Doublages isolants thermiques et phoniques (isolation RGE)</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Faux plafonds (suspendus, tendus)</li>
                     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Habillages et niches décoratives</li>
                 </ul>
@@ -360,6 +395,36 @@
                 </ul>
                 <a href="tel:0743605045" class="btn btn--primary" style="background: #dc2626;">Appeler maintenant : 07 43 60 50 45</a>
             </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <h2 class="faq__title">Questions fréquentes sur nos services à Reims</h2>
+            <details class="faq__item">
+                <summary>Dans quelles villes intervenez-vous autour de Reims ?</summary>
+                <p>MJ Rénov intervient à Reims et dans un rayon de 50 km : Tinqueux, Cormontreuil, Bétheny, Witry-lès-Reims, Épernay, Châlons-en-Champagne, Vitry-le-François et toute la Marne.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Quels types de travaux réalisez-vous ?</summary>
+                <p>Tous corps d'état : rénovation complète du bâtiment, salle de bain, cuisine, peinture et décoration, carrelage et faïence, parquet flottant et sols souples, plomberie, électricité, menuiserie, placoplâtre, plâtrerie, isolation et maçonnerie.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Réalisez-vous les extensions et agrandissements ?</summary>
+                <p>Oui. Nous prenons en charge votre extension de A à Z : maçonnerie et placoplâtre, puis l'ensemble des finitions (plomberie, électricité, sols, peinture). Un interlocuteur unique du gros œuvre aux finitions.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Intervenez-vous après un sinistre (dégât des eaux, incendie) ?</summary>
+                <p>Oui. Remise en état complète après un dégât des eaux ou un incendie, mise en sécurité du logement et travaux en lien avec votre assurance.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Quelles certifications possède MJ Rénov ?</summary>
+                <p>Nous sommes certifiés Qualifelec, Qualigaz et RGE Qualibat : vous pouvez bénéficier des aides MaPrimeRénov' et CEE pour vos travaux d'isolation et de rénovation énergétique.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Proposez-vous des devis gratuits ?</summary>
+                <p>Oui, devis gratuit et sans engagement, réponse sous 48h. Appelez le 03 51 00 12 96 ou passez par notre formulaire de contact.</p>
+            </details>
         </div>
     </section>
 
@@ -450,23 +515,7 @@
       "name": "Dans quelles villes intervenez-vous autour de Reims ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "MJ Rénov intervient dans un rayon de 50 km : Épernay, Châlons-en-Champagne, Tinqueux, Cormontreuil, Vitry-le-François et toute la Marne."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Proposez-vous des devis gratuits ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, devis gratuit et sans engagement. Réponse sous 48h. Contactez-nous au 03 51 00 12 96."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelles certifications possède MJ Rénov ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Certifié Qualifelec, Qualigaz et RGE Qualibat. Permet de bénéficier de MaPrimeRénov' et des CEE."
+        "text": "MJ Rénov intervient à Reims et dans un rayon de 50 km : Tinqueux, Cormontreuil, Bétheny, Witry-lès-Reims, Épernay, Châlons-en-Champagne, Vitry-le-François et toute la Marne."
       }
     },
     {
@@ -474,12 +523,48 @@
       "name": "Quels types de travaux réalisez-vous ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Peinture intérieure et extérieure, plomberie, électricité, carrelage, parquet, menuiserie, placoplâtre, isolation. Rénovation complète d'appartements et maisons."
+        "text": "Tous corps d'état : rénovation complète du bâtiment, salle de bain, cuisine, peinture et décoration, carrelage et faïence, parquet flottant et sols souples, plomberie, électricité, menuiserie, placoplâtre, plâtrerie, isolation et maçonnerie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Réalisez-vous les extensions et agrandissements ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Nous prenons en charge votre extension de A à Z : maçonnerie et placoplâtre, puis l'ensemble des finitions (plomberie, électricité, sols, peinture). Un interlocuteur unique du gros œuvre aux finitions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Intervenez-vous après un sinistre (dégât des eaux, incendie) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Remise en état complète après un dégât des eaux ou un incendie, mise en sécurité du logement et travaux en lien avec votre assurance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles certifications possède MJ Rénov ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nous sommes certifiés Qualifelec, Qualigaz et RGE Qualibat : vous pouvez bénéficier des aides MaPrimeRénov' et CEE pour vos travaux d'isolation et de rénovation énergétique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Proposez-vous des devis gratuits ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, devis gratuit et sans engagement, réponse sous 48h. Appelez le 03 51 00 12 96 ou passez par notre formulaire de contact."
       }
     }
   ]
 }
 </script>
 
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mj-renov-reims.com/"},{"@type":"ListItem","position":2,"name":"Nos services","item":"https://mj-renov-reims.com/services.html"}]}
+</script>
 </body>
 </html>

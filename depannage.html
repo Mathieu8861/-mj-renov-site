@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dépannage Urgence Reims 24h/24 | Serrurier, Plombier, Vitrier — 07 43 60 50 45</title>
+    <title>Dépannage Urgence Reims 24h/24 | Serrurier, Plombier, Vitrier</title>
     <meta name="description" content="Dépannage urgent à Reims 7j/7 - 24h/24 : serrurerie, plomberie, vitrerie. Intervention rapide dans un rayon de 50 km. Appelez le 07 43 60 50 45.">
     <link rel="canonical" href="https://mj-renov-reims.com/depannage.html">
     <meta property="og:type" content="website">
@@ -18,6 +18,11 @@
     <meta name="geo.position" content="49.2583;4.0317">
     <meta name="ICBM" content="49.2583, 4.0317">
     <meta name="theme-color" content="#233547">
+    <meta name="keywords" content="dépannage urgence Reims, serrurier Reims, plombier urgence Reims, vitrier Reims, dégât des eaux Reims, mise en sécurité logement, ouverture de porte">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dépannage Urgence Reims 24h/24 | Serrurier, Plombier, Vitrier — MJ Rénov">
+    <meta name="twitter:description" content="Dépannage urgent à Reims 7j/7 - 24h/24 : serrurerie, plomberie, vitrerie. Intervention rapide.">
+    <meta name="twitter:image" content="https://mj-renov-reims.com/assets/images/logo.png">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,6 +65,13 @@
         .nav a:hover::after, .nav a.active::after { width: 100%; }
         .nav__urgence { display: none; background: #dc2626; color: var(--white) !important; padding: 12px 24px !important; border-radius: 8px; animation: pulse-urgence 2s infinite; margin-top: 8px; }
         .nav__urgence::after { display: none !important; }
+        .nav__drop { position: relative; display: inline-flex; }
+        .nav__drop-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 14px; box-shadow: 0 12px 32px rgba(35,53,71,0.16); padding: 10px 0; min-width: 240px; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; z-index: 300; }
+        .nav__drop:hover .nav__drop-menu, .nav__drop:focus-within .nav__drop-menu { opacity: 1; visibility: visible; }
+        .nav__drop-menu a { display: block; padding: 9px 22px; font-size: 0.9rem; white-space: nowrap; }
+        .nav__drop-menu a::after { display: none; }
+        .nav__drop-menu a:hover { background: var(--gris-pierre); }
+        @media (max-width: 768px) { .nav__drop { display: contents; } .nav__drop-menu { display: none; } }
         .header__cta { display: flex; align-items: center; gap: 20px; }
 
         .btn { padding: 14px 28px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border-radius: 8px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
@@ -425,6 +437,17 @@
             .pourquoi__grid { grid-template-columns: 1fr; }
             .cta__title { font-size: 1.5rem; }
         }
+
+        /* === FAQ === */
+        .faq { padding: 100px 5%; background: var(--white); }
+        .faq__inner { max-width: 860px; margin: 0 auto; }
+        .faq__title { font-family: var(--font-title); font-size: 2.5rem; color: var(--bleu-profond); text-align: center; margin-bottom: 48px; }
+        .faq__item { background: var(--gris-pierre); border-radius: 14px; margin-bottom: 14px; }
+        .faq__item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 26px; font-weight: 600; color: var(--bleu-profond); font-size: 1.05rem; }
+        .faq__item summary::-webkit-details-marker { display: none; }
+        .faq__item summary::after { content: '+'; font-size: 1.5rem; color: var(--bleu-archi); flex-shrink: 0; transition: transform 0.25s; }
+        .faq__item[open] summary::after { transform: rotate(45deg); }
+        .faq__item p { padding: 0 26px 22px; color: var(--graphite); line-height: 1.8; }
     </style>
 </head>
 <body>
@@ -434,7 +457,18 @@
             <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
             <nav class="nav" id="nav">
                 <a href="index.html">Accueil</a>
-                <a href="services.html">Services</a>
+                <div class="nav__drop">
+                    <a href="services.html">Services</a>
+                    <div class="nav__drop-menu">
+                        <a href="services.html#peinture">Peinture et façade</a>
+                        <a href="services.html#revetements">Carrelage et sols</a>
+                        <a href="services.html#plomberie">Plomberie et salle de bain</a>
+                        <a href="services.html#electricite">Électricité</a>
+                        <a href="services.html#menuiserie">Menuiserie</a>
+                        <a href="services.html#placoplatre">Placoplâtre et isolation</a>
+                        <a href="depannage.html">Dépannage urgence</a>
+                    </div>
+                </div>
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
@@ -514,6 +548,7 @@
                 <ul class="dep-block__list">
                     <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Ouverture de porte : perte de clés, porte claquée / bloquée, dysfonctionnement, dégradation / cambriolage, clé cassée...</li>
                     <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Remplacement de serrure, installation de serrures multipoints</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Mise en sécurité du logement après effraction ou sinistre</li>
                     <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Devis clair avant intervention, sans surprise</li>
                     <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Équipe expérimentée, efficace et professionnelle</li>
                 </ul>
@@ -531,7 +566,7 @@
                 <h3 class="dep-block__title">Plomberie</h3>
                 <p class="dep-block__subtitle">Dépannage rapide et fiable</p>
                 <ul class="dep-block__list">
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Fuite d'eau, canalisation bouchée, recherche de fuite, chauffe-eau, robinetterie, inspection caméra</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Fuite d'eau, dégât des eaux, canalisation bouchée, recherche de fuite, chauffe-eau, robinetterie, inspection caméra</li>
                     <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Devis transparent avant travaux</li>
                     <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Intervention rapide et efficace pour particuliers et professionnels</li>
                 </ul>
@@ -598,6 +633,32 @@
                     <div class="pourquoi__item-text">Sécurité pour vos urgences</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="faq__inner">
+            <h2 class="faq__title">Questions fréquentes sur le dépannage d'urgence</h2>
+            <details class="faq__item">
+                <summary>Êtes-vous disponibles pour les urgences la nuit et le week-end ?</summary>
+                <p>Oui, dépannage 7j/7 et 24h/24 : serrurerie, plomberie et vitrerie à Reims et dans un rayon de 50 km. Appelez le 07 43 60 50 45.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Quel est le délai d'intervention en urgence ?</summary>
+                <p>Intervention en moins de 30 minutes à Reims et communes limitrophes. Devis clair avant toute intervention.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Quels types de dépannage urgents proposez-vous ?</summary>
+                <p>Serrurerie (porte claquée, serrure cassée, mise en sécurité), plomberie (fuite d'eau, dégât des eaux, canalisation bouchée) et vitrerie (vitrine cassée, double vitrage).</p>
+            </details>
+            <details class="faq__item">
+                <summary>Intervenez-vous après un dégât des eaux ou un sinistre ?</summary>
+                <p>Oui : recherche de fuite, mise en sécurité du logement, puis remise en état complète (placoplâtre, peinture, sols) en lien avec votre assurance.</p>
+            </details>
+            <details class="faq__item">
+                <summary>Dans quelles villes intervenez-vous en urgence ?</summary>
+                <p>Reims, Tinqueux, Cormontreuil, Bétheny, Épernay, Châlons-en-Champagne et toutes les communes dans un rayon de 50 km.</p>
+            </details>
         </div>
     </section>
 
@@ -710,7 +771,15 @@
       "name": "Quels types de dépannage urgents proposez-vous ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Serrurerie (porte claquée, serrure cassée), plomberie (fuite d'eau, canalisation bouchée) et vitrerie (vitrine cassée, double vitrage)."
+        "text": "Serrurerie (porte claquée, serrure cassée, mise en sécurité), plomberie (fuite d'eau, dégât des eaux, canalisation bouchée) et vitrerie (vitrine cassée, double vitrage)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Intervenez-vous après un dégât des eaux ou un sinistre ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui : recherche de fuite, mise en sécurité du logement, puis remise en état complète (placoplâtre, peinture, sols) en lien avec votre assurance."
       }
     },
     {
@@ -725,5 +794,9 @@
 }
 </script>
 
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mj-renov-reims.com/"},{"@type":"ListItem","position":2,"name":"Dépannage urgence","item":"https://mj-renov-reims.com/depannage.html"}]}
+</script>
 </body>
 </html>

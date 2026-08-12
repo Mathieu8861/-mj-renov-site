@@ -18,7 +18,13 @@
     <meta name="geo.position" content="49.2583;4.0317">
     <meta name="ICBM" content="49.2583, 4.0317">
     <meta name="theme-color" content="#233547">
+    <meta name="keywords" content="réalisations rénovation Reims, chantiers rénovation Marne, rénovation salle de bain, rénovation cuisine, avant après">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Réalisations Rénovation Reims | Portfolio Chantiers — MJ Rénov">
+    <meta name="twitter:description" content="Plus de 3 000 chantiers de rénovation réalisés à Reims en 25 ans. Photos avant/après.">
+    <meta name="twitter:image" content="https://mj-renov-reims.com/assets/images/logo.png">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -59,6 +65,13 @@
         .nav a:hover::after, .nav a.active::after { width: 100%; }
         .nav__urgence { display: none; background: #dc2626; color: var(--white) !important; padding: 12px 24px !important; border-radius: 8px; animation: pulse-urgence 2s infinite; margin-top: 8px; }
         .nav__urgence::after { display: none !important; }
+        .nav__drop { position: relative; display: inline-flex; }
+        .nav__drop-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 14px; box-shadow: 0 12px 32px rgba(35,53,71,0.16); padding: 10px 0; min-width: 240px; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; z-index: 300; }
+        .nav__drop:hover .nav__drop-menu, .nav__drop:focus-within .nav__drop-menu { opacity: 1; visibility: visible; }
+        .nav__drop-menu a { display: block; padding: 9px 22px; font-size: 0.9rem; white-space: nowrap; }
+        .nav__drop-menu a::after { display: none; }
+        .nav__drop-menu a:hover { background: var(--gris-pierre); }
+        @media (max-width: 768px) { .nav__drop { display: contents; } .nav__drop-menu { display: none; } }
         @keyframes pulse-urgence { 0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); } }
         .header__cta { display: flex; align-items: center; gap: 20px; }
         .header__phone { color: var(--bleu-profond); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
@@ -179,7 +192,18 @@
             <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MJ Rénov"></a>
             <nav class="nav" id="nav">
                 <a href="index.html">Accueil</a>
-                <a href="services.html">Services</a>
+                <div class="nav__drop">
+                    <a href="services.html">Services</a>
+                    <div class="nav__drop-menu">
+                        <a href="services.html#peinture">Peinture et façade</a>
+                        <a href="services.html#revetements">Carrelage et sols</a>
+                        <a href="services.html#plomberie">Plomberie et salle de bain</a>
+                        <a href="services.html#electricite">Électricité</a>
+                        <a href="services.html#menuiserie">Menuiserie</a>
+                        <a href="services.html#placoplatre">Placoplâtre et isolation</a>
+                        <a href="depannage.html">Dépannage urgence</a>
+                    </div>
+                </div>
                 <a href="realisations.html" class="active">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
@@ -219,7 +243,7 @@
         <div class="portfolio__grid">
             <div class="project-card" data-category="renovation">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Appartement T3 rénové" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Appartement T3 rénové à Reims Centre" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Rénovation complète</span>
@@ -233,7 +257,7 @@
 
             <div class="project-card" data-category="sdb">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain moderne" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain moderne à Tinqueux" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Salle de bain</span>
@@ -247,7 +271,7 @@
 
             <div class="project-card" data-category="cuisine">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Cuisine rénovée" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Cuisine rénovée à Cormontreuil" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Cuisine</span>
@@ -261,7 +285,7 @@
 
             <div class="project-card" data-category="peinture">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?w=800&q=80" alt="Peinture salon" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?w=800&q=80" alt="Peinture salon à Bétheny" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Peinture</span>
@@ -275,7 +299,7 @@
 
             <div class="project-card" data-category="renovation">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Maison rénovée" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Maison rénovée à Saint-Brice-Courcelles" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Rénovation complète</span>
@@ -289,7 +313,7 @@
 
             <div class="project-card" data-category="sdb">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80" alt="Salle de bain luxe" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80" alt="Salle de bain luxe à Reims (Reims - Quartier Jean-Jaurès)" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Salle de bain</span>
@@ -303,7 +327,7 @@
 
             <div class="project-card" data-category="cuisine">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Cuisine ouverte" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Cuisine ouverte à Reims (Reims - Clairmarais)" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Cuisine</span>
@@ -317,7 +341,7 @@
 
             <div class="project-card" data-category="renovation">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80" alt="Studio rénové" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80" alt="Studio rénové à Reims (Reims - Campus)" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Rénovation complète</span>
@@ -331,7 +355,7 @@
 
             <div class="project-card" data-category="peinture">
                 <div class="project-card__image">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Chambre rénovée" loading="lazy" decoding="async">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Chambre rénovée à Witry-lès-Reims" loading="lazy" decoding="async">
                 </div>
                 <div class="project-card__overlay">
                     <span class="project-card__tag">Peinture</span>
@@ -443,5 +467,9 @@
         });
     </script>
 
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mj-renov-reims.com/"},{"@type":"ListItem","position":2,"name":"Nos réalisations","item":"https://mj-renov-reims.com/realisations.html"}]}
+</script>
 </body>
 </html>

@@ -18,8 +18,13 @@
     <meta name="geo.position" content="49.2583;4.0317">
     <meta name="ICBM" content="49.2583, 4.0317">
     <meta name="theme-color" content="#233547">
+    <meta name="keywords" content="entreprise rénovation Reims, rénovation salle de bain Reims, rénovation cuisine Reims, extension maison Reims, tous corps d'état, peinture, plomberie, électricité, carrelage, isolation RGE, dégât des eaux, Marne">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Entreprise Rénovation Reims | MJ Rénov — Artisan Certifié RGE">
+    <meta name="twitter:description" content="Entreprise de rénovation à Reims depuis 25 ans. Certifié RGE, Qualifelec, Qualigaz. Devis gratuit.">
+    <meta name="twitter:image" content="https://mj-renov-reims.com/assets/images/logo.png">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -130,6 +135,13 @@
         }
 
         .nav__urgence::after { display: none !important; }
+        .nav__drop { position: relative; display: inline-flex; }
+        .nav__drop-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 14px; box-shadow: 0 12px 32px rgba(35,53,71,0.16); padding: 10px 0; min-width: 240px; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; z-index: 300; }
+        .nav__drop:hover .nav__drop-menu, .nav__drop:focus-within .nav__drop-menu { opacity: 1; visibility: visible; }
+        .nav__drop-menu a { display: block; padding: 9px 22px; font-size: 0.9rem; white-space: nowrap; }
+        .nav__drop-menu a::after { display: none; }
+        .nav__drop-menu a:hover { background: var(--gris-pierre); }
+        @media (max-width: 768px) { .nav__drop { display: contents; } .nav__drop-menu { display: none; } }
 
         @keyframes pulse-urgence {
             0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
@@ -1155,7 +1167,18 @@
             </a>
             <nav class="nav" id="nav">
                 <a href="index.html" class="active">Accueil</a>
-                <a href="services.html">Services</a>
+                <div class="nav__drop">
+                    <a href="services.html">Services</a>
+                    <div class="nav__drop-menu">
+                        <a href="services.html#peinture">Peinture et façade</a>
+                        <a href="services.html#revetements">Carrelage et sols</a>
+                        <a href="services.html#plomberie">Plomberie et salle de bain</a>
+                        <a href="services.html#electricite">Électricité</a>
+                        <a href="services.html#menuiserie">Menuiserie</a>
+                        <a href="services.html#placoplatre">Placoplâtre et isolation</a>
+                        <a href="depannage.html">Dépannage urgence</a>
+                    </div>
+                </div>
                 <a href="realisations.html">Réalisations</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
@@ -1326,7 +1349,7 @@
                 </div>
                 <h2 class="about__title">Une équipe de confiance à vos côtés</h2>
                 <p class="about__text">Forte de 25 ans d'expérience dans le bâtiment et plus de 3000 chantiers réalisés, notre équipe met son savoir-faire et son exigence au service de vos projets. Certifiés Quali Elec, Quali Gaz et RGE, nous intervenons dans un rayon de 50 km autour de Reims avec un interlocuteur unique par dossier.</p>
-                <p class="about__text">Nous réalisons vos travaux de peinture, plomberie, électricité, carrelage, menuiserie et placoplâtre à Reims et dans toute l'agglomération : Tinqueux, Cormontreuil, Bétheny, Saint-Brice-Courcelles, Witry-lès-Reims, Bezannes, jusqu'à Épernay et Châlons-en-Champagne.</p>
+                <p class="about__text">De la rénovation de salle de bain ou de cuisine à l'extension de votre maison, en passant par la remise en état après sinistre (dégât des eaux, incendie), nous intervenons à Reims et dans toute l'agglomération : Tinqueux, Cormontreuil, Bétheny, Saint-Brice-Courcelles, Witry-lès-Reims, Bezannes, jusqu'à Épernay et Châlons-en-Champagne. Un seul interlocuteur pour tous les corps d'état : peinture, plomberie, électricité, carrelage, menuiserie, placoplâtre, isolation et maçonnerie.</p>
                 <div class="about__features">
                     <div class="feature">
                         <div class="feature__icon">
@@ -1392,7 +1415,7 @@
                 </div>
                 <h2 class="section-title">Nos réalisations à Reims et alentours</h2>
             </div>
-            <a href="#" class="btn btn--outline">Voir tout</a>
+            <a href="realisations.html" class="btn btn--outline">Voir tout</a>
         </div>
         <div class="work__grid">
             <div class="work-card">
@@ -1590,7 +1613,12 @@
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Électricité et mise aux normes"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carrelage et revêtements de sol"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Menuiserie"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Placoplâtre et isolation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Placoplâtre et isolation intérieure RGE"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rénovation de salle de bain"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rénovation de cuisine"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Extension et agrandissement de maison"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Maçonnerie"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Remise en état après sinistre (dégât des eaux, incendie)"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dépannage urgence serrurerie plomberie vitrerie"}}
     ]
   }
